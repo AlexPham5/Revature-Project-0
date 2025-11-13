@@ -12,9 +12,15 @@
 #- As an employee, I want to view a history of all my approved and denied expenses 
 #  so that I can track my financial activity over time.
 
-# Employee credentials dictionary?
-#   - employeeCredentials = {'Username1':'Password1', 'Username2':'Password2'}
+# Employee credentials dictionary
+#   - employeeCredentials = {'ID':['Username1','Password1','Role']}
 # Expenses dictionary (will be with SQLite in actual project)
-#   - expenses = {'ID':[Amount, 'Description', reimbursementStatus]}
-#   - reimbursementStatus = {'0':'Pending', '1':'Approved', '2':'Denied'}
+#   - expenses = {ID:[Amount, Description, reimbursementStatus]}
+#       - ID = string reprsenting a number
+#       - Amount = float
+#       - Description = string
+#       - reimbursementStatus = int, 0 = Pending, 1 = Approved, 2 = Denied
 # History database? Whenever expenses are approved/denied, add them to the history database
+
+
+
