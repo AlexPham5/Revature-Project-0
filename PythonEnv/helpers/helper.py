@@ -44,3 +44,18 @@ def printTable(tablename):
         if conn:
             conn.close()
             print("DB connection closed")
+
+def editApproval(id, status, reviewer, comment, date):
+    try:
+        with sqlite3.connect(dbPath) as conn:
+            cursor = conn.cursor()
+            update = f"""
+            UPDATE approvals SET status = '{status}', reviewer = {reviewer}, comment = '{comment}', review_date = '{date}'
+            WHERE id = {id}
+            """
+            cursor.execute(update)
+            conn.commit()
+            print("Successfully changed approval table")
+    except sqlite3.Error as error:
+            print("Error occured - ", error)
+

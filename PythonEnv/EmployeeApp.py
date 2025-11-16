@@ -41,7 +41,6 @@ class EmployeeApp:
             username TEXT NOT NULL UNIQUE,
             password TEXT NOT NULL,
             role TEXT) 
-            ON DELETE CASCADE
             """
             cursor.execute(makeUsersTable)
             print("Created users table")
@@ -55,7 +54,6 @@ class EmployeeApp:
             description TEXT,
             date TEXT,
             FOREIGN KEY (user_id) REFERENCES users(id))
-            ON DELETE CASCADE
             """
             cursor.execute(makeExpensesTable)
             print("Created expenses table")
@@ -70,7 +68,6 @@ class EmployeeApp:
             comment TEXT,
             review_date TEXT,
             FOREIGN KEY (expense_id) REFERENCES expenses(id))
-            ON DELETE CASCADE
             """
             cursor.execute(makeApprovalsTable)
             print("Created approvals table")
@@ -363,6 +360,26 @@ class EmployeeApp:
     #  so that I can track my financial activity over time.
     def viewApprovalHistory(self):
         # Show all approved and denied approvals tied to the user
+        try:
+            with sqlite3.connect(self.dbPath) as conn:
+                cursor = conn.cursor()
+                # grab all the expenses tied to this specific user id
+                getExpensesForUser = f"""
+                SELECT * FROM expenses WHERE user_id = '{self.userID}'
+                """
+                cursor.execute(getExpensesForUser)
+                expensesList = cursor.fetchall()
+
+                for row in expensesList:
+                    cursor.execute(f"SELECT * FROM approvals WHERE expense_id = '{row[0]}' AND status != 'pending'")
+                    approval = cursor.fetchone()
+                    if(approval != None):
+                        print("Expense (ID-%i) with amount $%.2f and description: '%s' made on date: %s" %(row[0], row[2], row[3], row[4]))
+                        print("CURRENT STATUS FOR EXPENSE (ID-%i) IS: %s, reviewed by manager with ID-%i" %(row[0], approval[2], approval[3]))
+                        print("Comments made: %s\nOn date: %s\n" %(approval[4], approval[5]))
+
+        except sqlite3.Error as error:
+            print("SQL Error occured - ", error)
         return
 
 #main
@@ -370,9 +387,11 @@ eApp = EmployeeApp()
 eApp.initDB()
 eApp.promptInput()
 
-# helper function outside of employee app to just add new users to 
+# helper function outside of employee app to help test
 #helper.addUser("myusername360", "badpassword123", "Employee")
 #helper.addUser("otheruser4085", "badpassword123", "Employee")
+#helper.addUser("manager123", "password123", "Manager")
+#helper.editApproval(4, "approved", 3, "no extra comments", "2025-11-15")
 #helper.printTable('users')
     
 
