@@ -45,6 +45,7 @@ class EmployeeApp:
             cursor.execute(makeUsersTable)
             print("Created users table")
 
+            #cursor.execute("DROP TABLE IF EXISTS expenses")
             # user_id is a foreign key to the users table's id
             makeExpensesTable = """CREATE TABLE IF NOT EXISTS expenses(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -57,11 +58,12 @@ class EmployeeApp:
             cursor.execute(makeExpensesTable)
             print("Created expenses table")
 
+            #cursor.execute("DROP TABLE IF EXISTS approvals")
             # expense_id is a foreign key to the expenses table's id
-            makeApprovalsTable = """ CREATE TABLE IF NOT EXISTS approvals(
+            makeApprovalsTable = """CREATE TABLE IF NOT EXISTS approvals(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             expense_id INTEGER,
-            status TEXT,
+            status TEXT NOT NULL,
             reviewer INTEGER,
             comment TEXT,
             review_date TEXT,
@@ -87,11 +89,11 @@ class EmployeeApp:
             while(1):
                 # Then offer command options
                 print("COMMAND OPTIONS: \n" \
-                "1 - Submit an expense\n" \
+                "1 - Submit a new expense\n" \
                 "2 - View an expense\n" \
-                "3 - Edit an expense\n" \
-                "4 - Delete and expense\n" \
-                "5 - View approved and denied expenses\n" \
+                "3 - Edit an existing expense\n" \
+                "4 - Delete an existing expense\n" \
+                "5 - View approved and denied expenses history\n" \
                 "6 - LOGOUT")
                 try:
                     userInput = int(input("Please enter a number: "))
@@ -166,6 +168,60 @@ class EmployeeApp:
     #- As an employee, I want to submit a new expense with details about amount and 
     #  description so that I can request reimbursement or track spending.
     def submitExpense(self):
+        #add a value to the expenses table
+        try:
+                amountInput = float(input("Enter an amount for this expense: "))
+                descInput = input("Enter a reason for the expense request: ")
+                print("Entering new date for expense: ")
+                dateInputY = input("Enter a year as 4 digits: ")
+                if(len(dateInputY) > 4):
+                    print("Invalid input for year, must be 4 digits")
+                    raise ValueError
+                dateInputM = input("Enter a month as 2 digits: ")
+                if(len(dateInputM) != 2 or int(dateInputM) < 1 or int(dateInputM) > 12):
+                    print("Invalid input for month")
+                    raise ValueError
+                dateInputD = input("Enter a day as 2 digits: ")
+                if(len(dateInputD) != 2 or int(dateInputD) < 1 or int(dateInputD) > 31):
+                    print("Invalid input for day")
+                    raise ValueError
+                dateInput = dateInputY + "-" + dateInputM + "-" + dateInputD
+        except ValueError:
+            print("Invalid input for submitExpense, ValueError")       
+        else:
+            #print(amountInput)
+            #print(descInput)
+            #print(dateInput)
+            # actually add the expense to the database
+            try:
+                with sqlite3.connect(self.dbPath) as conn:
+                    cursor = conn.cursor()
+                    
+                    # Add to the expenses table
+                    addExpense =f"""
+                    INSERT INTO expenses (user_id, amount, description, date)
+                    VALUES ('{self.userID}', '{amountInput}', '{descInput}', '{dateInput}')
+                    """
+                    cursor.execute(addExpense)
+                    
+                    getLastRecordID = """
+                    SELECT id FROM expenses ORDER BY id DESC LIMIT 1
+                    """
+                    cursor.execute(getLastRecordID)
+                    expenseID = cursor.fetchone()[0]
+
+                    # Also make a pending approval with only expense_id and status filled
+                    # Managers in the java app will fill this out when reviewing
+                    addApproval = f"""
+                    INSERT INTO approvals (expense_id, status)
+                    VALUES ('{expenseID}', 'pending')
+                    """
+                    cursor.execute(addApproval)
+                    conn.commit()
+            except sqlite3.Error as error:
+                print("Error occured - ", error)
+            else:
+                print("Successfully added new expense and approval pending manager review")
         return
 
     #- As an employee, I want to view the status of my submitted expenses so that I know 
@@ -187,13 +243,13 @@ class EmployeeApp:
 
 #main
 eApp = EmployeeApp()
-#eApp.initDB()
-#eApp.promptInput()
+eApp.initDB()
+eApp.promptInput()
 
 # helper function outside of employee app to just add new users to 
 #helper.addUser("myusername360", "badpassword123", "Employee")
 #helper.addUser("otheruser4085", "badpassword123", "Employee")
-helper.printTable('users')
+#helper.printTable('users')
     
 
 
