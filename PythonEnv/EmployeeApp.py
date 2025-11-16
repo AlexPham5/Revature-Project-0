@@ -227,7 +227,7 @@ class EmployeeApp:
     #- As an employee, I want to view the status of my submitted expenses so that I know 
     #  whether they are pending, approved, or denied.
     def viewExpenses(self):
-        # Show all expenses and the corresponding approval's status
+        # Show all expenses and the corresponding approval's status tied to the user
         # Note, this does not show reviewer, comment, or comment date. That functionality 
         # is for viewApprovalHistory
         try:
@@ -254,10 +254,82 @@ class EmployeeApp:
     def editExpense(self):
         # ask for expense id, check if its tied to the user and is pending
         # then ask for which field they want to edit (amount, desc, date)
+        try:
+            expenseID = int(input("Please enter the ID of the expense you want to edit: "))
+            with sqlite3.connect(self.dbPath) as conn:
+                cursor = conn.cursor()
+                cursor.execute(f"SELECT * FROM expenses WHERE id = '{expenseID}' AND user_id = '{self.userID}'")
+                expenseTBE = cursor.fetchone()
+                if(expenseTBE == None):
+                    raise sqlite3.Error("No expense found with specificied ID for this user")
+                else:
+                    print("Expense selected: ID-%i, Amount-%.2f, Description-%s, Date-%s" %(expenseTBE[0], expenseTBE[2], expenseTBE[3], expenseTBE[4]))
+                    while(1):
+                        print("Select which field to edit\n" \
+                        "1 - Amount\n" \
+                        "2 - Description\n" \
+                        "3 - Date\n" \
+                        "4 - Cancel")
+                        try:
+                            userInput = int(input("Please enter a number: "))
+                            if(userInput == 1):
+                                #prompt amount and change it
+                                field = "amount"
+                                newInput = float(input("Enter a new amount: "))
+                            elif(userInput == 2):
+                                #prompt description and change it
+                                field = "description"
+                                newInput = input("Enter a new description: ")
+                            elif(userInput == 3):
+                                #prompt date and change it
+                                field = "date"
+                                print("Entering new date for expense: ")
+                                dateInputY = input("Enter a year as 4 digits: ")
+                                if(len(dateInputY) > 4):
+                                    print("Invalid input for year, must be 4 digits")
+                                    raise ValueError
+                                dateInputM = input("Enter a month as 2 digits: ")
+                                if(len(dateInputM) != 2 or int(dateInputM) < 1 or int(dateInputM) > 12):
+                                    print("Invalid input for month")
+                                    raise ValueError
+                                dateInputD = input("Enter a day as 2 digits: ")
+                                if(len(dateInputD) != 2 or int(dateInputD) < 1 or int(dateInputD) > 31):
+                                    print("Invalid input for day")
+                                    raise ValueError
+                                newInput = dateInputY + "-" + dateInputM + "-" + dateInputD
+                            elif(userInput == 4):
+                                break
+                            else:
+                                raise ValueError
+
+                            # make the change in the db now that you have the inputs
+                            with sqlite3.connect(self.dbPath) as conn:
+                                cursor = conn.cursor()
+                                update =f"""
+                                UPDATE expenses SET {field} = '{newInput}' WHERE id = '{expenseID}'
+                                """
+                                cursor.execute(update)
+                                conn.commit()
+                            print("Successfully edited expense")
+                            break
+                        except ValueError:
+                            print("Invalid input for field selection")
+                        except sqlite3.Error as error:
+                            print("SQL Error occured - ", error)
+        except ValueError:
+            print("Invalid input for editExpense")
+        except sqlite3.Error as error:
+            print("SQL Error occured - ", error)
         return
     def deleteExpense(self):
         # ask for expense id, check if its tied to the user and is pending
         # delete expense and the corresponding approval (make sure its pending)
+        try:
+            userInput = input("Please enter the id of the expense you want to delete: ")
+        except ValueError:
+            print("Invalid input for editExpense")
+        except sqlite3.Error as error:
+            print("SQL Error occured - ", error)
         return
 
     #- As an employee, I want to view a history of all my approved and denied expenses 
