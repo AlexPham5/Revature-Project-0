@@ -41,6 +41,7 @@ class EmployeeApp:
             username TEXT NOT NULL UNIQUE,
             password TEXT NOT NULL,
             role TEXT) 
+            ON DELETE CASCADE
             """
             cursor.execute(makeUsersTable)
             print("Created users table")
@@ -54,6 +55,7 @@ class EmployeeApp:
             description TEXT,
             date TEXT,
             FOREIGN KEY (user_id) REFERENCES users(id))
+            ON DELETE CASCADE
             """
             cursor.execute(makeExpensesTable)
             print("Created expenses table")
@@ -68,6 +70,7 @@ class EmployeeApp:
             comment TEXT,
             review_date TEXT,
             FOREIGN KEY (expense_id) REFERENCES expenses(id))
+            ON DELETE CASCADE
             """
             cursor.execute(makeApprovalsTable)
             print("Created approvals table")
@@ -325,9 +328,33 @@ class EmployeeApp:
         # ask for expense id, check if its tied to the user and is pending
         # delete expense and the corresponding approval (make sure its pending)
         try:
-            userInput = input("Please enter the id of the expense you want to delete: ")
+            deleteID = int(input("Please enter the id of the expense you want to delete: "))
+            with sqlite3.connect(self.dbPath) as conn:
+                cursor = conn.cursor()
+                cursor.execute(f"SELECT * FROM expenses WHERE id = '{deleteID}' AND user_id = '{self.userID}'")
+                expenseTBD = cursor.fetchone()
+                if(expenseTBD == None):
+                    raise sqlite3.Error("No expense found with specificied ID for this user")
+                else:
+                    #check if the approval is pending
+                    expenseID = expenseTBD[0]
+                    cursor.execute(f"SELECT status FROM approvals WHERE expense_id = {expenseID}")
+                    status = cursor.fetchone()[0]
+                    if(status != "pending"):
+                        raise sqlite3.Error("The expense selected for deletion is not pending, you may only delete pending expenses")
+                    else:
+                        print("The expense seleced for deletion: ID-%i, Amount-%.2f, Description-%s, Date-%s" %(expenseTBD[0], expenseTBD[2], expenseTBD[3], expenseTBD[4]))
+                        print("Are you sure you want to delete this expense?")
+                        confirm = input("Enter YES to confirm: ")
+                        if(confirm == "YES"):
+                            cursor.execute(f"DELETE FROM approvals WHERE expense_id = {expenseID}")
+                            cursor.execute(f"DELETE FROM expenses WHERE id = {deleteID}")
+                            conn.commit()
+                            print("Successfully deleted expense and corresponding pending approval")
+                        else:
+                            print("Deletion aborted")
         except ValueError:
-            print("Invalid input for editExpense")
+            print("Invalid input for deleteExpense")
         except sqlite3.Error as error:
             print("SQL Error occured - ", error)
         return
