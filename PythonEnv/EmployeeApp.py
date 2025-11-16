@@ -90,7 +90,7 @@ class EmployeeApp:
                 # Then offer command options
                 print("COMMAND OPTIONS: \n" \
                 "1 - Submit a new expense\n" \
-                "2 - View an expense\n" \
+                "2 - View all submitted expenses\n" \
                 "3 - Edit an existing expense\n" \
                 "4 - Delete an existing expense\n" \
                 "5 - View approved and denied expenses history\n" \
@@ -227,18 +227,43 @@ class EmployeeApp:
     #- As an employee, I want to view the status of my submitted expenses so that I know 
     #  whether they are pending, approved, or denied.
     def viewExpenses(self):
+        # Show all expenses and the corresponding approval's status
+        # Note, this does not show reviewer, comment, or comment date. That functionality 
+        # is for viewApprovalHistory
+        try:
+            with sqlite3.connect(self.dbPath) as conn:
+                cursor = conn.cursor()
+                # grab all the expenses tied to this specific user id
+                getExpensesForUser = f"""
+                SELECT * FROM expenses WHERE user_id = '{self.userID}'
+                """
+                cursor.execute(getExpensesForUser)
+                expensesList = cursor.fetchall()
+                
+                for row in expensesList:
+                    print("Expense (ID-%i) with amount $%.2f and description: '%s' made on date: %s" %(row[0], row[2], row[3], row[4]))
+                    cursor.execute(f"SELECT status FROM approvals WHERE expense_id = '{row[0]}'")
+                    status = cursor.fetchone()
+                    print("CURRENT STATUS FOR EXPENSE (ID-%i) IS: %s\n" %(row[0], status[0]))
+        except sqlite3.Error as error:
+            print("Error occured - ", error)
         return
 
     #- As an employee, I want to edit or delete expenses that are still pending so that I 
     #  can correct mistakes before they are reviewed.
     def editExpense(self):
+        # ask for expense id, check if its tied to the user and is pending
+        # then ask for which field they want to edit (amount, desc, date)
         return
     def deleteExpense(self):
+        # ask for expense id, check if its tied to the user and is pending
+        # delete expense and the corresponding approval (make sure its pending)
         return
 
     #- As an employee, I want to view a history of all my approved and denied expenses 
     #  so that I can track my financial activity over time.
     def viewApprovalHistory(self):
+        # Show all approved and denied approvals tied to the user
         return
 
 #main
