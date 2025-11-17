@@ -26,7 +26,8 @@ class EmployeeApp:
     def __init__(self):
         # stores userID from login prompt
         self.userID = -1
-        self.dbPath = "..\\RevatureDatabase.db"
+        #self.dbPath = "..\\RevatureDatabase.db"
+        self.dbPath = "C:\\Users\\alex1\\Revature work\\Project 0\\RevatureDatabase.db"
 
     # access the SQLite database/make on if there isnt one yet
     def initDB(self):
@@ -83,8 +84,8 @@ class EmployeeApp:
 
     # Employees will submit and manage personal expense reports
     def promptInput(self):
-        # Login first, should only let user pass if credentials are valid, otherwise exit program
-        while(1):    
+        # Login first, should only let user pass if credentials are valid, otherwise exit program   
+        while(1):
             self.login()
             while(1):
                 # Then offer command options
