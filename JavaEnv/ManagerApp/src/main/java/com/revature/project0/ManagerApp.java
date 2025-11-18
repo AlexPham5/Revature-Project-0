@@ -18,7 +18,7 @@ public class ManagerApp {
     private String dbPath = "C:\\Users\\alex1\\Revature work\\Project 0\\RevatureDatabase.db";
 
     public ManagerApp(){
-        
+
     }
 
     public void promptInput(){
