@@ -18,69 +18,35 @@
 #   - expenses = {ID:[UserID, Amount, 'Description', Date]}
 # History database? Whenever expenses are approved/denied, add them to the history database
 
+# Features to be added:
+# Use logging instead of print statements for information (successful login, errors, successful add to db)
+# checks for amount input/edit that the value is not negative
+# checks for description to require a minimum length (10 chars)
+# check for date to not add a future date?
+# displaying information better, with pandas dataframe?
+
+
 import sqlite3
-from helpers import helper
 import sys
+import logging
+from tabulate import tabulate
+from helpers import helper
 
 class EmployeeApp:
     def __init__(self):
+        # Logging
+        logging.basicConfig(filename="C:\\Users\\alex1\\Revature work\\Project 0\\pythonlog.log",
+                            level=logging.INFO,
+                            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        logging.info("LOG START")
+
         # stores userID from login prompt
         self.userID = -1
         #self.dbPath = "..\\RevatureDatabase.db"
         self.dbPath = "C:\\Users\\alex1\\Revature work\\Project 0\\RevatureDatabase.db"
-
-    # access the SQLite database/make on if there isnt one yet
-    def initDB(self):
-        try:
-            conn = sqlite3.connect(self.dbPath)
-            cursor = conn.cursor()
-            print("DB Init")
-
-            #Initialize the databases that will be used according to the project's tables
-            makeUsersTable = """CREATE TABLE IF NOT EXISTS users(
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT NOT NULL UNIQUE,
-            password TEXT NOT NULL,
-            role TEXT) 
-            """
-            cursor.execute(makeUsersTable)
-            print("Created users table")
-
-            #cursor.execute("DROP TABLE IF EXISTS expenses")
-            # user_id is a foreign key to the users table's id
-            makeExpensesTable = """CREATE TABLE IF NOT EXISTS expenses(
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER,
-            amount REAL NOT NULL,
-            description TEXT,
-            date TEXT,
-            FOREIGN KEY (user_id) REFERENCES users(id))
-            """
-            cursor.execute(makeExpensesTable)
-            print("Created expenses table")
-
-            #cursor.execute("DROP TABLE IF EXISTS approvals")
-            # expense_id is a foreign key to the expenses table's id
-            makeApprovalsTable = """CREATE TABLE IF NOT EXISTS approvals(
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            expense_id INTEGER,
-            status TEXT NOT NULL,
-            reviewer INTEGER,
-            comment TEXT,
-            review_date TEXT,
-            FOREIGN KEY (expense_id) REFERENCES expenses(id))
-            """
-            cursor.execute(makeApprovalsTable)
-            print("Created approvals table")
-
-            conn.commit()
-            cursor.close()
-        except sqlite3.Error as error:
-            print("Error occured - ", error)
-        finally:
-            if conn:
-                conn.close()
-                print("DB connection closed")
+    
+    def __del__(self):
+        logging.info("LOG END")
 
     # Employees will submit and manage personal expense reports
     def promptInput(self):
@@ -89,7 +55,7 @@ class EmployeeApp:
             self.login()
             while(1):
                 # Then offer command options
-                print("COMMAND OPTIONS: \n" \
+                print("===== COMMAND OPTIONS =====\n" \
                 "1 - Submit a new expense\n" \
                 "2 - View all submitted expenses\n" \
                 "3 - Edit an existing expense\n" \
@@ -122,12 +88,13 @@ class EmployeeApp:
     def login(self):
         while(1):
             try:
-                print("Welcome employee:\n" \
+                print("=== Welcome Employee ===\n" \
                 "1 - Enter Credentials\n" \
                 "2 - EXIT")
                 userInput = int(input("Please enter a number: "))
             except ValueError:
                 print("Invalid input, value error occurred")
+                logging.error("Value error for login choice input")
             else:
                 if(userInput == 1):
                     try:
@@ -136,10 +103,12 @@ class EmployeeApp:
                         passwordInput = input("Enter password: ")
                     except ValueError:
                         print("Invalid username/password input, value error occurred")
+                        logging.error("Value error for username/password input")
                     else:
                         #check the users table for the valid credentials
                         #check username, password, and role == "Employee", all must be valid
                         print("Checking database for valid credentials")
+                        logging.info("Checking users table for valid credentials")
                         try:
                             with sqlite3.connect(self.dbPath) as conn:
                                 cursor = conn.cursor()
@@ -153,16 +122,21 @@ class EmployeeApp:
                                 if(credentials != None and credentials[3] == 'Employee'):
                                     #successfully found the entered credentials
                                     print("Successful Login")
+                                    logging.info("Successfully found employee credentials")
                                     self.userID = credentials[0]
                                     #print(credentials)
                                     break
                                 else:
                                     print("Username or password not found for an employee")
+                                    logging.warning("Username not found in database")
                         except sqlite3.Error as error:
-                            print("Error occured in login - ", error)                        
+                            print("Error occured in login - ", error)  
+                            logging.error("SQL error occured in login - ", error)                      
                 elif(userInput == 2):
+                    logging.info("Exiting login")
                     sys.exit()
                 else:
+                    logging.warning("Invalid number input for login choice")
                     print("Invalid number input for login options")
         return
 
@@ -174,17 +148,21 @@ class EmployeeApp:
                 amountInput = float(input("Enter an amount for this expense: "))
                 descInput = input("Enter a reason for the expense request: ")
                 print("Entering new date for expense: ")
+                logging.info("Entering new data for expenses")
                 dateInputY = input("Enter a year as 4 digits: ")
                 if(len(dateInputY) > 4):
                     print("Invalid input for year, must be 4 digits")
+                    logging.warning("Invalid input for year field in new expense")
                     raise ValueError
                 dateInputM = input("Enter a month as 2 digits: ")
                 if(len(dateInputM) != 2 or int(dateInputM) < 1 or int(dateInputM) > 12):
                     print("Invalid input for month")
+                    logging.warning("Invalid input for month in new expense")
                     raise ValueError
                 dateInputD = input("Enter a day as 2 digits: ")
                 if(len(dateInputD) != 2 or int(dateInputD) < 1 or int(dateInputD) > 31):
                     print("Invalid input for day")
+                    logging.warning("Invalid input for day field in new expense")
                     raise ValueError
                 dateInput = dateInputY + "-" + dateInputM + "-" + dateInputD
         except ValueError:
@@ -221,8 +199,10 @@ class EmployeeApp:
                     conn.commit()
             except sqlite3.Error as error:
                 print("Error occured - ", error)
+                logging.error("SQL error occured in submit expense- ", error)
             else:
                 print("Successfully added new expense and approval pending manager review")
+                logging.info("Employee successfully submitted new expense")
         return
 
     #- As an employee, I want to view the status of my submitted expenses so that I know 
@@ -233,6 +213,7 @@ class EmployeeApp:
         # is for viewApprovalHistory
         try:
             with sqlite3.connect(self.dbPath) as conn:
+                logging.info("Employee viewing existing expenses")
                 cursor = conn.cursor()
                 # grab all the expenses tied to this specific user id
                 getExpensesForUser = f"""
@@ -241,13 +222,19 @@ class EmployeeApp:
                 cursor.execute(getExpensesForUser)
                 expensesList = cursor.fetchall()
                 
+                data = [['ID', 'Amount', 'Description', 'Date Submitted', 'Status']]
                 for row in expensesList:
-                    print("Expense (ID-%i) with amount $%.2f and description: '%s' made on date: %s" %(row[0], row[2], row[3], row[4]))
                     cursor.execute(f"SELECT status FROM approvals WHERE expense_id = '{row[0]}'")
                     status = cursor.fetchone()
-                    print("CURRENT STATUS FOR EXPENSE (ID-%i) IS: %s\n" %(row[0], status[0]))
+
+                    amountString = ("$%.2f"%(row[2]))
+                    tablerow = [row[0], amountString, row[3], row[4], status[0]]
+                    data.append(tablerow)
+                print(tabulate(data))
+                logging.info("Successfully showed existing user expenses")
         except sqlite3.Error as error:
             print("Error occured - ", error)
+            logging.error("SQL error occured in view expense- ", error)
         return
 
     #- As an employee, I want to edit or delete expenses that are still pending so that I 
@@ -258,12 +245,15 @@ class EmployeeApp:
         try:
             expenseID = int(input("Please enter the ID of the expense you want to edit: "))
             with sqlite3.connect(self.dbPath) as conn:
+                logging.info("Employee entering new data for edit expense")
                 cursor = conn.cursor()
                 cursor.execute(f"SELECT * FROM expenses WHERE id = '{expenseID}' AND user_id = '{self.userID}'")
                 expenseTBE = cursor.fetchone()
                 if(expenseTBE == None):
+                    logging.warning("No expense found with specified ID and user ID")
                     raise sqlite3.Error("No expense found with specificied ID for this user")
                 else:
+                    logging.info("Expense for edit found")
                     print("Expense selected: ID-%i, Amount-%.2f, Description-%s, Date-%s" %(expenseTBE[0], expenseTBE[2], expenseTBE[3], expenseTBE[4]))
                     while(1):
                         print("Select which field to edit\n" \
@@ -288,14 +278,17 @@ class EmployeeApp:
                                 dateInputY = input("Enter a year as 4 digits: ")
                                 if(len(dateInputY) > 4):
                                     print("Invalid input for year, must be 4 digits")
+                                    logging.warning("Invalid input for edit expense year")
                                     raise ValueError
                                 dateInputM = input("Enter a month as 2 digits: ")
                                 if(len(dateInputM) != 2 or int(dateInputM) < 1 or int(dateInputM) > 12):
                                     print("Invalid input for month")
+                                    logging.warning("Invalid input for edit expense month")
                                     raise ValueError
                                 dateInputD = input("Enter a day as 2 digits: ")
                                 if(len(dateInputD) != 2 or int(dateInputD) < 1 or int(dateInputD) > 31):
                                     print("Invalid input for day")
+                                    logging.warning("Invalid input for edit expense day")
                                     raise ValueError
                                 newInput = dateInputY + "-" + dateInputM + "-" + dateInputD
                             elif(userInput == 4):
@@ -312,22 +305,29 @@ class EmployeeApp:
                                 cursor.execute(update)
                                 conn.commit()
                             print("Successfully edited expense")
+                            logging.info("Successfully edited expense")
                             break
                         except ValueError:
                             print("Invalid input for field selection")
+                            logging.error("Invalid error for field selection in edit expense")
                         except sqlite3.Error as error:
                             print("SQL Error occured - ", error)
+                            logging.error("SQL Error occured - ", error)
         except ValueError:
             print("Invalid input for editExpense")
+            logging.error("Invalid input for expenseID in edit expense")
         except sqlite3.Error as error:
-            print("SQL Error occured - ", error)
+            print("SQL Error occured- ", error)
+            logging.error("SQL Error occured in edit- ", error)
         return
+    
     def deleteExpense(self):
         # ask for expense id, check if its tied to the user and is pending
         # delete expense and the corresponding approval (make sure its pending)
         try:
             deleteID = int(input("Please enter the id of the expense you want to delete: "))
             with sqlite3.connect(self.dbPath) as conn:
+                logging.info("Deleting expense based on ID")
                 cursor = conn.cursor()
                 cursor.execute(f"SELECT * FROM expenses WHERE id = '{deleteID}' AND user_id = '{self.userID}'")
                 expenseTBD = cursor.fetchone()
@@ -349,12 +349,16 @@ class EmployeeApp:
                             cursor.execute(f"DELETE FROM expenses WHERE id = {deleteID}")
                             conn.commit()
                             print("Successfully deleted expense and corresponding pending approval")
+                            logging.info("Deletion successful")
                         else:
                             print("Deletion aborted")
+                            logging.info("Deletion aborted")
         except ValueError:
             print("Invalid input for deleteExpense")
+            logging.error("Invalid input for deleteExpense")
         except sqlite3.Error as error:
             print("SQL Error occured - ", error)
+            logging.error("SQL Error occured in deletion - ", error)
         return
 
     #- As an employee, I want to view a history of all my approved and denied expenses 
@@ -363,6 +367,7 @@ class EmployeeApp:
         # Show all approved and denied approvals tied to the user
         try:
             with sqlite3.connect(self.dbPath) as conn:
+                logging.info("Employee attempting to viewing approvals")
                 cursor = conn.cursor()
                 # grab all the expenses tied to this specific user id
                 getExpensesForUser = f"""
@@ -371,21 +376,29 @@ class EmployeeApp:
                 cursor.execute(getExpensesForUser)
                 expensesList = cursor.fetchall()
 
+                data = [['ID', 'Amount', 'Expense Description', 'Expense Date', 'Status', 'Reviewer ID', 'Comments', 'Review Date']]
                 for row in expensesList:
                     cursor.execute(f"SELECT * FROM approvals WHERE expense_id = '{row[0]}' AND status != 'pending'")
                     approval = cursor.fetchone()
                     if(approval != None):
-                        print("Expense (ID-%i) with amount $%.2f and description: '%s' made on date: %s" %(row[0], row[2], row[3], row[4]))
-                        print("CURRENT STATUS FOR EXPENSE (ID-%i) IS: %s, reviewed by manager with ID-%i" %(row[0], approval[2], approval[3]))
-                        print("Comments made: %s\nOn date: %s\n" %(approval[4], approval[5]))
+                        amountString = ("$%.2f"%(row[2]))
+                        tablerow = [row[0], amountString, row[3], row[4], approval[2], approval[3], approval[4], approval[5]]
+                        #print()
+                        #print("Expense (ID-%i) with amount $%.2f and description: '%s' made on date: %s" %(row[0], row[2], row[3], row[4]))
+                        #print("CURRENT STATUS FOR EXPENSE (ID-%i) IS: %s, reviewed by manager with ID-%i" %(row[0], approval[2], approval[3]))
+                        #print("Comments made: %s\nOn date: %s\n" %(approval[4], approval[5]))
+                        data.append(tablerow)
+                print(tabulate(data))
+                logging.info("Successfuly displayed approvals")
 
         except sqlite3.Error as error:
             print("SQL Error occured - ", error)
+            logging.error("SQL Error occured in view approvals- ", error)
         return
 
 #main
+#helper.initDB()
 eApp = EmployeeApp()
-eApp.initDB()
 eApp.promptInput()
 
 # helper function outside of employee app to help test
@@ -394,6 +407,7 @@ eApp.promptInput()
 #helper.addUser("manager123", "password123", "Manager")
 #helper.editApproval(4, "approved", 3, "no extra comments", "2025-11-15")
 #helper.printTable('users')
+
     
 
 

@@ -1,0 +1,162 @@
+2025-11-19 15:31:55,219 - root - INFO - LOG START
+2025-11-19 15:31:55,222 - root - INFO - DB Init
+2025-11-19 15:31:55,228 - root - INFO - Created users table
+2025-11-19 15:31:55,228 - root - INFO - Created expenses table
+2025-11-19 15:31:55,229 - root - INFO - Created approvals table
+2025-11-19 15:31:55,229 - root - INFO - Database init successful
+2025-11-19 15:31:55,230 - root - INFO - DB connection closed
+2025-11-19 15:32:06,907 - root - INFO - Checking users table for valid credentials
+2025-11-19 15:32:06,911 - root - INFO - Successfully found employee credentials
+2025-11-19 15:32:16,245 - root - INFO - Employee viewing existing expenses
+2025-11-19 15:32:23,761 - root - INFO - Employee attempting to viewing approvals
+2025-11-19 15:32:23,763 - root - INFO - Successfuly displayed approvals
+2025-11-19 15:32:37,094 - root - INFO - Exiting login
+2025-11-19 15:32:37,100 - root - INFO - LOG END
+2025-11-19 15:40:42,260 - root - INFO - LOG START
+2025-11-19 15:40:42,261 - root - INFO - DB Init
+2025-11-19 15:40:42,263 - root - INFO - Created users table
+2025-11-19 15:40:42,263 - root - INFO - Created expenses table
+2025-11-19 15:40:42,264 - root - INFO - Created approvals table
+2025-11-19 15:40:42,264 - root - INFO - Database init successful
+2025-11-19 15:40:42,265 - root - INFO - DB connection closed
+2025-11-19 15:40:50,408 - root - INFO - Checking users table for valid credentials
+2025-11-19 15:40:50,410 - root - INFO - Successfully found employee credentials
+2025-11-19 15:40:52,280 - root - INFO - Employee viewing existing expenses
+2025-11-19 15:41:07,583 - root - INFO - Employee entering new data for edit expense
+2025-11-19 15:41:07,584 - root - INFO - Expense for edit found
+2025-11-19 15:41:25,661 - root - INFO - Successfully edited expense
+2025-11-19 15:43:19,521 - root - INFO - Exiting login
+2025-11-19 15:43:19,528 - root - INFO - LOG END
+2025-11-19 15:55:03,470 - root - INFO - LOG START
+2025-11-19 15:55:03,472 - root - INFO - DB Init
+2025-11-19 15:55:03,474 - root - INFO - Created users table
+2025-11-19 15:55:03,475 - root - INFO - Created expenses table
+2025-11-19 15:55:03,475 - root - INFO - Created approvals table
+2025-11-19 15:55:03,476 - root - INFO - Database init successful
+2025-11-19 15:55:03,476 - root - INFO - DB connection closed
+2025-11-19 15:55:08,384 - root - INFO - Exiting login
+2025-11-19 15:55:08,390 - root - INFO - LOG END
+2025-11-19 15:55:27,723 - root - INFO - LOG START
+2025-11-19 15:55:27,725 - root - INFO - DB Init
+2025-11-19 15:55:27,726 - root - INFO - Created users table
+2025-11-19 15:55:27,727 - root - INFO - Created expenses table
+2025-11-19 15:55:27,728 - root - INFO - Created approvals table
+2025-11-19 15:55:27,728 - root - INFO - Database init successful
+2025-11-19 15:55:27,728 - root - INFO - DB connection closed
+2025-11-19 15:55:38,090 - root - INFO - Checking users table for valid credentials
+2025-11-19 15:55:38,091 - root - INFO - Successfully found employee credentials
+2025-11-19 15:55:44,182 - root - INFO - Exiting login
+2025-11-19 15:55:44,188 - root - INFO - LOG END
+2025-11-19 15:56:09,400 - root - INFO - LOG START
+2025-11-19 15:56:09,402 - root - INFO - DB Init
+2025-11-19 15:56:09,403 - root - INFO - Created users table
+2025-11-19 15:56:09,404 - root - INFO - Created expenses table
+2025-11-19 15:56:09,405 - root - INFO - Created approvals table
+2025-11-19 15:56:09,405 - root - INFO - Database init successful
+2025-11-19 15:56:09,406 - root - INFO - DB connection closed
+2025-11-19 15:56:17,826 - root - INFO - Checking users table for valid credentials
+2025-11-19 15:56:17,828 - root - INFO - Successfully found employee credentials
+2025-11-19 15:56:21,506 - root - INFO - Employee viewing existing expenses
+2025-11-19 15:56:43,736 - root - ERROR - Invalid input for expenseID in edit expense
+2025-11-19 15:58:10,239 - root - INFO - Employee attempting to viewing approvals
+2025-11-19 15:58:10,241 - root - INFO - Successfuly displayed approvals
+2025-11-19 15:58:19,455 - root - INFO - Employee viewing existing expenses
+2025-11-19 15:58:20,842 - root - INFO - Employee attempting to viewing approvals
+2025-11-19 15:58:20,845 - root - INFO - Successfuly displayed approvals
+2025-11-19 15:58:57,793 - root - INFO - Exiting login
+2025-11-19 15:58:57,800 - root - INFO - LOG END
+2025-11-19 16:00:48,793 - root - INFO - LOG START
+2025-11-19 16:00:48,794 - root - INFO - DB Init
+2025-11-19 16:00:48,796 - root - INFO - Created users table
+2025-11-19 16:00:48,796 - root - INFO - Created expenses table
+2025-11-19 16:00:48,797 - root - INFO - Created approvals table
+2025-11-19 16:00:48,797 - root - INFO - Database init successful
+2025-11-19 16:00:48,798 - root - INFO - DB connection closed
+2025-11-19 16:00:58,351 - root - INFO - Checking users table for valid credentials
+2025-11-19 16:00:58,353 - root - INFO - Successfully found employee credentials
+2025-11-19 16:01:07,096 - root - INFO - Checking users table for valid credentials
+2025-11-19 16:01:07,098 - root - WARNING - Username not found in database
+2025-11-19 16:01:26,070 - root - INFO - Checking users table for valid credentials
+2025-11-19 16:01:26,072 - root - INFO - Successfully found employee credentials
+2025-11-19 16:01:30,314 - root - INFO - Employee viewing existing expenses
+2025-11-19 16:01:58,197 - root - INFO - Checking users table for valid credentials
+2025-11-19 16:01:58,199 - root - WARNING - Username not found in database
+2025-11-19 16:02:13,387 - root - INFO - Checking users table for valid credentials
+2025-11-19 16:02:13,389 - root - INFO - Successfully found employee credentials
+2025-11-19 16:02:15,288 - root - INFO - Employee viewing existing expenses
+2025-11-19 16:02:24,633 - root - INFO - Employee attempting to viewing approvals
+2025-11-19 16:02:24,633 - root - INFO - Successfuly displayed approvals
+2025-11-19 16:02:27,898 - root - INFO - Employee viewing existing expenses
+2025-11-19 16:02:30,317 - root - INFO - Employee entering new data for edit expense
+2025-11-19 16:02:30,317 - root - WARNING - No expense found with specified ID and user ID
+2025-11-19 16:02:53,847 - root - INFO - Exiting login
+2025-11-19 16:02:53,854 - root - INFO - LOG END
+2025-11-19 16:05:23,699 - root - INFO - LOG START
+2025-11-19 16:05:23,700 - root - INFO - DB Init
+2025-11-19 16:05:23,702 - root - INFO - Created users table
+2025-11-19 16:05:23,703 - root - INFO - Created expenses table
+2025-11-19 16:05:23,703 - root - INFO - Created approvals table
+2025-11-19 16:05:23,703 - root - INFO - Database init successful
+2025-11-19 16:05:23,704 - root - INFO - DB connection closed
+2025-11-19 16:05:38,346 - root - INFO - Checking users table for valid credentials
+2025-11-19 16:05:38,348 - root - INFO - Successfully found employee credentials
+2025-11-19 16:05:42,228 - root - INFO - Employee viewing existing expenses
+2025-11-19 16:06:09,519 - root - INFO - Employee entering new data for edit expense
+2025-11-19 16:06:09,520 - root - INFO - Expense for edit found
+2025-11-19 16:06:24,076 - root - INFO - Successfully edited expense
+2025-11-19 16:06:27,611 - root - INFO - Employee viewing existing expenses
+2025-11-19 16:06:39,278 - root - INFO - Employee attempting to viewing approvals
+2025-11-19 16:06:39,281 - root - INFO - Successfuly displayed approvals
+2025-11-19 16:07:12,247 - root - INFO - Exiting login
+2025-11-19 16:07:12,254 - root - INFO - LOG END
+2025-11-19 16:12:24,616 - root - INFO - LOG START
+2025-11-19 16:12:24,617 - root - INFO - DB Init
+2025-11-19 16:12:24,618 - root - INFO - Created users table
+2025-11-19 16:12:24,619 - root - INFO - Created expenses table
+2025-11-19 16:12:24,620 - root - INFO - Created approvals table
+2025-11-19 16:12:24,620 - root - INFO - Database init successful
+2025-11-19 16:12:24,620 - root - INFO - DB connection closed
+2025-11-19 16:12:32,492 - root - INFO - Checking users table for valid credentials
+2025-11-19 16:12:32,494 - root - INFO - Successfully found employee credentials
+2025-11-19 16:12:40,580 - root - INFO - Employee entering new data for edit expense
+2025-11-19 16:12:40,580 - root - WARNING - No expense found with specified ID and user ID
+2025-11-19 16:15:33,417 - root - INFO - Exiting login
+2025-11-19 16:15:33,423 - root - INFO - LOG END
+2025-11-19 16:25:09,810 - root - INFO - LOG START
+2025-11-19 16:25:09,820 - root - INFO - LOG END
+2025-11-19 16:26:32,185 - root - INFO - LOG START
+2025-11-19 16:26:39,752 - root - INFO - Checking users table for valid credentials
+2025-11-19 16:26:39,754 - root - INFO - Successfully found employee credentials
+2025-11-19 16:26:41,197 - root - INFO - Employee viewing existing expenses
+2025-11-19 16:26:41,218 - root - INFO - LOG END
+2025-11-19 16:28:07,972 - root - INFO - LOG START
+2025-11-19 16:28:15,407 - root - INFO - Checking users table for valid credentials
+2025-11-19 16:28:15,409 - root - INFO - Successfully found employee credentials
+2025-11-19 16:28:16,588 - root - INFO - Employee viewing existing expenses
+2025-11-19 16:28:16,603 - root - INFO - LOG END
+2025-11-19 16:30:25,521 - root - INFO - LOG START
+2025-11-19 16:30:30,971 - root - INFO - Checking users table for valid credentials
+2025-11-19 16:30:30,974 - root - INFO - Successfully found employee credentials
+2025-11-19 16:30:32,385 - root - INFO - Employee viewing existing expenses
+2025-11-19 16:32:22,447 - root - INFO - Exiting login
+2025-11-19 16:32:22,453 - root - INFO - LOG END
+2025-11-19 16:32:24,402 - root - INFO - LOG START
+2025-11-19 16:32:30,784 - root - INFO - Checking users table for valid credentials
+2025-11-19 16:32:30,786 - root - INFO - Successfully found employee credentials
+2025-11-19 16:32:32,884 - root - INFO - Employee viewing existing expenses
+2025-11-19 16:32:49,489 - root - INFO - Exiting login
+2025-11-19 16:32:49,495 - root - INFO - LOG END
+2025-11-19 16:36:00,107 - root - INFO - LOG START
+2025-11-19 16:36:06,978 - root - INFO - Checking users table for valid credentials
+2025-11-19 16:36:06,981 - root - INFO - Successfully found employee credentials
+2025-11-19 16:36:09,581 - root - INFO - Employee attempting to viewing approvals
+2025-11-19 16:36:09,583 - root - INFO - Successfuly displayed approvals
+2025-11-19 16:36:12,434 - root - INFO - Exiting login
+2025-11-19 16:36:12,441 - root - INFO - LOG END
+2025-11-19 16:42:39,777 - root - INFO - LOG START
+2025-11-19 16:42:53,852 - root - INFO - Checking users table for valid credentials
+2025-11-19 16:42:53,855 - root - INFO - Successfully found employee credentials
+2025-11-19 16:42:57,000 - root - INFO - Employee attempting to viewing approvals
+2025-11-19 16:42:57,003 - root - INFO - Successfuly displayed approvals
+2025-11-19 16:43:26,886 - root - INFO - Exiting login
+2025-11-19 16:43:26,893 - root - INFO - LOG END
