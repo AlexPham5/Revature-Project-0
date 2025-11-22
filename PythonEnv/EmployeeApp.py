@@ -121,9 +121,9 @@ class EmployeeApp:
                     logging.warning("Invalid input for amount field in new expense")
                     raise ValueError
                 
-                descInput = input("Enter a reason for the expense request (at least 10 characters): ")
-                if(len(descInput) < 10):
-                    print("Description must be at least 10 characters long")
+                descInput = input("Enter a reason for the expense request (at least 3 characters): ")
+                if(len(descInput) < 3):
+                    print("Description must be at least 3 characters long")
                     logging.warning("Invalid input for description in submit expense")
                     raise ValueError
                 
@@ -264,9 +264,9 @@ class EmployeeApp:
                             elif(userInput == 2):
                                 #prompt description and change it
                                 field = "description"
-                                newInput = input("Enter a new description (at least 10 characters long): ")
-                                if(len(newInput) < 10):
-                                    print("Description must be at least 10 characters long")
+                                newInput = input("Enter a new description (at least 3 characters long): ")
+                                if(len(newInput) < 3):
+                                    print("Description must be at least 3 characters long")
                                     logging.warning("Invalid input for description in edit expense")
                                     raise ValueError
                             elif(userInput == 3):

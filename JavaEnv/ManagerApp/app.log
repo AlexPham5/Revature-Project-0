@@ -1,0 +1,6 @@
+2025-11-21 22:40:40,410 INFO [main] c.r.p.ManagerApp [ManagerApp.java:28] - LOG START
+2025-11-21 22:40:46,373 WARN [main] c.r.p.ManagerApp [ManagerApp.java:73] - Invalid input for login option
+2025-11-21 22:45:35,153 INFO [main] c.r.p.ManagerApp [ManagerApp.java:28] - LOG START
+2025-11-21 22:45:52,657 WARN [main] c.r.p.ManagerApp [ManagerApp.java:73] - Invalid input for login option
+2025-11-21 22:46:25,537 INFO [main] c.r.p.ManagerApp [ManagerApp.java:28] - LOG START
+2025-11-21 22:46:28,384 WARN [main] c.r.p.ManagerApp [ManagerApp.java:73] - Invalid input for login option
