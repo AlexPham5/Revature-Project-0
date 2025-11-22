@@ -1,14 +1,9 @@
-# Features to be added:
-# Use logging instead of print statements for information (successful login, errors, successful add to db)
-# checks for amount input/edit that the value is not negative
-# checks for description to require a minimum length (10 chars)
-# check for date to not add a future date?
-
 import sqlite3
 import sys
 import logging
 from tabulate import tabulate
 from helpers import helper
+from datetime import datetime
 
 class EmployeeApp:
     def __init__(self):
@@ -152,6 +147,15 @@ class EmployeeApp:
                     raise ValueError
                 dateInputD = f"{int(dateInputD):0{2}d}"
                 dateInput = dateInputY + "-" + dateInputM + "-" + dateInputD
+                #verify that the date is one that exists and is not in the future
+                try:
+                    checkDate = datetime.strptime(dateInput, "%Y-%m-%d")
+                    now = datetime.now()
+                    if(now < checkDate):
+                        raise ValueError
+                except ValueError:
+                    print("Invalid date submission, date does not exists or is in the future")
+                    raise ValueError                
         except ValueError:
             print("Invalid input for submit expense\n")       
         else:
@@ -225,6 +229,7 @@ class EmployeeApp:
         # ask for expense id, check if its tied to the user and is pending
         # then ask for which field they want to edit (amount, desc, date)
         try:
+            self.viewExpenses()
             expenseID = int(input("Please enter the ID of the expense you want to edit: "))
             with sqlite3.connect(self.dbPath) as conn:
                 logging.info("Employee entering new data for edit expense")
@@ -236,8 +241,11 @@ class EmployeeApp:
                     raise sqlite3.Error("No expense found with specificied ID for this user")
                 else:
                     logging.info("Expense for edit found")
-                    print("Expense selected: ID-%i, Amount-%.2f, Description-%s, Date-%s" %(expenseTBE[0], expenseTBE[2], expenseTBE[3], expenseTBE[4]))
                     while(1):
+                        data = [['ID', 'Amount', 'Description', 'Date Submitted']]
+                        amountString = ("%.2f" %expenseTBE[2])
+                        data.append([expenseTBE[0], amountString, expenseTBE[3], expenseTBE[4]])
+                        print(tabulate(data, tablefmt="grid"))
                         print("Select which field to edit\n" \
                         "1 - Amount\n" \
                         "2 - Description\n" \
@@ -270,18 +278,30 @@ class EmployeeApp:
                                     print("Invalid input for year")
                                     logging.warning("Invalid input for edit expense year")
                                     raise ValueError
-                                dateInputM = input("Enter a month as 2 digits: ")
-                                if(len(dateInputM) != 2 or int(dateInputM) < 1 or int(dateInputM) > 12):
+                                dateInputM = input("Enter a month as digits: ")
+                                if(int(dateInputM) < 1 or int(dateInputM) > 12):
                                     print("Invalid input for month")
                                     logging.warning("Invalid input for edit expense month")
                                     raise ValueError
-                                dateInputD = input("Enter a day as 2 digits: ")
-                                if(len(dateInputD) != 2 or int(dateInputD) < 1 or int(dateInputD) > 31):
+                                dateInputM = f"{int(dateInputM):0{2}d}"
+                                dateInputD = input("Enter a day as digits: ")
+                                if(int(dateInputD) < 1 or int(dateInputD) > 31):
                                     print("Invalid input for day")
                                     logging.warning("Invalid input for edit expense day")
                                     raise ValueError
+                                dateInputD = f"{int(dateInputD):0{2}d}"
                                 newInput = dateInputY + "-" + dateInputM + "-" + dateInputD
+                                #verify that the date is one that exists and is not in the future
+                                try:
+                                    checkDate = datetime.strptime(newInput, "%Y-%m-%d")
+                                    now = datetime.now()
+                                    if(now < checkDate):
+                                        raise ValueError
+                                except ValueError:
+                                    print("Invalid date submission, date does not exists or is in the future")
+                                    raise ValueError
                             elif(userInput == 4):
+                                logging.info("Edit expense canceled")
                                 break
                             else:
                                 raise ValueError
@@ -315,6 +335,7 @@ class EmployeeApp:
         # ask for expense id, check if its tied to the user and is pending
         # delete expense and the corresponding approval (make sure its pending)
         try:
+            self.viewExpenses()
             deleteID = int(input("Please enter the id of the expense you want to delete: "))
             with sqlite3.connect(self.dbPath) as conn:
                 logging.info("Deleting expense based on ID")
