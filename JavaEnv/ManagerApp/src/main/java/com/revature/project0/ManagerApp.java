@@ -30,10 +30,40 @@ public class ManagerApp {
     public void promptInput(){
         while(true){
             this.login();
-            while(true){
+            //System.out.println("Your managerID is: "+this.managerID);
+            boolean loop = true;
+            while(loop){
                 //after users get past login, offer command options
-                System.out.println("Login successful, now in input loop");
-                break;
+                System.out.println("=====Command Options=====\n"+
+                        "1 - View all pending expenses\n"+
+                        "2 - Review Expenses (Approve or Deny)\n"+
+                        "3 - Generate Report\n"+
+                        "4 - LOGOUT");
+                try{
+                    System.out.print("Enter an option: ");
+                    int userInput = Integer.parseInt(sc.nextLine());
+                    switch(userInput){
+                        case 1:
+                            System.out.println("Viewing expenses");
+                            break;
+                        case 2:
+                            System.out.println("Reviewing expenses");
+                            break;
+                        case 3:
+                            System.out.println("Generating Reports");
+                            break;
+                        case 4:
+                            System.out.println("Logging Out");
+                            loop = false;
+                            break;
+                        default:
+                            System.out.println("Invalid number input for command options");
+                            break;
+                    }
+                }catch(NullPointerException|NumberFormatException e){
+                    System.out.println("Invalid input for command options");
+                    logger.error("Invalid input for command options");
+                }
             }
         }
     }
@@ -58,17 +88,16 @@ public class ManagerApp {
                         System.out.println("Credentials not found for manager");
                     }
                     else {
-                        System.out.println("Credentials not found for manager");
+                        System.out.println("SUCCESS: Credentials found for manager");
                         this.managerID = id;
                         break;
                     }
-                }else if(userInput == 2){
+                }else if(userInput == 2)
                     System.exit(0);
-                }else{
+                else
                     System.out.println("Invalid number option for login, please enter 1 or 2");
-                }
             }catch(NullPointerException|NumberFormatException e){
-                System.out.print("Invalid input for login option, please enter 1 or 2");
+                System.out.println("Invalid input for login option, please enter 1 or 2");
                 logger.warn("Invalid input for login option");
             }
         }
@@ -76,8 +105,8 @@ public class ManagerApp {
 
     //      As a manager, I want to view a list of all pending expenses so that
     //      I can review them efficiently.
-    public void viewExpensesPending(){
-
+    public void viewExpenses(){
+        //Show only pending expenses
     }
 
     //      As a manager, I want to approve or deny submitted expenses so that I

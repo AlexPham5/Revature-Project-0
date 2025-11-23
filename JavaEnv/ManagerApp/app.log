@@ -4,3 +4,61 @@
 2025-11-21 22:45:52,657 WARN [main] c.r.p.ManagerApp [ManagerApp.java:73] - Invalid input for login option
 2025-11-21 22:46:25,537 INFO [main] c.r.p.ManagerApp [ManagerApp.java:28] - LOG START
 2025-11-21 22:46:28,384 WARN [main] c.r.p.ManagerApp [ManagerApp.java:73] - Invalid input for login option
+2025-11-22 20:53:55,828 INFO [main] c.r.p.ManagerApp [ManagerApp.java:27] - LOG START
+2025-11-22 20:54:20,652 INFO [main] c.r.p.ManagerApp [DAO.java:18] - Attempting to find manager user credential's in db
+2025-11-22 20:54:20,660 ERROR [main] c.r.p.ManagerApp [DAO.java:33] - SQLException in getCredentials
+2025-11-22 20:54:20,661 ERROR [main] c.r.p.ManagerApp [DAO.java:34] - No suitable driver found for C:\Users\alex1\Revature_work\Project_0\RevatureDatabase.db
+2025-11-22 20:57:33,834 INFO [main] c.r.p.ManagerApp [ManagerApp.java:27] - LOG START
+2025-11-22 20:57:43,311 INFO [main] c.r.p.ManagerApp [DAO.java:18] - Attempting to find manager user credential's in db
+2025-11-22 20:57:43,331 ERROR [main] c.r.p.ManagerApp [DAO.java:33] - SQLException in getCredentials
+2025-11-22 20:57:43,331 ERROR [main] c.r.p.ManagerApp [DAO.java:34] - No suitable driver found for C:\Users\alex1\Revature_work\Project_0\RevatureDatabase.db
+2025-11-22 20:59:00,912 INFO [main] c.r.p.ManagerApp [ManagerApp.java:27] - LOG START
+2025-11-22 20:59:09,243 INFO [main] c.r.p.ManagerApp [DAO.java:18] - Attempting to find manager user credential's in db
+2025-11-22 20:59:09,260 ERROR [main] c.r.p.ManagerApp [DAO.java:33] - SQLException in getCredentials
+2025-11-22 20:59:09,260 ERROR [main] c.r.p.ManagerApp [DAO.java:34] - No suitable driver found for C:\Users\alex1\Revature_work\Project_0\RevatureDatabase.db
+2025-11-22 21:02:57,564 INFO [main] c.r.p.ManagerApp [ManagerApp.java:27] - LOG START
+2025-11-22 21:03:06,923 INFO [main] c.r.p.ManagerApp [DAO.java:18] - Attempting to find manager user credential's in db
+2025-11-22 21:03:07,323 INFO [main] c.r.p.ManagerApp [DAO.java:21] - SQL connection successful
+2025-11-22 21:03:07,336 ERROR [main] c.r.p.ManagerApp [DAO.java:33] - SQLException in getCredentials
+2025-11-22 21:03:07,336 ERROR [main] c.r.p.ManagerApp [DAO.java:34] - [SQLITE_ERROR] SQL error or missing database (near ",": syntax error)
+2025-11-22 21:05:55,496 INFO [main] c.r.p.ManagerApp [ManagerApp.java:27] - LOG START
+2025-11-22 21:06:04,014 INFO [main] c.r.p.ManagerApp [DAO.java:18] - Attempting to find manager user credential's in db
+2025-11-22 21:06:04,384 INFO [main] c.r.p.ManagerApp [DAO.java:21] - SQL connection successful
+2025-11-22 21:06:04,397 ERROR [main] c.r.p.ManagerApp [DAO.java:32] - SQLException in getCredentials
+2025-11-22 21:06:04,399 ERROR [main] c.r.p.ManagerApp [DAO.java:33] - [SQLITE_ERROR] SQL error or missing database (near ",": syntax error)
+2025-11-22 21:12:34,259 INFO [main] c.r.p.ManagerApp [ManagerApp.java:27] - LOG START
+2025-11-22 21:12:40,921 INFO [main] c.r.p.ManagerApp [DAO.java:17] - Attempting to find manager user credential's in db
+2025-11-22 21:12:41,259 INFO [main] c.r.p.ManagerApp [DAO.java:20] - SQL connection successful
+2025-11-22 21:12:41,269 ERROR [main] c.r.p.ManagerApp [DAO.java:31] - SQLException in getCredentials
+2025-11-22 21:12:41,269 ERROR [main] c.r.p.ManagerApp [DAO.java:32] - [SQLITE_ERROR] SQL error or missing database (near ",": syntax error)
+2025-11-22 21:14:00,473 INFO [main] c.r.p.ManagerApp [ManagerApp.java:27] - LOG START
+2025-11-22 21:14:07,058 INFO [main] c.r.p.ManagerApp [DAO.java:17] - Attempting to find manager user credential's in db
+2025-11-22 21:14:07,404 INFO [main] c.r.p.ManagerApp [DAO.java:20] - SQL connection successful
+2025-11-22 21:14:07,416 ERROR [main] c.r.p.ManagerApp [DAO.java:31] - SQLException in getCredentials
+2025-11-22 21:14:07,416 ERROR [main] c.r.p.ManagerApp [DAO.java:32] - [SQLITE_ERROR] SQL error or missing database (near ",": syntax error)
+2025-11-22 21:15:34,816 INFO [main] c.r.p.ManagerApp [ManagerApp.java:27] - LOG START
+2025-11-22 21:15:41,636 INFO [main] c.r.p.ManagerApp [DAO.java:17] - Attempting to find manager user credential's in db
+2025-11-22 21:15:41,987 INFO [main] c.r.p.ManagerApp [DAO.java:20] - SQL connection successful
+2025-11-22 21:15:42,000 ERROR [main] c.r.p.ManagerApp [DAO.java:31] - SQLException in getCredentials
+2025-11-22 21:15:42,000 ERROR [main] c.r.p.ManagerApp [DAO.java:32] - [SQLITE_ERROR] SQL error or missing database (near ",": syntax error)
+2025-11-22 21:16:36,499 INFO [main] c.r.p.ManagerApp [ManagerApp.java:27] - LOG START
+2025-11-22 21:16:43,820 INFO [main] c.r.p.ManagerApp [DAO.java:17] - Attempting to find manager user credential's in db
+2025-11-22 21:16:44,178 INFO [main] c.r.p.ManagerApp [DAO.java:20] - SQL connection successful
+2025-11-22 21:16:44,189 ERROR [main] c.r.p.ManagerApp [DAO.java:31] - SQLException in getCredentials
+2025-11-22 21:16:44,189 ERROR [main] c.r.p.ManagerApp [DAO.java:32] - [SQLITE_ERROR] SQL error or missing database (near ",": syntax error)
+2025-11-22 21:17:37,067 INFO [main] c.r.p.ManagerApp [ManagerApp.java:27] - LOG START
+2025-11-22 21:17:42,638 INFO [main] c.r.p.ManagerApp [DAO.java:17] - Attempting to find manager user credential's in db
+2025-11-22 21:17:42,987 INFO [main] c.r.p.ManagerApp [DAO.java:20] - SQL connection successful
+2025-11-22 21:17:42,999 ERROR [main] c.r.p.ManagerApp [DAO.java:31] - SQLException in getCredentials
+2025-11-22 21:17:42,999 ERROR [main] c.r.p.ManagerApp [DAO.java:32] - [SQLITE_ERROR] SQL error or missing database (near "username": syntax error)
+2025-11-22 21:19:45,163 INFO [main] c.r.p.ManagerApp [ManagerApp.java:27] - LOG START
+2025-11-22 21:19:51,019 INFO [main] c.r.p.ManagerApp [DAO.java:17] - Attempting to find manager user credential's in db
+2025-11-22 21:19:51,374 INFO [main] c.r.p.ManagerApp [DAO.java:20] - SQL connection successful
+2025-11-22 21:29:44,340 INFO [main] c.r.p.ManagerApp [ManagerApp.java:27] - LOG START
+2025-11-22 21:29:50,904 INFO [main] c.r.p.ManagerApp [DAO.java:17] - Attempting to find manager user credential's in db
+2025-11-22 21:29:51,255 INFO [main] c.r.p.ManagerApp [DAO.java:20] - SQL connection successful
+2025-11-22 21:58:55,845 INFO [main] c.r.p.ManagerApp [ManagerApp.java:27] - LOG START
+2025-11-22 21:59:02,616 INFO [main] c.r.p.ManagerApp [DAO.java:22] - Attempting to find manager user credential's in db
+2025-11-22 21:59:02,999 INFO [main] c.r.p.ManagerApp [DAO.java:25] - SQL connection successful
+2025-11-22 21:59:23,567 ERROR [main] c.r.p.ManagerApp [ManagerApp.java:65] - Invalid input for command options
+2025-11-22 21:59:32,933 WARN [main] c.r.p.ManagerApp [ManagerApp.java:101] - Invalid input for login option
