@@ -196,7 +196,7 @@ public class ManagerApp {
         boolean keywordFilter = false;
         while(true){
             try{
-                System.out.println("GENERATE REPORT INTERFACE");
+                System.out.println("\nGENERATE REPORT INTERFACE");
                 System.out.println("Toggle any desired filters to generate report on, choose none to see all possible records: \n"+
                         "1 - Specify User ("+(userFilter ? "ON" : "OFF")+")\n"+
                         "2 - Specify Date Range ("+(dateFilter ? "ON" : "OFF")+")\n"+
@@ -272,9 +272,8 @@ public class ManagerApp {
                         break;
                     }else if(valid == 2){
                         System.out.println("NO RECORDS FOUND FOR CRITERIA SPECIFIED, REPORT NOT GENERATED");
-                        logger.info("No records found for criteria specified, no report generated");
                     }else{
-                        System.out.println("REPORT NOT GENERATED");
+                        System.out.println("REPORT GENERATION FAILED");
                         logger.error("Report generation failed");
                         break;
                     }

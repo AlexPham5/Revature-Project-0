@@ -330,3 +330,111 @@
 2025-11-23 12:56:43,341 INFO [main] c.r.p.ManagerApp [ManagerApp.java:272] - Report generation success
 2025-11-23 12:56:47,829 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
 2025-11-23 12:57:40,137 INFO [main] c.r.p.ManagerApp [ManagerApp.java:66] - LOG END
+2025-11-23 13:02:02,531 INFO [main] c.r.p.ManagerApp [ManagerApp.java:32] - LOG START
+2025-11-23 13:02:11,078 INFO [main] c.r.p.ManagerApp [DAO.java:54] - Attempting to find manager user credential's in db
+2025-11-23 13:02:11,444 INFO [main] c.r.p.ManagerApp [DAO.java:57] - SQL connection successful for getCredentials
+2025-11-23 13:02:13,691 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 13:03:49,244 INFO [main] c.r.p.ManagerApp [ManagerApp.java:272] - Report generation success
+2025-11-23 14:18:20,923 INFO [main] c.r.p.ManagerApp [ManagerApp.java:32] - LOG START
+2025-11-23 14:18:31,076 INFO [main] c.r.p.ManagerApp [DAO.java:51] - Attempting to find manager user credential's in db
+2025-11-23 14:18:31,437 INFO [main] c.r.p.ManagerApp [DAO.java:54] - SQL connection successful for getCredentials
+2025-11-23 14:18:33,101 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 14:18:37,328 ERROR [main] c.r.p.ManagerApp [DAO.java:215] - SQLException in generateReport
+2025-11-23 14:18:37,329 ERROR [main] c.r.p.ManagerApp [DAO.java:216] - [SQLITE_ERROR] SQL error or missing database (near "ON": syntax error)
+2025-11-23 14:18:37,329 ERROR [main] c.r.p.ManagerApp [ManagerApp.java:277] - Report generation failed
+2025-11-23 14:20:36,813 INFO [main] c.r.p.ManagerApp [ManagerApp.java:66] - LOG END
+2025-11-23 14:20:48,370 INFO [main] c.r.p.ManagerApp [ManagerApp.java:32] - LOG START
+2025-11-23 14:20:55,710 INFO [main] c.r.p.ManagerApp [DAO.java:51] - Attempting to find manager user credential's in db
+2025-11-23 14:20:56,078 INFO [main] c.r.p.ManagerApp [DAO.java:54] - SQL connection successful for getCredentials
+2025-11-23 14:20:57,564 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 14:21:02,238 INFO [main] c.r.p.ManagerApp [DAO.java:163] - Successful DB connect in gerateReport
+2025-11-23 14:21:02,244 ERROR [main] c.r.p.ManagerApp [DAO.java:216] - SQLException in generateReport
+2025-11-23 14:21:02,244 ERROR [main] c.r.p.ManagerApp [DAO.java:217] - [SQLITE_ERROR] SQL error or missing database (near "ON": syntax error)
+2025-11-23 14:21:02,245 ERROR [main] c.r.p.ManagerApp [ManagerApp.java:277] - Report generation failed
+2025-11-23 14:21:35,866 INFO [main] c.r.p.ManagerApp [ManagerApp.java:66] - LOG END
+2025-11-23 14:21:51,777 INFO [main] c.r.p.ManagerApp [ManagerApp.java:32] - LOG START
+2025-11-23 14:22:00,295 INFO [main] c.r.p.ManagerApp [DAO.java:51] - Attempting to find manager user credential's in db
+2025-11-23 14:22:00,656 INFO [main] c.r.p.ManagerApp [DAO.java:54] - SQL connection successful for getCredentials
+2025-11-23 14:22:02,054 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 14:22:07,641 INFO [main] c.r.p.ManagerApp [DAO.java:163] - Successful DB connect in generateReport
+2025-11-23 14:22:07,655 INFO [main] c.r.p.ManagerApp [ManagerApp.java:271] - Report generation success
+2025-11-23 14:22:41,321 INFO [main] c.r.p.ManagerApp [ManagerApp.java:66] - LOG END
+2025-11-23 14:24:17,227 INFO [main] c.r.p.ManagerApp [ManagerApp.java:32] - LOG START
+2025-11-23 14:24:26,074 INFO [main] c.r.p.ManagerApp [DAO.java:51] - Attempting to find manager user credential's in db
+2025-11-23 14:24:26,435 INFO [main] c.r.p.ManagerApp [DAO.java:54] - SQL connection successful for getCredentials
+2025-11-23 14:24:27,726 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 14:24:35,906 INFO [main] c.r.p.ManagerApp [DAO.java:163] - Successful DB connect in generateReport
+2025-11-23 14:24:35,916 INFO [main] c.r.p.ManagerApp [ManagerApp.java:271] - Report generation success
+2025-11-23 14:24:40,987 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 14:24:49,805 INFO [main] c.r.p.ManagerApp [DAO.java:163] - Successful DB connect in generateReport
+2025-11-23 14:24:49,808 INFO [main] c.r.p.ManagerApp [DAO.java:189] - No records found for criteria specified, no report generated
+2025-11-23 14:26:40,430 INFO [main] c.r.p.ManagerApp [DAO.java:163] - Successful DB connect in generateReport
+2025-11-23 14:26:40,436 ERROR [main] c.r.p.ManagerApp [DAO.java:216] - SQLException in generateReport
+2025-11-23 14:26:40,436 ERROR [main] c.r.p.ManagerApp [DAO.java:217] - [SQLITE_ERROR] SQL error or missing database (near ",": syntax error)
+2025-11-23 14:26:40,436 ERROR [main] c.r.p.ManagerApp [ManagerApp.java:277] - Report generation failed
+2025-11-23 14:26:55,677 INFO [main] c.r.p.ManagerApp [ManagerApp.java:66] - LOG END
+2025-11-23 14:31:42,722 INFO [main] c.r.p.ManagerApp [ManagerApp.java:32] - LOG START
+2025-11-23 14:31:48,535 INFO [main] c.r.p.ManagerApp [DAO.java:51] - Attempting to find manager user credential's in db
+2025-11-23 14:31:48,888 INFO [main] c.r.p.ManagerApp [DAO.java:54] - SQL connection successful for getCredentials
+2025-11-23 14:31:50,129 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 14:32:28,082 INFO [main] c.r.p.ManagerApp [DAO.java:163] - Successful DB connect in generateReport
+2025-11-23 14:32:28,085 INFO [main] c.r.p.ManagerApp [DAO.java:188] - No records found for criteria specified, no report generated
+2025-11-23 14:33:44,230 INFO [main] c.r.p.ManagerApp [DAO.java:163] - Successful DB connect in generateReport
+2025-11-23 14:33:44,231 INFO [main] c.r.p.ManagerApp [DAO.java:188] - No records found for criteria specified, no report generated
+2025-11-23 14:35:54,526 INFO [main] c.r.p.ManagerApp [ManagerApp.java:66] - LOG END
+2025-11-23 14:36:03,586 INFO [main] c.r.p.ManagerApp [ManagerApp.java:32] - LOG START
+2025-11-23 14:36:11,741 INFO [main] c.r.p.ManagerApp [DAO.java:51] - Attempting to find manager user credential's in db
+2025-11-23 14:36:12,123 INFO [main] c.r.p.ManagerApp [DAO.java:54] - SQL connection successful for getCredentials
+2025-11-23 14:36:13,629 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 14:36:48,025 INFO [main] c.r.p.ManagerApp [DAO.java:163] - Successful DB connect in generateReport
+2025-11-23 14:36:48,031 INFO [main] c.r.p.ManagerApp [DAO.java:189] - No records found for criteria specified, no report generated
+2025-11-23 14:37:40,144 INFO [main] c.r.p.ManagerApp [ManagerApp.java:66] - LOG END
+2025-11-23 14:37:49,664 INFO [main] c.r.p.ManagerApp [ManagerApp.java:32] - LOG START
+2025-11-23 14:37:54,917 INFO [main] c.r.p.ManagerApp [DAO.java:51] - Attempting to find manager user credential's in db
+2025-11-23 14:37:55,273 INFO [main] c.r.p.ManagerApp [DAO.java:54] - SQL connection successful for getCredentials
+2025-11-23 14:37:56,965 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 14:38:26,502 INFO [main] c.r.p.ManagerApp [DAO.java:163] - Successful DB connect in generateReport
+2025-11-23 14:38:26,510 INFO [main] c.r.p.ManagerApp [ManagerApp.java:271] - Report generation success
+2025-11-23 14:38:59,266 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 14:39:21,385 INFO [main] c.r.p.ManagerApp [DAO.java:163] - Successful DB connect in generateReport
+2025-11-23 14:39:21,391 ERROR [main] c.r.p.ManagerApp [DAO.java:216] - SQLException in generateReport
+2025-11-23 14:39:21,391 ERROR [main] c.r.p.ManagerApp [DAO.java:217] - [SQLITE_ERROR] SQL error or missing database (near "%": syntax error)
+2025-11-23 14:39:21,391 ERROR [main] c.r.p.ManagerApp [ManagerApp.java:277] - Report generation failed
+2025-11-23 14:39:54,704 INFO [main] c.r.p.ManagerApp [ManagerApp.java:66] - LOG END
+2025-11-23 14:40:05,466 INFO [main] c.r.p.ManagerApp [ManagerApp.java:32] - LOG START
+2025-11-23 14:40:11,154 INFO [main] c.r.p.ManagerApp [DAO.java:51] - Attempting to find manager user credential's in db
+2025-11-23 14:40:11,523 INFO [main] c.r.p.ManagerApp [DAO.java:54] - SQL connection successful for getCredentials
+2025-11-23 14:40:12,927 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 14:40:35,749 INFO [main] c.r.p.ManagerApp [DAO.java:163] - Successful DB connect in generateReport
+2025-11-23 14:40:35,755 INFO [main] c.r.p.ManagerApp [ManagerApp.java:271] - Report generation success
+2025-11-23 14:40:46,563 INFO [main] c.r.p.ManagerApp [ManagerApp.java:66] - LOG END
+2025-11-23 14:41:09,670 INFO [main] c.r.p.ManagerApp [ManagerApp.java:32] - LOG START
+2025-11-23 14:41:15,684 INFO [main] c.r.p.ManagerApp [DAO.java:51] - Attempting to find manager user credential's in db
+2025-11-23 14:41:16,045 INFO [main] c.r.p.ManagerApp [DAO.java:54] - SQL connection successful for getCredentials
+2025-11-23 14:41:17,470 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 14:41:23,484 ERROR [main] c.r.p.ManagerApp [ManagerApp.java:289] - Invalid input for filters
+2025-11-23 14:41:46,888 INFO [main] c.r.p.ManagerApp [DAO.java:163] - Successful DB connect in generateReport
+2025-11-23 14:41:46,895 INFO [main] c.r.p.ManagerApp [ManagerApp.java:271] - Report generation success
+2025-11-23 14:41:56,407 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 14:42:07,480 INFO [main] c.r.p.ManagerApp [DAO.java:163] - Successful DB connect in generateReport
+2025-11-23 14:42:07,482 INFO [main] c.r.p.ManagerApp [ManagerApp.java:271] - Report generation success
+2025-11-23 14:42:16,899 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 14:42:33,587 INFO [main] c.r.p.ManagerApp [DAO.java:163] - Successful DB connect in generateReport
+2025-11-23 14:42:33,591 INFO [main] c.r.p.ManagerApp [ManagerApp.java:271] - Report generation success
+2025-11-23 14:42:39,914 INFO [main] c.r.p.ManagerApp [ManagerApp.java:66] - LOG END
+2025-11-23 15:00:38,840 INFO [main] c.r.p.ManagerApp [ManagerApp.java:32] - LOG START
+2025-11-23 15:00:47,036 INFO [main] c.r.p.ManagerApp [DAO.java:53] - Attempting to find manager user credential's in db
+2025-11-23 15:00:47,411 INFO [main] c.r.p.ManagerApp [DAO.java:56] - SQL connection successful for getCredentials
+2025-11-23 15:00:48,760 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 15:00:54,269 INFO [main] c.r.p.ManagerApp [DAO.java:165] - Successful DB connect in generateReport
+2025-11-23 15:00:54,285 INFO [main] c.r.p.ManagerApp [DAO.java:222] - Report successfully written to external file
+2025-11-23 15:00:54,285 INFO [main] c.r.p.ManagerApp [ManagerApp.java:271] - Report generation success
+2025-11-23 15:03:22,512 INFO [main] c.r.p.ManagerApp [ManagerApp.java:66] - LOG END
+2025-11-23 15:06:45,270 INFO [main] c.r.p.ManagerApp [ManagerApp.java:32] - LOG START
+2025-11-23 15:06:52,307 INFO [main] c.r.p.ManagerApp [DAO.java:53] - Attempting to find manager user credential's in db
+2025-11-23 15:06:52,706 INFO [main] c.r.p.ManagerApp [DAO.java:56] - SQL connection successful for getCredentials
+2025-11-23 15:06:54,472 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 15:07:12,153 INFO [main] c.r.p.ManagerApp [DAO.java:165] - Successful DB connect in generateReport
+2025-11-23 15:07:12,165 INFO [main] c.r.p.ManagerApp [DAO.java:222] - Report successfully written to external file
+2025-11-23 15:07:12,168 INFO [main] c.r.p.ManagerApp [ManagerApp.java:271] - Report generation success
+2025-11-23 15:08:00,186 INFO [main] c.r.p.ManagerApp [ManagerApp.java:66] - LOG END

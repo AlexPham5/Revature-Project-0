@@ -1,0 +1,4 @@
+Report Name: foodreport
+| ID  | User_ID | Amount    | Description               | Expense Date | Status   | Reviewer_ID | Comment                   | Review Date  |
+| 1   | 1       | 1100.00   | food                      | 2025-11-15   | pending  | N/A         | N/A                       | N/A          |
+| 7   | 1       | 70.00     | food for party            | 2025-01-01   | pending  | N/A         | N/A                       | N/A          |
