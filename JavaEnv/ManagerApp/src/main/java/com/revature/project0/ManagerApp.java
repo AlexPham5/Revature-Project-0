@@ -2,7 +2,6 @@ package com.revature.project0;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.*;
 import java.util.Scanner;
 
 /*
@@ -133,7 +132,7 @@ public class ManagerApp {
             while(d1.checkID(userInput) == 1){
                 looped = true;
                 try {
-                    System.out.println("Chosen expense to be edited");
+                    System.out.println("Chosen expense to be edited\n");
                     //ask for input values
                     System.out.println("Approve or Deny expense?\n" +
                             "1 - Approve\n" +
@@ -154,7 +153,7 @@ public class ManagerApp {
                             System.out.println("Error while attempting to review expense");
                             break;
                         }
-                    }else if(userInput == 3){
+                    }else if(approvalChoice == 3){
                         System.out.println("Canceling review");
                         logger.info("Canceled expense review");
                         break;
@@ -163,8 +162,9 @@ public class ManagerApp {
                         logger.warn("Invalid number input for review choices");
                     }
                 }catch(NullPointerException | NumberFormatException e){
+                    System.out.println("Invalid input");
                     System.out.println(e.getMessage());
-                    logger.error("Invalid input for review choices");
+                    logger.error("Invalid input for review choices/desc size");
                 }
             }
             if(!looped){
@@ -180,10 +180,60 @@ public class ManagerApp {
     //      As a manager, I want to generate reports by employee, category, or date
     //      so that I can analyze spending trends and make informed decisions.
     //SQL states with LIKE? (ex. for %food% or %supplies%)
+
     public void generateReport(){
         logger.info("generateReport called");
+        boolean userFilter = false;
+        boolean dateFilter = false;
+        boolean keywordFilter = false;
+        while(true){
+            try{
+                System.out.println("GENERATE REPORT INTERFACE");
+                System.out.println("Toggle any desired filters to generate report on, choose none for all reports: \n"+
+                        "1 - Specify User ("+userFilter+")\n"+
+                        "2 - Specify Date Range ("+dateFilter+")\n"+
+                        "3 - Specify Category ("+ keywordFilter +")\n"+
+                        "4 - CONTINUE\n"+
+                        "5 - CANCEL");
+                System.out.print("Enter an option: ");
+                int userInput = Integer.parseInt(sc.nextLine());
+                if(userInput == 1){
+                    userFilter = !userFilter;
+                }else if(userInput == 2){
+                    dateFilter = !dateFilter;
+                }else if(userInput == 3){
+                    keywordFilter = !keywordFilter;
+                }else if(userInput == 4){
+                    //prompt and verify inputs
+                    int userID = -1;
+                    String dateS = "0";
+                    String dateE = "0";
+                    String keyword = "0";
+                    if (userFilter) {
+                        //check if userID exists in user table
+                    }
+                    if (dateFilter) {
+                        //verify dates are valid (exists and right format)
+
+                    }
+                    if (keywordFilter) {
+                        //
+
+                    }
+                    //call to DAO to do operations
+                    d1.generateReport(userID, dateS, dateE, keyword);
+                }else if(userInput == 5){
+
+                }else{
+                    System.out.println("Invalid number input for toggles");
+                }
+
+            }catch(NullPointerException | NumberFormatException e){
+                System.out.println("Invalid input for toggles");
+                logger.error("Invalid input for toggles");
+            }
+        }
 
 
-        logger.info("Successful generateReport call");
     }
 }

@@ -429,3 +429,15 @@
 2025-11-21 22:00:33,542 - root - ERROR - SQL Error occured in edit
 2025-11-21 22:00:40,398 - root - INFO - Exiting login
 2025-11-21 22:00:40,405 - root - INFO - LOG END
+2025-11-23 01:16:33,697 - root - INFO - LOG START
+2025-11-23 01:16:46,053 - root - INFO - Checking users table for valid credentials
+2025-11-23 01:16:46,065 - root - INFO - Successfully found employee credentials
+2025-11-23 01:16:47,738 - root - INFO - Employee viewing existing expenses
+2025-11-23 01:16:47,745 - root - INFO - Successfully showed existing user expenses
+2025-11-23 01:16:56,729 - root - INFO - Employee viewing existing expenses
+2025-11-23 01:16:56,731 - root - INFO - Successfully showed existing user expenses
+2025-11-23 01:17:02,862 - root - INFO - Deleting expense based on ID
+2025-11-23 01:17:11,298 - root - INFO - Employee attempting to viewing approvals
+2025-11-23 01:17:11,300 - root - INFO - Successfuly displayed approvals
+2025-11-23 01:17:18,224 - root - INFO - Exiting login
+2025-11-23 01:17:18,232 - root - INFO - LOG END

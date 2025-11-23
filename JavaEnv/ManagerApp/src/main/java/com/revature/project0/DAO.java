@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.xml.transform.Result;
 import java.sql.*;
+import java.time.LocalDate;
 
 //Will execute the SQL commands after ManagerApp verifies the inputs
 public class DAO {
@@ -77,7 +78,7 @@ public class DAO {
                 String getEIDs = "SELECT expense_id FROM approvals WHERE status='pending'";
                 Statement s1 = conn.createStatement();
                 ResultSet eIDs = s1.executeQuery(getEIDs);
-                if (!eIDs.next()) {
+                if (eIDs.isBeforeFirst()) {
                     //no expenses found
                     System.out.println("NO EXPENSES CURRENTLY PENDING");
                     return 1;
@@ -125,8 +126,8 @@ public class DAO {
                 p1.setInt(2, manID);
                 p1.setString(3, comment);
                 //date will be date.now();
-                String date = "";
-                p1.setString(4, date);
+                LocalDate now = LocalDate.now();
+                p1.setString(4, now.toString());
                 p1.setInt(5, eID);
                 if(p1.executeUpdate() < 1) {
                     logger.info("Expense successfully reviewed");
@@ -142,6 +143,16 @@ public class DAO {
             logger.error(e.getMessage());
             return -1;
         }
+        return -1;
+    }
+
+    //Show all linked expenses and approvals based on:
+    //User id
+    //Date using BETWEEN
+    //'Category' by using LIKE for description
+    public int generateReport(int user, String dateS, String dateE, String keyword){
+
+
         return -1;
     }
 
