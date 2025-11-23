@@ -213,3 +213,88 @@
 2025-11-23 01:16:16,310 INFO [main] c.r.p.ManagerApp [DAO.java:73] - Attempting to display expenses
 2025-11-23 01:16:16,312 INFO [main] c.r.p.ManagerApp [DAO.java:76] - SQL connection successful for displayExpenses
 2025-11-23 01:16:16,321 INFO [main] c.r.p.ManagerApp [DAO.java:108] - Successfully displayed all pending expenses
+2025-11-23 01:39:58,265 INFO [main] c.r.p.ManagerApp [ManagerApp.java:26] - LOG START
+2025-11-23 01:40:04,762 INFO [main] c.r.p.ManagerApp [DAO.java:46] - Attempting to find manager user credential's in db
+2025-11-23 01:40:05,113 INFO [main] c.r.p.ManagerApp [DAO.java:49] - SQL connection successful for getCredentials
+2025-11-23 01:41:49,652 INFO [main] c.r.p.ManagerApp [ManagerApp.java:26] - LOG START
+2025-11-23 01:41:57,811 INFO [main] c.r.p.ManagerApp [DAO.java:46] - Attempting to find manager user credential's in db
+2025-11-23 01:41:58,174 INFO [main] c.r.p.ManagerApp [DAO.java:49] - SQL connection successful for getCredentials
+2025-11-23 01:42:00,593 INFO [main] c.r.p.ManagerApp [ManagerApp.java:187] - generateReport called
+2025-11-23 01:46:24,145 INFO [main] c.r.p.ManagerApp [ManagerApp.java:26] - LOG START
+2025-11-23 01:46:31,162 INFO [main] c.r.p.ManagerApp [DAO.java:46] - Attempting to find manager user credential's in db
+2025-11-23 01:46:31,532 INFO [main] c.r.p.ManagerApp [DAO.java:49] - SQL connection successful for getCredentials
+2025-11-23 01:46:34,086 INFO [main] c.r.p.ManagerApp [ManagerApp.java:187] - generateReport called
+2025-11-23 01:46:35,972 ERROR [main] c.r.p.ManagerApp [ManagerApp.java:241] - Invalid input for toggles
+2025-11-23 01:47:00,722 INFO [main] c.r.p.ManagerApp [ManagerApp.java:187] - generateReport called
+2025-11-23 01:51:56,897 INFO [main] c.r.p.ManagerApp [ManagerApp.java:60] - LOG END
+2025-11-23 01:52:06,250 INFO [main] c.r.p.ManagerApp [ManagerApp.java:26] - LOG START
+2025-11-23 01:52:13,213 INFO [main] c.r.p.ManagerApp [DAO.java:52] - Attempting to find manager user credential's in db
+2025-11-23 01:52:13,610 INFO [main] c.r.p.ManagerApp [DAO.java:55] - SQL connection successful for getCredentials
+2025-11-23 01:52:15,441 INFO [main] c.r.p.ManagerApp [ManagerApp.java:127] - ReviewExpenses called
+2025-11-23 01:52:15,441 INFO [main] c.r.p.ManagerApp [ManagerApp.java:112] - viewExpenses called
+2025-11-23 01:52:15,442 INFO [main] c.r.p.ManagerApp [DAO.java:79] - Attempting to display expenses
+2025-11-23 01:52:15,443 INFO [main] c.r.p.ManagerApp [DAO.java:82] - SQL connection successful for displayExpenses
+2025-11-23 01:52:26,756 WARN [main] c.r.p.ManagerApp [ManagerApp.java:178] - Invalid input for reviewExpense ID
+2025-11-23 01:52:30,421 INFO [main] c.r.p.ManagerApp [ManagerApp.java:60] - LOG END
+2025-11-23 01:53:07,057 INFO [main] c.r.p.ManagerApp [ManagerApp.java:26] - LOG START
+2025-11-23 01:53:12,702 INFO [main] c.r.p.ManagerApp [DAO.java:52] - Attempting to find manager user credential's in db
+2025-11-23 01:53:13,080 INFO [main] c.r.p.ManagerApp [DAO.java:55] - SQL connection successful for getCredentials
+2025-11-23 01:53:14,025 INFO [main] c.r.p.ManagerApp [ManagerApp.java:112] - viewExpenses called
+2025-11-23 01:53:14,026 INFO [main] c.r.p.ManagerApp [DAO.java:79] - Attempting to display expenses
+2025-11-23 01:53:14,027 INFO [main] c.r.p.ManagerApp [DAO.java:82] - SQL connection successful for displayExpenses
+2025-11-23 01:53:19,862 INFO [main] c.r.p.ManagerApp [ManagerApp.java:60] - LOG END
+2025-11-23 01:55:35,961 INFO [main] c.r.p.ManagerApp [ManagerApp.java:26] - LOG START
+2025-11-23 01:55:41,595 INFO [main] c.r.p.ManagerApp [DAO.java:52] - Attempting to find manager user credential's in db
+2025-11-23 01:55:41,956 INFO [main] c.r.p.ManagerApp [DAO.java:55] - SQL connection successful for getCredentials
+2025-11-23 01:55:43,677 INFO [main] c.r.p.ManagerApp [ManagerApp.java:112] - viewExpenses called
+2025-11-23 01:55:43,677 INFO [main] c.r.p.ManagerApp [DAO.java:79] - Attempting to display expenses
+2025-11-23 01:55:43,678 INFO [main] c.r.p.ManagerApp [DAO.java:82] - SQL connection successful for displayExpenses
+2025-11-23 01:55:43,688 INFO [main] c.r.p.ManagerApp [DAO.java:112] - Successfully displayed all pending expenses
+2025-11-23 01:55:46,225 INFO [main] c.r.p.ManagerApp [ManagerApp.java:127] - ReviewExpenses called
+2025-11-23 01:55:46,225 INFO [main] c.r.p.ManagerApp [ManagerApp.java:112] - viewExpenses called
+2025-11-23 01:55:46,225 INFO [main] c.r.p.ManagerApp [DAO.java:79] - Attempting to display expenses
+2025-11-23 01:55:46,227 INFO [main] c.r.p.ManagerApp [DAO.java:82] - SQL connection successful for displayExpenses
+2025-11-23 01:55:46,229 INFO [main] c.r.p.ManagerApp [DAO.java:112] - Successfully displayed all pending expenses
+2025-11-23 01:55:50,754 ERROR [main] c.r.p.ManagerApp [DAO.java:42] - SQLException in checkID
+2025-11-23 01:55:50,755 ERROR [main] c.r.p.ManagerApp [DAO.java:43] - [SQLITE_ERROR] SQL error or missing database (near "?": syntax error)
+2025-11-23 01:55:50,755 WARN [main] c.r.p.ManagerApp [ManagerApp.java:174] - Expense ID not found in reviewExpense
+2025-11-23 01:57:42,972 INFO [main] c.r.p.ManagerApp [ManagerApp.java:60] - LOG END
+2025-11-23 01:57:52,443 INFO [main] c.r.p.ManagerApp [ManagerApp.java:26] - LOG START
+2025-11-23 01:57:58,202 INFO [main] c.r.p.ManagerApp [DAO.java:51] - Attempting to find manager user credential's in db
+2025-11-23 01:57:58,567 INFO [main] c.r.p.ManagerApp [DAO.java:54] - SQL connection successful for getCredentials
+2025-11-23 01:58:00,550 INFO [main] c.r.p.ManagerApp [ManagerApp.java:127] - ReviewExpenses called
+2025-11-23 01:58:00,551 INFO [main] c.r.p.ManagerApp [ManagerApp.java:112] - viewExpenses called
+2025-11-23 01:58:00,551 INFO [main] c.r.p.ManagerApp [DAO.java:78] - Attempting to display expenses
+2025-11-23 01:58:00,553 INFO [main] c.r.p.ManagerApp [DAO.java:81] - SQL connection successful for displayExpenses
+2025-11-23 01:58:00,562 INFO [main] c.r.p.ManagerApp [DAO.java:111] - Successfully displayed all pending expenses
+2025-11-23 01:58:10,920 WARN [main] c.r.p.ManagerApp [ManagerApp.java:164] - Invalid number input for review choices
+2025-11-23 01:58:12,651 INFO [main] c.r.p.ManagerApp [ManagerApp.java:160] - Canceled expense review
+2025-11-23 01:58:14,926 INFO [main] c.r.p.ManagerApp [ManagerApp.java:60] - LOG END
+2025-11-23 02:16:04,149 INFO [main] c.r.p.ManagerApp [ManagerApp.java:26] - LOG START
+2025-11-23 02:16:09,824 INFO [main] c.r.p.ManagerApp [DAO.java:51] - Attempting to find manager user credential's in db
+2025-11-23 02:16:10,190 INFO [main] c.r.p.ManagerApp [DAO.java:54] - SQL connection successful for getCredentials
+2025-11-23 02:16:10,205 WARN [main] c.r.p.ManagerApp [DAO.java:63] - Manager credentials specified not found
+2025-11-23 02:16:15,892 INFO [main] c.r.p.ManagerApp [DAO.java:51] - Attempting to find manager user credential's in db
+2025-11-23 02:16:15,894 INFO [main] c.r.p.ManagerApp [DAO.java:54] - SQL connection successful for getCredentials
+2025-11-23 02:16:17,828 INFO [main] c.r.p.ManagerApp [ManagerApp.java:187] - generateReport called
+2025-11-23 02:16:37,786 ERROR [main] c.r.p.ManagerApp [ManagerApp.java:251] - Invalid input for toggles
+2025-11-23 02:16:43,092 INFO [main] c.r.p.ManagerApp [ManagerApp.java:60] - LOG END
+2025-11-23 02:21:07,813 INFO [main] c.r.p.ManagerApp [ManagerApp.java:26] - LOG START
+2025-11-23 02:21:12,716 INFO [main] c.r.p.ManagerApp [DAO.java:54] - Attempting to find manager user credential's in db
+2025-11-23 02:21:13,077 INFO [main] c.r.p.ManagerApp [DAO.java:57] - SQL connection successful for getCredentials
+2025-11-23 02:21:14,834 INFO [main] c.r.p.ManagerApp [ManagerApp.java:187] - generateReport called
+2025-11-23 02:21:45,746 INFO [main] c.r.p.ManagerApp [ManagerApp.java:60] - LOG END
+2025-11-23 02:23:50,083 INFO [main] c.r.p.ManagerApp [ManagerApp.java:26] - LOG START
+2025-11-23 02:23:59,246 INFO [main] c.r.p.ManagerApp [DAO.java:54] - Attempting to find manager user credential's in db
+2025-11-23 02:23:59,626 INFO [main] c.r.p.ManagerApp [DAO.java:57] - SQL connection successful for getCredentials
+2025-11-23 02:24:02,082 INFO [main] c.r.p.ManagerApp [ManagerApp.java:187] - generateReport called
+2025-11-23 02:24:18,042 ERROR [main] c.r.p.ManagerApp [ManagerApp.java:252] - Invalid input for toggles
+2025-11-23 02:24:44,245 INFO [main] c.r.p.ManagerApp [ManagerApp.java:60] - LOG END
+2025-11-23 02:25:32,502 INFO [main] c.r.p.ManagerApp [ManagerApp.java:26] - LOG START
+2025-11-23 02:25:42,004 INFO [main] c.r.p.ManagerApp [DAO.java:54] - Attempting to find manager user credential's in db
+2025-11-23 02:25:42,356 INFO [main] c.r.p.ManagerApp [DAO.java:57] - SQL connection successful for getCredentials
+2025-11-23 02:25:44,431 INFO [main] c.r.p.ManagerApp [ManagerApp.java:187] - generateReport called
+2025-11-23 02:26:04,099 ERROR [main] c.r.p.ManagerApp [ManagerApp.java:252] - Invalid input for toggles
+2025-11-23 02:26:18,730 ERROR [main] c.r.p.ManagerApp [ManagerApp.java:252] - Invalid input for toggles
+2025-11-23 02:26:24,730 INFO [main] c.r.p.ManagerApp [ManagerApp.java:187] - generateReport called
+2025-11-23 02:28:01,809 INFO [main] c.r.p.ManagerApp [ManagerApp.java:60] - LOG END

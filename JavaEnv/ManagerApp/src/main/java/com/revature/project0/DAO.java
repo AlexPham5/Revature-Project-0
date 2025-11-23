@@ -16,17 +16,25 @@ public class DAO {
     }
 
     //returns -1 if the id doesn't exists in expenses, otherwise return 1
-    public int checkID(int id){
+    public int checkID(int id, String tablename){
         try(Connection conn = DriverManager.getConnection(dbPath)) {
             if (conn != null) {
-                String check = "SELECT * FROM expenses WHERE id=?";
+                String check = String.format("SELECT * FROM %s WHERE id=?", tablename);
                 PreparedStatement ps = conn.prepareStatement(check);
                 ps.setInt(1, id);
                 ResultSet rs = ps.executeQuery();
-                if (rs.next()) {
+                if (tablename.equals("expenses") && rs.next()) {
                     //Show expense to be edited
-                    System.out.println();
+                    System.out.println("Expense Chosen: ");
                     printExpense(rs);
+                    return 1;
+                }
+                else if(tablename.equals("users") && rs.next()){
+                    System.out.println("User ID Chosen: ");
+                    String formatH = "| %-3s | %-20s | %-8s |";
+                    String header = String.format(formatH, "ID", "Username", "Role");
+                    System.out.println(header);
+                    printUser(rs);
                     return 1;
                 }
                 else
@@ -78,7 +86,7 @@ public class DAO {
                 String getEIDs = "SELECT expense_id FROM approvals WHERE status='pending'";
                 Statement s1 = conn.createStatement();
                 ResultSet eIDs = s1.executeQuery(getEIDs);
-                if (eIDs.isBeforeFirst()) {
+                if (!eIDs.isBeforeFirst()) {
                     //no expenses found
                     System.out.println("NO EXPENSES CURRENTLY PENDING");
                     return 1;
@@ -150,10 +158,11 @@ public class DAO {
     //User id
     //Date using BETWEEN
     //'Category' by using LIKE for description
-    public int generateReport(int user, String dateS, String dateE, String keyword){
+    //Display on console and write to a text file
+    public int generateReport(int user, String dateS, String dateE, String keyword, String reportName){
 
 
-        return -1;
+        return 1;
     }
 
     public void printExpense(ResultSet rs) throws SQLException{
@@ -168,5 +177,40 @@ public class DAO {
         String date = rs.getString("date");
         String row = String.format(formatR, eid, user_id, amount, desc, date);
         System.out.println(row);
+    }
+
+    public void printUser(ResultSet rs) throws SQLException{
+        String formatR = "| %-3d | %-20s | %-8s |";
+        int id = rs.getInt("id");
+        String username = rs.getString("username");
+        String role = rs.getString("role");
+        String row = String.format(formatR, id, username, role);
+        System.out.println(row);
+    }
+
+    public int displayUsers(){
+        //show all usernames and ids (NOT PASSWORDS)
+        try(Connection conn = DriverManager.getConnection(dbPath)){
+            if(conn != null) {
+                String getUsers = "SELECT * FROM users WHERE role='Employee'";
+                Statement s1 = conn.createStatement();
+                ResultSet rs = s1.executeQuery(getUsers);
+                if(!rs.isBeforeFirst()){
+                    System.out.println("No users availabe");
+                    return -1;
+                }
+                String formatH = "| %-3s | %-20s | %-8s |";
+                String header = String.format(formatH, "ID", "Username", "Role");
+                System.out.println(header);
+                while(rs.next()){
+                    printUser(rs);
+                }
+                return 1;
+            }
+        }catch(SQLException e){
+            logger.error("SQL error in display users");
+            return -1;
+        }
+        return -1;
     }
 }

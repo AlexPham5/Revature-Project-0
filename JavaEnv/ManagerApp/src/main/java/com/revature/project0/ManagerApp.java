@@ -51,11 +51,13 @@ public class ManagerApp {
                             this.reviewExpenses();
                             break;
                         case 3:
-                            System.out.println("Generating Reports");
+                            //System.out.println("Generating Reports");
+                            this.generateReport();
                             break;
                         case 4:
                             System.out.println("Logging Out");
                             loop = false;
+                            logger.info("LOG END");
                             break;
                         default:
                             System.out.println("Invalid number input for command options");
@@ -129,7 +131,7 @@ public class ManagerApp {
             System.out.print("Enter ID number of the expense to be reviewed: ");
             int userInput = Integer.parseInt(sc.nextLine());
             boolean looped = false;
-            while(d1.checkID(userInput) == 1){
+            while(d1.checkID(userInput, "expenses") == 1){
                 looped = true;
                 try {
                     System.out.println("Chosen expense to be edited\n");
@@ -186,6 +188,8 @@ public class ManagerApp {
         boolean userFilter = false;
         boolean dateFilter = false;
         boolean keywordFilter = false;
+        System.out.print("Enter a name for this report: ");
+        String reportName = sc.nextLine();
         while(true){
             try{
                 System.out.println("GENERATE REPORT INTERFACE");
@@ -209,21 +213,36 @@ public class ManagerApp {
                     String dateS = "0";
                     String dateE = "0";
                     String keyword = "0";
+
                     if (userFilter) {
                         //check if userID exists in user table
+                        //System.out.println("userFilter inputs");
+                        if(d1.displayUsers() == -1){
+                            System.out.println("SQL Error in display users");
+                            break;
+                        }
+                        System.out.print("Enter user id: ");
+                        userID = Integer.parseInt(sc.nextLine());
+                        if(d1.checkID(userID, "users") == -1){
+                            throw new Exception("User id not found");
+                        }
                     }
                     if (dateFilter) {
                         //verify dates are valid (exists and right format)
+                        System.out.println("dateFilter inputs");
 
                     }
                     if (keywordFilter) {
-                        //
+                        System.out.println("keywordFilter inputs");
 
                     }
                     //call to DAO to do operations
-                    d1.generateReport(userID, dateS, dateE, keyword);
+                    //int valid = d1.generateReport(userID, dateS, dateE, keyword, reportName);
+                    System.out.println("REPORT GENERATED");
+                    break;
                 }else if(userInput == 5){
-
+                    System.out.println("Cancelling report");
+                    break;
                 }else{
                     System.out.println("Invalid number input for toggles");
                 }
@@ -231,6 +250,8 @@ public class ManagerApp {
             }catch(NullPointerException | NumberFormatException e){
                 System.out.println("Invalid input for toggles");
                 logger.error("Invalid input for toggles");
+            }catch(Exception e){
+                System.out.println(e.getMessage());
             }
         }
 
