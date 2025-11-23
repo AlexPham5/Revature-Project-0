@@ -125,18 +125,55 @@ public class ManagerApp {
     public void reviewExpenses(){
         logger.info("ReviewExpenses called");
         //check if id selected in valid
-        while(true) {
-            this.viewExpenses();
-            try {
-                System.out.print("Enter ID number of the expense to be reviewed: ");
-                int userInput = Integer.parseInt(sc.nextLine());
-
-
-                logger.info("Successful reviewExpense call");
-            } catch (NullPointerException | NumberFormatException e) {
-                System.out.println("Invalid input for review ID");
-                logger.warn("Invalid input for reviewExpense ID");
+        this.viewExpenses();
+        try {
+            System.out.print("Enter ID number of the expense to be reviewed: ");
+            int userInput = Integer.parseInt(sc.nextLine());
+            boolean looped = false;
+            while(d1.checkID(userInput) == 1){
+                looped = true;
+                try {
+                    System.out.println("Chosen expense to be edited");
+                    //ask for input values
+                    System.out.println("Approve or Deny expense?\n" +
+                            "1 - Approve\n" +
+                            "2 - Deny\n" +
+                            "3 - Cancel");
+                    System.out.print("Enter a number: ");
+                    int approvalChoice = Integer.parseInt(sc.nextLine());
+                    if(approvalChoice == 1 || approvalChoice == 2){
+                        System.out.print("Enter a short description why the expense was approved/denied (at least 10 characters): ");
+                        String desc = sc.nextLine();
+                        if(desc.length() < 10)
+                            throw new NullPointerException("Description too short");
+                        int valid = d1.editApproval(userInput, approvalChoice==1 ? "approved":"denied", this.managerID, desc);
+                        if(valid == 1){
+                            System.out.println("Expense successfully reviewed");
+                            break;
+                        }else{
+                            System.out.println("Error while attempting to review expense");
+                            break;
+                        }
+                    }else if(userInput == 3){
+                        System.out.println("Canceling review");
+                        logger.info("Canceled expense review");
+                        break;
+                    }else{
+                        System.out.println("Invalid number input for review choices");
+                        logger.warn("Invalid number input for review choices");
+                    }
+                }catch(NullPointerException | NumberFormatException e){
+                    System.out.println(e.getMessage());
+                    logger.error("Invalid input for review choices");
+                }
             }
+            if(!looped){
+                System.out.println("The expense ID specified was not found");
+                logger.warn("Expense ID not found in reviewExpense");
+            }
+        } catch (NullPointerException | NumberFormatException e) {
+            System.out.println("Invalid input for review ID");
+            logger.warn("Invalid input for reviewExpense ID");
         }
     }
 

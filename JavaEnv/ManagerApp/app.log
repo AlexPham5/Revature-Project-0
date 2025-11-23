@@ -137,3 +137,26 @@
 2025-11-22 23:09:26,742 INFO [main] c.r.p.ManagerApp [DAO.java:49] - Attempting to display expenses
 2025-11-22 23:09:26,742 INFO [main] c.r.p.ManagerApp [DAO.java:51] - SQL connection successful for displayExpenses
 2025-11-22 23:09:26,747 INFO [main] c.r.p.ManagerApp [DAO.java:81] - Successfully displayed all pending expenses
+2025-11-22 23:51:07,105 INFO [main] c.r.p.ManagerApp [ManagerApp.java:27] - LOG START
+2025-11-22 23:51:14,384 INFO [main] c.r.p.ManagerApp [DAO.java:44] - Attempting to find manager user credential's in db
+2025-11-22 23:51:14,735 INFO [main] c.r.p.ManagerApp [DAO.java:47] - SQL connection successful for getCredentials
+2025-11-22 23:51:18,528 INFO [main] c.r.p.ManagerApp [ManagerApp.java:126] - ReviewExpenses called
+2025-11-22 23:51:18,530 INFO [main] c.r.p.ManagerApp [ManagerApp.java:111] - viewExpenses called
+2025-11-22 23:51:18,530 INFO [main] c.r.p.ManagerApp [DAO.java:71] - Attempting to display expenses
+2025-11-22 23:51:18,533 INFO [main] c.r.p.ManagerApp [DAO.java:73] - SQL connection successful for displayExpenses
+2025-11-22 23:51:18,543 INFO [main] c.r.p.ManagerApp [DAO.java:103] - Successfully displayed all pending expenses
+2025-11-22 23:51:36,169 WARN [main] c.r.p.ManagerApp [ManagerApp.java:143] - Expense ID not found in reviewExpense
+2025-11-22 23:51:41,279 INFO [main] c.r.p.ManagerApp [ManagerApp.java:126] - ReviewExpenses called
+2025-11-22 23:51:41,280 INFO [main] c.r.p.ManagerApp [ManagerApp.java:111] - viewExpenses called
+2025-11-22 23:51:41,280 INFO [main] c.r.p.ManagerApp [DAO.java:71] - Attempting to display expenses
+2025-11-22 23:51:41,281 INFO [main] c.r.p.ManagerApp [DAO.java:73] - SQL connection successful for displayExpenses
+2025-11-22 23:51:41,285 INFO [main] c.r.p.ManagerApp [DAO.java:103] - Successfully displayed all pending expenses
+2025-11-22 23:52:25,740 INFO [main] c.r.p.ManagerApp [ManagerApp.java:27] - LOG START
+2025-11-22 23:52:31,358 INFO [main] c.r.p.ManagerApp [DAO.java:44] - Attempting to find manager user credential's in db
+2025-11-22 23:52:31,734 INFO [main] c.r.p.ManagerApp [DAO.java:47] - SQL connection successful for getCredentials
+2025-11-22 23:52:36,532 INFO [main] c.r.p.ManagerApp [ManagerApp.java:126] - ReviewExpenses called
+2025-11-22 23:52:36,533 INFO [main] c.r.p.ManagerApp [ManagerApp.java:111] - viewExpenses called
+2025-11-22 23:52:36,533 INFO [main] c.r.p.ManagerApp [DAO.java:71] - Attempting to display expenses
+2025-11-22 23:52:36,536 INFO [main] c.r.p.ManagerApp [DAO.java:73] - SQL connection successful for displayExpenses
+2025-11-22 23:52:36,545 INFO [main] c.r.p.ManagerApp [DAO.java:103] - Successfully displayed all pending expenses
+2025-11-22 23:52:39,486 INFO [main] c.r.p.ManagerApp [ManagerApp.java:140] - Successful reviewExpense call
