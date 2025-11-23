@@ -31,9 +31,6 @@ public class DAO {
                 }
                 else if(tablename.equals("users") && rs.next()){
                     System.out.println("User ID Chosen: ");
-                    String formatH = "| %-3s | %-20s | %-8s |";
-                    String header = String.format(formatH, "ID", "Username", "Role");
-                    System.out.println(header);
                     printUser(rs);
                     return 1;
                 }
@@ -159,9 +156,9 @@ public class DAO {
     //Date using BETWEEN
     //'Category' by using LIKE for description
     //Display on console and write to a text file
+    //return 1 on success, return 2 on no reports found, -1 on failure
     public int generateReport(int user, String dateS, String dateE, String keyword, String reportName){
-
-
+        
         return 1;
     }
 

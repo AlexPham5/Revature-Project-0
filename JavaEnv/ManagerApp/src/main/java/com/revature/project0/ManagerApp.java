@@ -2,6 +2,12 @@ package com.revature.project0;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 import java.util.Scanner;
 
 /*
@@ -188,15 +194,13 @@ public class ManagerApp {
         boolean userFilter = false;
         boolean dateFilter = false;
         boolean keywordFilter = false;
-        System.out.print("Enter a name for this report: ");
-        String reportName = sc.nextLine();
         while(true){
             try{
                 System.out.println("GENERATE REPORT INTERFACE");
-                System.out.println("Toggle any desired filters to generate report on, choose none for all reports: \n"+
-                        "1 - Specify User ("+userFilter+")\n"+
-                        "2 - Specify Date Range ("+dateFilter+")\n"+
-                        "3 - Specify Category ("+ keywordFilter +")\n"+
+                System.out.println("Toggle any desired filters to generate report on, choose none to see all possible records: \n"+
+                        "1 - Specify User ("+(userFilter ? "ON" : "OFF")+")\n"+
+                        "2 - Specify Date Range ("+(dateFilter ? "ON" : "OFF")+")\n"+
+                        "3 - Specify Category ("+(keywordFilter ? "ON" : "OFF")+")\n"+
                         "4 - CONTINUE\n"+
                         "5 - CANCEL");
                 System.out.print("Enter an option: ");
@@ -210,9 +214,9 @@ public class ManagerApp {
                 }else if(userInput == 4){
                     //prompt and verify inputs
                     int userID = -1;
-                    String dateS = "0";
-                    String dateE = "0";
-                    String keyword = "0";
+                    String dateS = "-1";
+                    String dateE = "-1";
+                    String keyword = "-1";
 
                     if (userFilter) {
                         //check if userID exists in user table
@@ -228,21 +232,47 @@ public class ManagerApp {
                     }
                     if (dateFilter) {
                         //prompt and verify dates are valid (exists and right format)
-                        System.out.println("dateFilter inputs");
+                        DateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        dFormat.setLenient(false);
+                        LocalDate now = LocalDate.now();
 
+                        System.out.print("Enter a start date range in format YYYY-MM-DD (cannot be in the future): ");
+                        dateS = sc.nextLine();
+                        dFormat.parse(dateS);
+                        if(dateS.compareTo(now.toString()) > 0)
+                            throw new Exception("Start date must be before or equal to current date");
+                        System.out.print("Enter an end date range in format YYYY-MM-DD (cannot be before start date): ");
+                        dateE = sc.nextLine();
+                        dFormat.parse(dateE);
+                        if(dateE.compareTo(dateS) < 0)
+                            throw new Exception("End date must be after or equal to the start date");
+                        /*
+                        if(dateS.length() != 10 || dateS.charAt(4) != '-' || dateS.charAt(7) != '-')
+                            throw new Exception("Incorrect format for start date");
+                        if(Integer.parseInt(dateS.substring(0,4)) > Integer.parseInt(this.yearNow))
+                            throw new Exception("Start date year must be from this year or before");
+                        if(Integer.parseInt(dateS.substring(5,7)) < 1 || Integer.parseInt(dateS.substring(5,7)) > 12)
+                            throw new Exception("Month must be between 01 and 12");
+                        if(Integer.parseInt(dateS.substring(8,10)) < 1 || Integer.parseInt(dateS.substring(8,10)) > 31)
+                            throw new Exception("Day must be between 01 and 31");
+                         */
                     }
                     if (keywordFilter) {
                         //prompt a keyword (any string)
-                        System.out.println("keywordFilter inputs");
                         System.out.print("Enter a keyword to search with (Ex. food, supplies, repair, etc.): ");
                         keyword = sc.nextLine();
                     }
+                    System.out.print("Enter a name for this report: ");
+                    String reportName = sc.nextLine();
                     //call to DAO to do operations
                     int valid = d1.generateReport(userID, dateS, dateE, keyword, reportName);
                     if(valid == 1){
                         System.out.println("REPORT GENERATED");
                         logger.info("Report generation success");
                         break;
+                    }else if(valid == 2){
+                        System.out.println("NO RECORDS FOUND FOR CRITERIA SPECIFIED, REPORT NOT GENERATED");
+                        logger.info("No records found for criteria specified, no report generated");
                     }else{
                         System.out.println("REPORT NOT GENERATED");
                         logger.error("Report generation failed");
@@ -256,8 +286,11 @@ public class ManagerApp {
                 }
 
             }catch(NullPointerException | NumberFormatException e){
-                System.out.println("Invalid input for toggles");
-                logger.error("Invalid input for toggles");
+                System.out.println("Invalid input for filters");
+                logger.error("Invalid input for filters");
+            }catch(DateTimeParseException e){
+                System.out.println("Invalid date: "+e.getMessage());
+                logger.error("Invalid input for date");
             }catch(Exception e){
                 System.out.println(e.getMessage());
             }

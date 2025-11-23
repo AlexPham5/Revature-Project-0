@@ -298,3 +298,35 @@
 2025-11-23 02:26:18,730 ERROR [main] c.r.p.ManagerApp [ManagerApp.java:252] - Invalid input for toggles
 2025-11-23 02:26:24,730 INFO [main] c.r.p.ManagerApp [ManagerApp.java:187] - generateReport called
 2025-11-23 02:28:01,809 INFO [main] c.r.p.ManagerApp [ManagerApp.java:60] - LOG END
+2025-11-23 12:14:13,266 INFO [main] c.r.p.ManagerApp [ManagerApp.java:30] - LOG START
+2025-11-23 12:33:16,546 INFO [main] c.r.p.ManagerApp [ManagerApp.java:32] - LOG START
+2025-11-23 12:33:23,828 INFO [main] c.r.p.ManagerApp [DAO.java:54] - Attempting to find manager user credential's in db
+2025-11-23 12:33:23,976 INFO [main] c.r.p.ManagerApp [DAO.java:57] - SQL connection successful for getCredentials
+2025-11-23 12:33:25,454 INFO [main] c.r.p.ManagerApp [ManagerApp.java:198] - generateReport called
+2025-11-23 12:33:50,340 INFO [main] c.r.p.ManagerApp [ManagerApp.java:271] - Report generation success
+2025-11-23 12:33:54,441 INFO [main] c.r.p.ManagerApp [ManagerApp.java:198] - generateReport called
+2025-11-23 12:34:20,292 INFO [main] c.r.p.ManagerApp [ManagerApp.java:271] - Report generation success
+2025-11-23 12:34:55,371 INFO [main] c.r.p.ManagerApp [ManagerApp.java:71] - LOG END
+2025-11-23 12:36:38,969 INFO [main] c.r.p.ManagerApp [ManagerApp.java:33] - LOG START
+2025-11-23 12:36:46,797 INFO [main] c.r.p.ManagerApp [DAO.java:54] - Attempting to find manager user credential's in db
+2025-11-23 12:36:46,941 INFO [main] c.r.p.ManagerApp [DAO.java:57] - SQL connection successful for getCredentials
+2025-11-23 12:36:51,509 INFO [main] c.r.p.ManagerApp [ManagerApp.java:199] - generateReport called
+2025-11-23 12:37:06,391 ERROR [main] c.r.p.ManagerApp [ManagerApp.java:291] - Invalid input for date
+2025-11-23 12:37:25,509 INFO [main] c.r.p.ManagerApp [ManagerApp.java:272] - Report generation success
+2025-11-23 12:42:52,199 INFO [main] c.r.p.ManagerApp [ManagerApp.java:72] - LOG END
+2025-11-23 12:42:58,609 INFO [main] c.r.p.ManagerApp [ManagerApp.java:35] - LOG START
+2025-11-23 12:43:04,371 INFO [main] c.r.p.ManagerApp [DAO.java:54] - Attempting to find manager user credential's in db
+2025-11-23 12:43:04,515 INFO [main] c.r.p.ManagerApp [DAO.java:57] - SQL connection successful for getCredentials
+2025-11-23 12:43:04,521 WARN [main] c.r.p.ManagerApp [DAO.java:66] - Manager credentials specified not found
+2025-11-23 12:43:13,722 INFO [main] c.r.p.ManagerApp [DAO.java:54] - Attempting to find manager user credential's in db
+2025-11-23 12:43:13,724 INFO [main] c.r.p.ManagerApp [DAO.java:57] - SQL connection successful for getCredentials
+2025-11-23 12:43:15,750 INFO [main] c.r.p.ManagerApp [ManagerApp.java:201] - generateReport called
+2025-11-23 12:44:28,083 INFO [main] c.r.p.ManagerApp [ManagerApp.java:275] - Report generation success
+2025-11-23 12:44:30,750 INFO [main] c.r.p.ManagerApp [ManagerApp.java:74] - LOG END
+2025-11-23 12:55:13,686 INFO [main] c.r.p.ManagerApp [ManagerApp.java:32] - LOG START
+2025-11-23 12:55:20,483 INFO [main] c.r.p.ManagerApp [DAO.java:54] - Attempting to find manager user credential's in db
+2025-11-23 12:55:20,849 INFO [main] c.r.p.ManagerApp [DAO.java:57] - SQL connection successful for getCredentials
+2025-11-23 12:55:22,934 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 12:56:43,341 INFO [main] c.r.p.ManagerApp [ManagerApp.java:272] - Report generation success
+2025-11-23 12:56:47,829 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-23 12:57:40,137 INFO [main] c.r.p.ManagerApp [ManagerApp.java:66] - LOG END
