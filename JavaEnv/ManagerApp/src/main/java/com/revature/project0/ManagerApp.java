@@ -216,7 +216,6 @@ public class ManagerApp {
 
                     if (userFilter) {
                         //check if userID exists in user table
-                        //System.out.println("userFilter inputs");
                         if(d1.displayUsers() == -1){
                             System.out.println("SQL Error in display users");
                             break;
@@ -228,18 +227,27 @@ public class ManagerApp {
                         }
                     }
                     if (dateFilter) {
-                        //verify dates are valid (exists and right format)
+                        //prompt and verify dates are valid (exists and right format)
                         System.out.println("dateFilter inputs");
 
                     }
                     if (keywordFilter) {
+                        //prompt a keyword (any string)
                         System.out.println("keywordFilter inputs");
-
+                        System.out.print("Enter a keyword to search with (Ex. food, supplies, repair, etc.): ");
+                        keyword = sc.nextLine();
                     }
                     //call to DAO to do operations
-                    //int valid = d1.generateReport(userID, dateS, dateE, keyword, reportName);
-                    System.out.println("REPORT GENERATED");
-                    break;
+                    int valid = d1.generateReport(userID, dateS, dateE, keyword, reportName);
+                    if(valid == 1){
+                        System.out.println("REPORT GENERATED");
+                        logger.info("Report generation success");
+                        break;
+                    }else{
+                        System.out.println("REPORT NOT GENERATED");
+                        logger.error("Report generation failed");
+                        break;
+                    }
                 }else if(userInput == 5){
                     System.out.println("Cancelling report");
                     break;
