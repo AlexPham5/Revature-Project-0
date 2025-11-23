@@ -34,7 +34,7 @@ public class ManagerApp {
             boolean loop = true;
             while(loop){
                 //after users get past login, offer command options
-                System.out.println("=====Command Options=====\n"+
+                System.out.println("\n=====Command Options=====\n"+
                         "1 - View all pending expenses\n"+
                         "2 - Review Expenses (Approve or Deny)\n"+
                         "3 - Generate Report\n"+
@@ -44,10 +44,12 @@ public class ManagerApp {
                     int userInput = Integer.parseInt(sc.nextLine());
                     switch(userInput){
                         case 1:
-                            System.out.println("Viewing expenses");
+                            //System.out.println("Viewing expenses");
+                            this.viewExpenses();
                             break;
                         case 2:
-                            System.out.println("Reviewing expenses");
+                            //System.out.println("Reviewing expenses");
+                            this.reviewExpenses();
                             break;
                         case 3:
                             System.out.println("Generating Reports");
@@ -106,7 +108,14 @@ public class ManagerApp {
     //      As a manager, I want to view a list of all pending expenses so that
     //      I can review them efficiently.
     public void viewExpenses(){
-        //Show only pending expenses
+        logger.info("viewExpenses called");
+        if(d1.displayExpenses() == -1){
+            System.out.println("Error while viewing expenses");
+        }
+        else{
+            String border = "===================All current pending expenses displayed above===================";
+            System.out.println(border);
+        }
     }
 
     //      As a manager, I want to approve or deny submitted expenses so that I
@@ -114,13 +123,30 @@ public class ManagerApp {
     //      As a manager, I want to add comments to expense decisions so that
     //      employees understand the reasoning behind approvals or denials.
     public void reviewExpenses(){
+        logger.info("ReviewExpenses called");
+        //check if id selected in valid
+        while(true) {
+            this.viewExpenses();
+            try {
+                System.out.print("Enter ID number of the expense to be reviewed: ");
+                int userInput = Integer.parseInt(sc.nextLine());
 
+
+                logger.info("Successful reviewExpense call");
+            } catch (NullPointerException | NumberFormatException e) {
+                System.out.println("Invalid input for review ID");
+                logger.warn("Invalid input for reviewExpense ID");
+            }
+        }
     }
 
     //      As a manager, I want to generate reports by employee, category, or date
     //      so that I can analyze spending trends and make informed decisions.
     //SQL states with LIKE? (ex. for %food% or %supplies%)
     public void generateReport(){
+        logger.info("generateReport called");
 
+
+        logger.info("Successful generateReport call");
     }
 }
