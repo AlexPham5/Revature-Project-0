@@ -4,7 +4,7 @@ import sqlite3
 import logging
 
 #dbPath = '..\\RevatureDatabase.db'
-dbPath = 'C:\\Users\\alex1\\Revature work\\Project 0\\RevatureDatabase.db'
+dbPath = 'C:\\Users\\alex1\\Revature_work\\Project_0\\RevatureDatabase.db'
 
 def addUser(username, password, role):
     try:

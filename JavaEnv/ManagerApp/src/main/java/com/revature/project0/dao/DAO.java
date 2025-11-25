@@ -1,9 +1,8 @@
-package com.revature.project0;
+package com.revature.project0.dao;
+import com.revature.project0.services.ManagerApp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.xml.transform.Result;
-import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
@@ -198,8 +197,7 @@ public class DAO {
                 System.out.println(header);
                 String formatR = "| %-3d | %-7d | %-9.2f | %-25s | %-12s | %-8s | %-11s | %-25s | %-12s |";
                 //save to file
-                try {
-                    FileWriter fw = new FileWriter(reportName + ".txt");
+                try(FileWriter fw = new FileWriter(reportName + ".txt")) {
                     fw.write("Report Name: "+reportName+"\n");
                     fw.write(header+"\n");
                     while(rs.next()){

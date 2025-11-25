@@ -1,13 +1,12 @@
-package com.revature.project0;
+package com.revature.project0.services;
+import com.revature.project0.dao.DAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.time.format.ResolverStyle;
 import java.util.Scanner;
 
 /*
@@ -246,16 +245,6 @@ public class ManagerApp {
                         dFormat.parse(dateE);
                         if(dateE.compareTo(dateS) < 0)
                             throw new Exception("End date must be after or equal to the start date");
-                        /*
-                        if(dateS.length() != 10 || dateS.charAt(4) != '-' || dateS.charAt(7) != '-')
-                            throw new Exception("Incorrect format for start date");
-                        if(Integer.parseInt(dateS.substring(0,4)) > Integer.parseInt(this.yearNow))
-                            throw new Exception("Start date year must be from this year or before");
-                        if(Integer.parseInt(dateS.substring(5,7)) < 1 || Integer.parseInt(dateS.substring(5,7)) > 12)
-                            throw new Exception("Month must be between 01 and 12");
-                        if(Integer.parseInt(dateS.substring(8,10)) < 1 || Integer.parseInt(dateS.substring(8,10)) > 31)
-                            throw new Exception("Day must be between 01 and 31");
-                         */
                     }
                     if (keywordFilter) {
                         //prompt a keyword (any string)

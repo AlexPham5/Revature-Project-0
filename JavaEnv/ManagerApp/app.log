@@ -438,3 +438,28 @@
 2025-11-23 15:07:12,165 INFO [main] c.r.p.ManagerApp [DAO.java:222] - Report successfully written to external file
 2025-11-23 15:07:12,168 INFO [main] c.r.p.ManagerApp [ManagerApp.java:271] - Report generation success
 2025-11-23 15:08:00,186 INFO [main] c.r.p.ManagerApp [ManagerApp.java:66] - LOG END
+2025-11-24 11:09:25,915 INFO [main] c.r.p.ManagerApp [ManagerApp.java:32] - LOG START
+2025-11-24 11:09:34,633 INFO [main] c.r.p.ManagerApp [DAO.java:53] - Attempting to find manager user credential's in db
+2025-11-24 11:09:34,784 INFO [main] c.r.p.ManagerApp [DAO.java:56] - SQL connection successful for getCredentials
+2025-11-24 11:09:44,367 INFO [main] c.r.p.ManagerApp [ManagerApp.java:118] - viewExpenses called
+2025-11-24 11:09:44,367 INFO [main] c.r.p.ManagerApp [DAO.java:80] - Attempting to display expenses
+2025-11-24 11:09:44,368 INFO [main] c.r.p.ManagerApp [DAO.java:83] - SQL connection successful for displayExpenses
+2025-11-24 11:09:44,373 INFO [main] c.r.p.ManagerApp [DAO.java:113] - Successfully displayed all pending expenses
+2025-11-24 11:09:59,736 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-24 11:10:50,131 INFO [main] c.r.p.ManagerApp [DAO.java:165] - Successful DB connect in generateReport
+2025-11-24 11:10:50,136 INFO [main] c.r.p.ManagerApp [DAO.java:222] - Report successfully written to external file
+2025-11-24 11:10:50,136 INFO [main] c.r.p.ManagerApp [ManagerApp.java:271] - Report generation success
+2025-11-24 11:12:10,323 INFO [main] c.r.p.ManagerApp [ManagerApp.java:193] - generateReport called
+2025-11-24 11:12:41,303 INFO [main] c.r.p.ManagerApp [ManagerApp.java:66] - LOG END
+2025-11-25 16:09:07,297 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:31] - LOG START
+2025-11-25 16:09:14,309 INFO [main] c.r.p.s.ManagerApp [DAO.java:52] - Attempting to find manager user credential's in db
+2025-11-25 16:09:14,820 INFO [main] c.r.p.s.ManagerApp [DAO.java:55] - SQL connection successful for getCredentials
+2025-11-25 16:09:16,465 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:117] - viewExpenses called
+2025-11-25 16:09:16,465 INFO [main] c.r.p.s.ManagerApp [DAO.java:79] - Attempting to display expenses
+2025-11-25 16:09:16,470 INFO [main] c.r.p.s.ManagerApp [DAO.java:82] - SQL connection successful for displayExpenses
+2025-11-25 16:09:16,480 INFO [main] c.r.p.s.ManagerApp [DAO.java:112] - Successfully displayed all pending expenses
+2025-11-25 16:09:38,471 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:192] - generateReport called
+2025-11-25 16:09:58,436 INFO [main] c.r.p.s.ManagerApp [DAO.java:164] - Successful DB connect in generateReport
+2025-11-25 16:09:58,450 INFO [main] c.r.p.s.ManagerApp [DAO.java:220] - Report successfully written to external file
+2025-11-25 16:09:58,450 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:260] - Report generation success
+2025-11-25 16:10:08,024 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:65] - LOG END
