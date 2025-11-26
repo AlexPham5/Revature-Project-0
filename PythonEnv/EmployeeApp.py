@@ -2,7 +2,7 @@ import sqlite3
 import sys
 import logging
 from tabulate import tabulate
-from helpers import helper
+from PythonEnv.utils import util
 from datetime import datetime
 
 class EmployeeApp:
@@ -25,7 +25,7 @@ class EmployeeApp:
         while(1):
             self.login()
             while(1):
-                print("===== COMMAND OPTIONS =====\n" \
+                print("\n===== COMMAND OPTIONS =====\n" \
                 "1 - Submit a new expense\n" \
                 "2 - View all submitted expenses\n" \
                 "3 - Edit an existing expense\n" \
@@ -415,9 +415,7 @@ class EmployeeApp:
         return
 
 #main
-#helper.initDB()
-eApp = EmployeeApp()
-eApp.promptInput()
+#util.initDB()
 
 # helper function outside of employee app to help test
 #helper.addUser("myusername360", "badpassword123", "Employee")
