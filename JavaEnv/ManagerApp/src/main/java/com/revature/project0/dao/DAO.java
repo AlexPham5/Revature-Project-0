@@ -1,6 +1,7 @@
 package com.revature.project0.dao;
 import com.revature.project0.model.Approval;
 import com.revature.project0.model.Expense;
+import com.revature.project0.model.User;
 import com.revature.project0.services.ManagerApp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,31 +26,51 @@ public class DAO {
     }
 
     //returns -1 if the id doesn't exists in expenses, otherwise return 1
-    public int checkID(int id, String tablename){
+    // if mode = 1, check all pending expenses
+    // if mode = 2, check all approved/denied expenses
+    public Expense checkExpenseID(int id, boolean pending){
         try(Connection conn = DriverManager.getConnection(dbPath)) {
             if (conn != null) {
-                String check = String.format("SELECT * FROM %s WHERE id=?", tablename);
+                String check = "SELECT * FROM expenses WHERE id=?";
                 PreparedStatement ps = conn.prepareStatement(check);
                 ps.setInt(1, id);
                 ResultSet rs = ps.executeQuery();
-                if (tablename.equals("expenses") && rs.next()) {
-                    //Show expense to be edited
-                    System.out.println("Expense Chosen: ");
-                    Expense e = new Expense(rs.getInt("id"), rs.getInt("user_id"), rs.getFloat("amount"), rs.getString("description"), rs.getString("date"));
-                    printExpenseHeader();
-                    printExpense(e);
-                    return 1;
+                if (rs.isBeforeFirst()) {
+                    //check if the expense is pending by checking approval
+                    int expense_id = rs.getInt("id");
+                    StringBuilder query = new StringBuilder("SELECT status FROM approvals WHERE expense_id=?");
+                    if(pending)
+                        query.append(" AND status='pending'");
+                    else
+                        query.append(" AND NOT status='pending'");
+                    PreparedStatement ps2 = conn.prepareStatement(query.toString());
+                    ps2.setInt(1, expense_id);
+                    ResultSet rs2 = ps2.executeQuery();
+                    if(rs2.isBeforeFirst()){
+                        String status = rs2.getString("status");
+                        //wanted pending expenses, got a pending expense
+                        if((status.equals("pending") && pending) || (!status.equals("pending") && !pending)){
+                            //Show expense to be edited
+                            Expense e = new Expense(rs.getInt("id"), rs.getInt("user_id"), rs.getFloat("amount"), rs.getString("description"), rs.getString("date"));
+                            return e;
+                        }else{
+                            return null;
+                        }
+                    }else{
+                        logger.error("Approval corresponding to expense_id not found");
+                        return null;
+                    }
                 }
                 else
-                    return -1;
+                    return null;
             }
         }catch(SQLException e){
             logger.error("SQLException in checkID");
             logger.error(e.getMessage());
             System.out.println("SQL Error when verifying ID\n");
-            return -1;
+            return null;
         }
-        return -1;
+        return null;
     }
 
     //return -1 if it doesnt exist, otherwise return 1
@@ -107,18 +128,24 @@ public class DAO {
     }
 
     //show all pending expenses in the expense table
-    public List<Expense> getExpenses(){
+    public List<Expense> getExpenses(boolean pending){
         logger.info("Attempting to display expenses");
         try(Connection conn = DriverManager.getConnection(dbPath)){
             if(conn != null) {
                 logger.info("SQL connection successful for displayExpenses");
                 //Get all the expense_id from approvals where status is pending
-                String getEIDs = "SELECT expense_id FROM approvals WHERE status='pending'";
+                //String getEIDs = "SELECT expense_id FROM approvals WHERE status='pending'";
+                String getEIDs = "SELECT expense_id FROM approvals";
+                StringBuilder query = new StringBuilder(getEIDs);
+                if(pending)
+                    query.append(" WHERE status = 'pending'");
+                else
+                    query.append(" WHERE NOT status = 'pending'");
                 Statement s1 = conn.createStatement();
-                ResultSet eIDs = s1.executeQuery(getEIDs);
+                ResultSet eIDs = s1.executeQuery(query.toString());
                 if (!eIDs.isBeforeFirst()) {
                     //no expenses found
-                    System.out.println("NO EXPENSES CURRENTLY PENDING");
+                    System.out.println("NO EXPENSES FOUND");
                     return null;
                 }
                 List<Expense> expenseList = new ArrayList<Expense>();

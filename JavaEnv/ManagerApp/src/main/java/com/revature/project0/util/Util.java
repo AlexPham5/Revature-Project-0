@@ -30,7 +30,7 @@ public class Util {
         System.out.println(row);
     }
 
-    public static void printExpenseHeaderPending(){
+    public static void printExpenseHeaderStatus(){
         String formatH = "| %-3s | %-7s | %-10s | %-25s | %-10s | %-8s |";
         String header = String.format(formatH, "ID", "User_ID", "Amount", "Description", "Date", "Status");
         System.out.println(header);

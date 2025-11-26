@@ -2,6 +2,7 @@ package com.revature.project0.services;
 import com.revature.project0.dao.DAO;
 import com.revature.project0.model.Approval;
 import com.revature.project0.model.Expense;
+import com.revature.project0.model.User;
 import com.revature.project0.util.Util;
 import javafx.util.Pair;
 import org.slf4j.Logger;
@@ -130,7 +131,7 @@ public class ManagerApp {
     public void viewExpenses(){
         logger.info("viewExpenses called");
         List<Expense> expenses = new ArrayList<Expense>();
-        expenses = d1.getExpenses();
+        expenses = d1.getExpenses(true);
         if(expenses == null){
             System.out.println("Error while viewing expenses");
         }
@@ -138,7 +139,7 @@ public class ManagerApp {
             //Format for table printing
             String bordertop = "=".repeat(82);
             System.out.println(bordertop);
-            Util.printExpenseHeaderPending();
+            Util.printExpenseHeaderStatus();
             for(Expense e : expenses)
                 Util.printExpensePending(e);
             String border = "=".repeat(18)+"[All current pending expenses displayed above]"+"=".repeat(18);
@@ -158,8 +159,12 @@ public class ManagerApp {
             System.out.print("Enter ID number of the expense to be reviewed: ");
             int userInput = Integer.parseInt(sc.nextLine());
             boolean looped = false;
-            while(d1.checkID(userInput, "expenses") == 1){
+            Expense exp;
+            while((exp = d1.checkExpenseID(userInput, true)) != null){
                 looped = true;
+                System.out.println("Expense Chosen: ");
+                printExpenseHeader();
+                printExpense(exp);
                 try {
                     //ask for input values
                     System.out.println("Approve or Deny expense?\n" +
@@ -207,6 +212,32 @@ public class ManagerApp {
 
     public void editApproval(){
         //Edit the status or comment of an expense that is already approved/denied
+        Pair<List<Expense>, List<Approval>> reports;
+        reports = d1.getReport(-1, "-1", "-1", "-1");
+        //Show all the approved/denied expenses
+        for(int i = 0; i < reports.getKey().size(); i++){
+            if(reports.getValue().get(i).getStatus().equals("pending") == false)
+                printReport(reports.getKey().get(i), reports.getValue().get(i));
+        }
+        try{
+            System.out.print("Enter ID number of the expense to be edited: ");
+            int userInput = Integer.parseInt(sc.nextLine());
+            boolean looped = false;
+            Expense exp;
+            while((exp = d1.checkExpenseID(userInput, false)) != null) {
+                looped = true;
+
+                
+
+            }
+            if(!looped){
+                System.out.println("The expense ID specified was not found");
+                logger.warn("Expense ID not found in editApproval");
+            }
+        }catch (NullPointerException | NumberFormatException e) {
+            System.out.println("Invalid input for edit ID");
+            logger.warn("Invalid input for editApproval ID");
+        }
 
     }
 
