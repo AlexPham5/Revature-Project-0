@@ -51,7 +51,8 @@ public class ManagerApp {
                         "1 - View all pending expenses\n"+
                         "2 - Review Expenses (Approve or Deny)\n"+
                         "3 - Generate Report\n"+
-                        "4 - LOGOUT");
+                        "4 - Edit Approval\n"+
+                        "5 - LOGOUT");
                 try{
                     System.out.print("Enter an option: ");
                     int userInput = Integer.parseInt(sc.nextLine());
@@ -69,9 +70,11 @@ public class ManagerApp {
                             this.generateReport();
                             break;
                         case 4:
+                            this.editApproval();
+                            break;
+                        case 5:
                             System.out.println("Logging Out");
                             loop = false;
-                            logger.info("LOG END");
                             break;
                         default:
                             System.out.println("Invalid number input for command options");
@@ -109,8 +112,10 @@ public class ManagerApp {
                         this.managerID = id;
                         break;
                     }
-                }else if(userInput == 2)
+                }else if(userInput == 2) {
+                    logger.info("LOG END");
                     System.exit(0);
+                }
                 else
                     System.out.println("Invalid number option for login, please enter 1 or 2");
             }catch(NullPointerException|NumberFormatException e){
@@ -200,6 +205,11 @@ public class ManagerApp {
         }
     }
 
+    public void editApproval(){
+        //Edit the status or comment of an expense that is already approved/denied
+
+    }
+
     //      As a manager, I want to generate reports by employee, category, or date
     //      so that I can analyze spending trends and make informed decisions.
     //SQL states with LIKE? (ex. for %food% or %supplies%)
@@ -241,7 +251,7 @@ public class ManagerApp {
                         }
                         System.out.print("Enter user id: ");
                         userID = Integer.parseInt(sc.nextLine());
-                        if(d1.checkID(userID, "users") == -1){
+                        if(d1.checkUserID(userID) == -1){
                             throw new Exception("User id not found");
                         }
                     }

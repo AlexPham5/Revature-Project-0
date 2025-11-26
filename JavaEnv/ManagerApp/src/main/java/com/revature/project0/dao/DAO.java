@@ -40,11 +40,6 @@ public class DAO {
                     printExpense(e);
                     return 1;
                 }
-                else if(tablename.equals("users") && rs.next()){
-                    System.out.println("User ID Chosen: ");
-                    printUser(rs);
-                    return 1;
-                }
                 else
                     return -1;
             }
@@ -52,6 +47,33 @@ public class DAO {
             logger.error("SQLException in checkID");
             logger.error(e.getMessage());
             System.out.println("SQL Error when verifying ID\n");
+            return -1;
+        }
+        return -1;
+    }
+
+    //return -1 if it doesnt exist, otherwise return 1
+    public int checkUserID(int id) {
+        try (Connection conn = DriverManager.getConnection(dbPath)) {
+            if(conn != null){
+                String check = String.format("SELECT id, username, role FROM users WHERE id=? AND role='Employee'");
+                PreparedStatement ps = conn.prepareStatement(check);
+                ps.setInt(1, id);
+                ResultSet rs = ps.executeQuery();
+                if(!rs.isBeforeFirst()){
+                    logger.warn("User id not found");
+                    return -1;
+                }
+                else{
+                    System.out.println("User ID Chosen: ");
+                    printUser(rs);
+                    return 1;
+                }
+            }
+        }catch(SQLException e){
+            logger.error("SQLException in checkUserID");
+            logger.error(e.getMessage());
+            System.out.println("SQL Error when verifying user ID\n");
             return -1;
         }
         return -1;

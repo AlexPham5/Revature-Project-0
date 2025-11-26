@@ -552,3 +552,70 @@
 2025-11-25 20:24:49,132 INFO [main] c.r.p.s.ManagerApp [DAO.java:118] - Successfully displayed all pending expenses
 2025-11-25 20:24:54,347 WARN [main] c.r.p.s.ManagerApp [ManagerApp.java:199] - Invalid input for reviewExpense ID
 2025-11-25 20:25:00,208 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:74] - LOG END
+2025-11-26 10:17:32,086 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-26 10:17:38,958 INFO [main] c.r.p.s.ManagerApp [DAO.java:62] - Attempting to find manager user credential's in db
+2025-11-26 10:17:39,446 INFO [main] c.r.p.s.ManagerApp [DAO.java:65] - SQL connection successful for getCredentials
+2025-11-26 10:17:42,163 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-26 10:17:42,163 INFO [main] c.r.p.s.ManagerApp [DAO.java:89] - Attempting to display expenses
+2025-11-26 10:17:42,165 INFO [main] c.r.p.s.ManagerApp [DAO.java:92] - SQL connection successful for displayExpenses
+2025-11-26 10:17:42,173 INFO [main] c.r.p.s.ManagerApp [DAO.java:118] - Successfully displayed all pending expenses
+2025-11-26 10:17:55,469 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:154] - ReviewExpenses called
+2025-11-26 10:17:55,469 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-26 10:17:55,469 INFO [main] c.r.p.s.ManagerApp [DAO.java:89] - Attempting to display expenses
+2025-11-26 10:17:55,470 INFO [main] c.r.p.s.ManagerApp [DAO.java:92] - SQL connection successful for displayExpenses
+2025-11-26 10:17:55,474 INFO [main] c.r.p.s.ManagerApp [DAO.java:118] - Successfully displayed all pending expenses
+2025-11-26 10:17:58,164 WARN [main] c.r.p.s.ManagerApp [ManagerApp.java:200] - Expense ID not found in reviewExpense
+2025-11-26 10:18:03,010 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:154] - ReviewExpenses called
+2025-11-26 10:18:03,010 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-26 10:18:03,010 INFO [main] c.r.p.s.ManagerApp [DAO.java:89] - Attempting to display expenses
+2025-11-26 10:18:03,010 INFO [main] c.r.p.s.ManagerApp [DAO.java:92] - SQL connection successful for displayExpenses
+2025-11-26 10:18:03,014 INFO [main] c.r.p.s.ManagerApp [DAO.java:118] - Successfully displayed all pending expenses
+2025-11-26 10:18:17,943 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:186] - Canceled expense review
+2025-11-26 10:18:25,875 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-26 10:31:04,239 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-26 10:31:10,153 INFO [main] c.r.p.s.ManagerApp [DAO.java:85] - Attempting to find manager user credential's in db
+2025-11-26 10:31:10,513 INFO [main] c.r.p.s.ManagerApp [DAO.java:88] - SQL connection successful for getCredentials
+2025-11-26 10:31:12,413 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:218] - generateReport called
+2025-11-26 10:31:30,110 INFO [main] c.r.p.s.ManagerApp [DAO.java:193] - Successful DB connect in generateReport
+2025-11-26 10:31:30,114 INFO [main] c.r.p.s.ManagerApp [DAO.java:220] - No records found for criteria specified, no report generated
+2025-11-26 10:31:30,116 ERROR [main] c.r.p.s.ManagerApp [ManagerApp.java:308] - Report generation failed
+2025-11-26 10:31:41,979 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-26 10:32:21,870 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-26 10:32:26,389 INFO [main] c.r.p.s.ManagerApp [DAO.java:85] - Attempting to find manager user credential's in db
+2025-11-26 10:32:26,743 INFO [main] c.r.p.s.ManagerApp [DAO.java:88] - SQL connection successful for getCredentials
+2025-11-26 10:32:29,438 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:218] - generateReport called
+2025-11-26 10:32:36,198 ERROR [main] c.r.p.s.ManagerApp [DAO.java:75] - SQLException in checkUserID
+2025-11-26 10:32:36,198 ERROR [main] c.r.p.s.ManagerApp [DAO.java:76] - [SQLITE_ERROR] SQL error or missing database (unrecognized token: "'Employee")
+2025-11-26 10:32:46,785 ERROR [main] c.r.p.s.ManagerApp [DAO.java:75] - SQLException in checkUserID
+2025-11-26 10:32:46,785 ERROR [main] c.r.p.s.ManagerApp [DAO.java:76] - [SQLITE_ERROR] SQL error or missing database (unrecognized token: "'Employee")
+2025-11-26 10:32:58,465 ERROR [main] c.r.p.s.ManagerApp [DAO.java:75] - SQLException in checkUserID
+2025-11-26 10:32:58,465 ERROR [main] c.r.p.s.ManagerApp [DAO.java:76] - [SQLITE_ERROR] SQL error or missing database (unrecognized token: "'Employee")
+2025-11-26 10:33:03,502 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:154] - ReviewExpenses called
+2025-11-26 10:33:03,504 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-26 10:33:03,504 INFO [main] c.r.p.s.ManagerApp [DAO.java:112] - Attempting to display expenses
+2025-11-26 10:33:03,504 INFO [main] c.r.p.s.ManagerApp [DAO.java:115] - SQL connection successful for displayExpenses
+2025-11-26 10:33:03,511 INFO [main] c.r.p.s.ManagerApp [DAO.java:141] - Successfully displayed all pending expenses
+2025-11-26 10:33:08,993 WARN [main] c.r.p.s.ManagerApp [ManagerApp.java:200] - Expense ID not found in reviewExpense
+2025-11-26 10:33:13,256 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-26 10:34:21,246 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-26 10:34:26,480 INFO [main] c.r.p.s.ManagerApp [DAO.java:85] - Attempting to find manager user credential's in db
+2025-11-26 10:34:26,841 INFO [main] c.r.p.s.ManagerApp [DAO.java:88] - SQL connection successful for getCredentials
+2025-11-26 10:34:28,716 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:218] - generateReport called
+2025-11-26 10:34:39,903 INFO [main] c.r.p.s.ManagerApp [DAO.java:193] - Successful DB connect in generateReport
+2025-11-26 10:34:39,903 INFO [main] c.r.p.s.ManagerApp [DAO.java:220] - No records found for criteria specified, no report generated
+2025-11-26 10:34:39,903 ERROR [main] c.r.p.s.ManagerApp [ManagerApp.java:308] - Report generation failed
+2025-11-26 10:35:17,089 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-26 10:39:02,715 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-26 10:39:10,283 INFO [main] c.r.p.s.ManagerApp [DAO.java:89] - Attempting to find manager user credential's in db
+2025-11-26 10:39:10,659 INFO [main] c.r.p.s.ManagerApp [DAO.java:92] - SQL connection successful for getCredentials
+2025-11-26 10:39:13,517 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:218] - generateReport called
+2025-11-26 10:39:18,877 WARN [main] c.r.p.s.ManagerApp [DAO.java:69] - User id not found
+2025-11-26 10:39:34,247 INFO [main] c.r.p.s.ManagerApp [DAO.java:197] - Successful DB connect in generateReport
+2025-11-26 10:39:34,247 INFO [main] c.r.p.s.ManagerApp [DAO.java:224] - No records found for criteria specified, no report generated
+2025-11-26 10:39:34,247 ERROR [main] c.r.p.s.ManagerApp [ManagerApp.java:308] - Report generation failed
+2025-11-26 10:39:49,690 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:218] - generateReport called
+2025-11-26 10:40:00,275 INFO [main] c.r.p.s.ManagerApp [DAO.java:197] - Successful DB connect in generateReport
+2025-11-26 10:40:00,293 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:303] - Report generation success
+2025-11-26 10:40:16,831 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:218] - generateReport called
+2025-11-26 10:40:22,748 WARN [main] c.r.p.s.ManagerApp [DAO.java:69] - User id not found
+2025-11-26 10:40:33,635 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
