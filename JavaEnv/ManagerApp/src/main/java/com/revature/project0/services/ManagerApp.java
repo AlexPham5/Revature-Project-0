@@ -1,10 +1,13 @@
 package com.revature.project0.services;
 import com.revature.project0.dao.DAO;
+import com.revature.project0.model.Approval;
 import com.revature.project0.model.Expense;
 import com.revature.project0.util.Util;
+import javafx.util.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -12,6 +15,8 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import static com.revature.project0.util.Util.*;
 
 /*
 Manager App (Java)
@@ -120,7 +125,7 @@ public class ManagerApp {
     public void viewExpenses(){
         logger.info("viewExpenses called");
         List<Expense> expenses = new ArrayList<Expense>();
-        expenses = d1.displayExpenses();
+        expenses = d1.getExpenses();
         if(expenses == null){
             System.out.println("Error while viewing expenses");
         }
@@ -265,15 +270,31 @@ public class ManagerApp {
                     System.out.print("Enter a name for this report: ");
                     String reportName = sc.nextLine();
                     //call to DAO to do operations
-                    int valid = d1.generateReport(userID, dateS, dateE, keyword, reportName);
-                    if(valid == 1){
+                    Pair<List<Expense>, List<Approval>> reports;
+                    reports = d1.getReport(userID, dateS, dateE, keyword);
+
+                    if(reports != null){
+                        //Print out reports
+                        printReportHeader(reportName);
+                        for(int i=0; i <reports.getKey().size();i++){
+                            printReport(reports.getKey().get(i), reports.getValue().get(i));
+                        }
+
+                        //Save reports to a file
+                        try {
+                            saveReport(reportName, reports.getKey(), reports.getValue());
+                        }catch(IOException e){
+                            System.out.println("Error when saving report");
+                            logger.error("Report generation failed, file not saved");
+                            break;
+                        }
+
                         System.out.println("REPORT GENERATED");
                         logger.info("Report generation success");
                         break;
-                    }else if(valid == 2){
-                        System.out.println("NO RECORDS FOUND FOR CRITERIA SPECIFIED, REPORT NOT GENERATED");
-                    }else{
-                        System.out.println("REPORT GENERATION FAILED");
+                    }
+                    else{
+                        System.out.println("REPORT NOT GENERATED");
                         logger.error("Report generation failed");
                         break;
                     }

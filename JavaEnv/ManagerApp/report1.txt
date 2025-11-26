@@ -1,7 +1,0 @@
-Report Name: report1
-| ID  | User_ID | Amount    | Description               | Expense Date | Status   | Reviewer_ID | Comment                   | Review Date  |
-| 1   | 1       | 1100.00   | food                      | 2025-11-15   | pending  | N/A         | N/A                       | N/A          |
-| 2   | 1       | 600.00    | office supplies           | 2025-11-19   | pending  | N/A         | N/A                       | N/A          |
-| 4   | 1       | 85.00     | fees                      | 2025-09-04   | approved | 3           | no extra comments         | 2025-11-15   |
-| 5   | 1       | 50.00     | repairs for door          | 2025-09-01   | approved | 3           | repair approved           | 2025-11-23   |
-| 7   | 1       | 70.00     | food for party            | 2025-01-01   | pending  | N/A         | N/A                       | N/A          |

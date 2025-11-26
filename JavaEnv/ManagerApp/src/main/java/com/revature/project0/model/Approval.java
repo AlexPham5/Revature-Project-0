@@ -12,6 +12,13 @@ public class Approval {
 
     }
 
+    public Approval(String status, int reviewer, String comment, String review_date) {
+        this.status = status;
+        this.reviewer = reviewer;
+        this.comment = comment;
+        this.review_date = review_date;
+    }
+
     public Approval(int id, int expense_id, String status, int reviewer, String comment, String review_date) {
         this.id = id;
         this.expense_id = expense_id;

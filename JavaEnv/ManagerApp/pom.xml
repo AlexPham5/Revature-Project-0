@@ -39,6 +39,12 @@
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.51.0.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-base -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>23.0.2</version>
+        </dependency>
     </dependencies>
 
 </project>

@@ -1,4 +1,5 @@
 package com.revature.project0.dao;
+import com.revature.project0.model.Approval;
 import com.revature.project0.model.Expense;
 import com.revature.project0.services.ManagerApp;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.util.Pair;
 
 import static com.revature.project0.util.Util.printExpense;
 import static com.revature.project0.util.Util.printExpenseHeader;
@@ -83,7 +85,7 @@ public class DAO {
     }
 
     //show all pending expenses in the expense table
-    public List<Expense> displayExpenses(){
+    public List<Expense> getExpenses(){
         logger.info("Attempting to display expenses");
         try(Connection conn = DriverManager.getConnection(dbPath)){
             if(conn != null) {
@@ -140,11 +142,11 @@ public class DAO {
                 p1.setString(4, now.toString());
                 p1.setInt(5, eID);
                 if(p1.executeUpdate() < 1) {
-                    logger.info("Expense successfully reviewed");
+                    logger.info("Expense review failed");
                     return -1;
                 }
                 else {
-                    logger.error("Expense update unsuccessful");
+                    logger.error("Expense successfully reviewed");
                     return 1;
                 }
             }
@@ -162,7 +164,7 @@ public class DAO {
     //'Category' by using LIKE for description
     //Display on console and write to a text file
     //return 1 on success, return 2 on no reports found, -1 on failure
-    public int generateReport(int user, String dateS, String dateE, String keyword, String reportName){
+    public Pair<List<Expense>, List<Approval>> getReport(int user, String dateS, String dateE, String keyword){
         try(Connection conn = DriverManager.getConnection(dbPath)) {
             if(conn != null){
                 logger.info("Successful DB connect in generateReport");
@@ -191,49 +193,38 @@ public class DAO {
                 Statement s1 = conn.createStatement();
                 ResultSet rs = s1.executeQuery(query.toString());
                 if(!rs.isBeforeFirst()){
+                    System.out.println("NO RECORDS FOUND FOR CRITERIA SPECIFIED");
                     logger.info("No records found for criteria specified, no report generated");
-                    return 2;
+                    return null;
                 }
-                //Printing and saving the report
-                System.out.println("Report Name: "+reportName);
-                String formatH = "| %-3s | %-7s | %-9s | %-25s | %-12s | %-8s | %-11s | %-25s | %-12s |";
-                String header = String.format(formatH, "ID", "User_ID", "Amount", "Description", "Expense Date", "Status", "Reviewer_ID", "Comment", "Review Date");
-                System.out.println(header);
-                String formatR = "| %-3d | %-7d | %-9.2f | %-25s | %-12s | %-8s | %-11s | %-25s | %-12s |";
-                //save to file
-                try(FileWriter fw = new FileWriter(reportName + ".txt")) {
-                    fw.write("Report Name: "+reportName+"\n");
-                    fw.write(header+"\n");
-                    while(rs.next()){
-                        //print to console and save in a txt file named reportName.txt
-                        int expID = rs.getInt("id");
-                        int userID = rs.getInt("user_id");
-                        float amount = rs.getFloat("amount");
-                        String desc = rs.getString("description");
-                        String expDate = rs.getString("date");
-                        String status = rs.getString("status");
-                        int revID = rs.getInt("reviewer");
-                        String comment = rs.getString("comment");
-                        String revDate = rs.getString("review_date");
-                        //revID, comment, and revDate can be null
-                        String row = String.format(formatR, expID, userID, amount, desc, expDate, status, (revID==0 ? "N/A":Integer.toString(revID)),(comment==null ? "N/A":comment), (revDate==null ? "N/A":revDate));
-                        System.out.println(row);
-                        fw.write(row+"\n");
-                    }
-                    fw.close();
-                    logger.info("Report successfully written to external file");
-                }catch(IOException e){
-                    logger.error("IOException in generateReport on FileWriter instantiation");
-                    return -1;
+                //pair of expense list and approval list
+                List<Expense> eList = new ArrayList<Expense>();
+                List<Approval> aList = new ArrayList<Approval>();
+                while(rs.next()){
+                    //print to console and save in a txt file named reportName.txt
+                    int expID = rs.getInt("id");
+                    int userID = rs.getInt("user_id");
+                    float amount = rs.getFloat("amount");
+                    String desc = rs.getString("description");
+                    String expDate = rs.getString("date");
+                    String status = rs.getString("status");
+                    int revID = rs.getInt("reviewer");
+                    String comment = rs.getString("comment");
+                    String revDate = rs.getString("review_date");
+                    Expense e = new Expense(expID, userID, amount, desc, expDate);
+                    Approval a = new Approval(status, revID, comment, revDate);
+                    eList.add(e);
+                    aList.add(a);
                 }
-                return 1;
+                Pair<List<Expense>, List<Approval>> reports = new Pair<>(eList, aList);
+                return reports;
             }
         }catch(SQLException e){
             logger.error("SQLException in generateReport");
             logger.error(e.getMessage());
-            return -1;
+            return null;
         }
-        return -1;
+        return null;
     }
 
     public void printUser(ResultSet rs) throws SQLException{
