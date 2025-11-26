@@ -1,4 +1,5 @@
 package com.revature.project0.dao;
+import com.revature.project0.model.Expense;
 import com.revature.project0.services.ManagerApp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,6 +8,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.revature.project0.util.Util.printExpense;
+import static com.revature.project0.util.Util.printExpenseHeader;
 
 //Will execute the SQL commands after ManagerApp verifies the inputs
 public class DAO {
@@ -27,7 +33,9 @@ public class DAO {
                 if (tablename.equals("expenses") && rs.next()) {
                     //Show expense to be edited
                     System.out.println("Expense Chosen: ");
-                    printExpense(rs);
+                    Expense e = new Expense(rs.getInt("id"), rs.getInt("user_id"), rs.getFloat("amount"), rs.getString("description"), rs.getString("date"));
+                    printExpenseHeader();
+                    printExpense(e);
                     return 1;
                 }
                 else if(tablename.equals("users") && rs.next()){
@@ -75,7 +83,7 @@ public class DAO {
     }
 
     //show all pending expenses in the expense table
-    public int displayExpenses(){
+    public List<Expense> displayExpenses(){
         logger.info("Attempting to display expenses");
         try(Connection conn = DriverManager.getConnection(dbPath)){
             if(conn != null) {
@@ -87,37 +95,33 @@ public class DAO {
                 if (!eIDs.isBeforeFirst()) {
                     //no expenses found
                     System.out.println("NO EXPENSES CURRENTLY PENDING");
-                    return 1;
+                    return null;
                 }
-                //Format for table printing
-                String formatH = "| %-3s | %-7s | %-10s | %-25s | %-10s | %-8s |";
-                String header = String.format(formatH, "ID", "User_ID", "Amount", "Description", "Date", "Status");
-                System.out.println(header);
-                String formatR = "| %-3d | %-7d | $%-9.2f | %-25s | %-10s | %-8s |";
+                List<Expense> expenseList = new ArrayList<Expense>();
                 while (eIDs.next()) {
                     //for every expense_id, get the corresponding expense
                     String displayExpense = "SELECT * FROM expenses WHERE id=?";
                     PreparedStatement p1 = conn.prepareStatement(displayExpense);
                     p1.setInt(1, eIDs.getInt("expense_id"));
                     ResultSet expense = p1.executeQuery();
-                    //Display the expense's values and status in a table format
+                    //Make expense obj and add to lsit
                     int id = expense.getInt("id");
                     int user_id = expense.getInt("user_id");
                     float amount = expense.getFloat("amount");
                     String desc = expense.getString("description");
                     String date = expense.getString("date");
-                    String row = String.format(formatR, id, user_id, amount, desc, date, "PENDING");
-                    System.out.println(row);
+                    Expense e = new Expense(id, user_id, amount, desc, date);
+                    expenseList.add(e);
                 }
                 logger.info("Successfully displayed all pending expenses");
-                return 1;
+                return expenseList;
             }
         }catch(SQLException e){
             logger.error("SQLException in displayExpenses");
             logger.error(e.getMessage());
-            return -1;
+            return null;
         }
-        return -1;
+        return null;
     }
 
     //set an expense as approved or denied, make comments, record date and manager id
@@ -230,20 +234,6 @@ public class DAO {
             return -1;
         }
         return -1;
-    }
-
-    public void printExpense(ResultSet rs) throws SQLException{
-        String formatH = "| %-3s | %-7s | %-10s | %-25s | %-10s |";
-        String header = String.format(formatH, "ID", "User_ID", "Amount", "Description", "Date");
-        System.out.println(header);
-        String formatR = "| %-3d | %-7d | $%-9.2f | %-25s | %-10s |";
-        int eid = rs.getInt("id");
-        int user_id = rs.getInt("user_id");
-        float amount = rs.getFloat("amount");
-        String desc = rs.getString("description");
-        String date = rs.getString("date");
-        String row = String.format(formatR, eid, user_id, amount, desc, date);
-        System.out.println(row);
     }
 
     public void printUser(ResultSet rs) throws SQLException{

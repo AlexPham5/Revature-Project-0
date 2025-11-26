@@ -463,3 +463,59 @@
 2025-11-25 16:09:58,450 INFO [main] c.r.p.s.ManagerApp [DAO.java:220] - Report successfully written to external file
 2025-11-25 16:09:58,450 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:260] - Report generation success
 2025-11-25 16:10:08,024 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:65] - LOG END
+2025-11-25 18:16:09,432 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:35] - LOG START
+2025-11-25 18:16:14,936 INFO [main] c.r.p.s.ManagerApp [DAO.java:60] - Attempting to find manager user credential's in db
+2025-11-25 18:16:15,298 INFO [main] c.r.p.s.ManagerApp [DAO.java:63] - SQL connection successful for getCredentials
+2025-11-25 18:16:16,665 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:121] - viewExpenses called
+2025-11-25 18:16:16,666 INFO [main] c.r.p.s.ManagerApp [DAO.java:87] - Attempting to display expenses
+2025-11-25 18:16:16,668 INFO [main] c.r.p.s.ManagerApp [DAO.java:90] - SQL connection successful for displayExpenses
+2025-11-25 18:16:16,677 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - Successfully displayed all pending expenses
+2025-11-25 18:16:38,244 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:69] - LOG END
+2025-11-25 18:22:48,465 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:35] - LOG START
+2025-11-25 18:22:58,286 INFO [main] c.r.p.s.ManagerApp [DAO.java:60] - Attempting to find manager user credential's in db
+2025-11-25 18:22:58,655 INFO [main] c.r.p.s.ManagerApp [DAO.java:63] - SQL connection successful for getCredentials
+2025-11-25 18:23:00,392 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:121] - viewExpenses called
+2025-11-25 18:23:00,393 INFO [main] c.r.p.s.ManagerApp [DAO.java:87] - Attempting to display expenses
+2025-11-25 18:23:00,396 INFO [main] c.r.p.s.ManagerApp [DAO.java:90] - SQL connection successful for displayExpenses
+2025-11-25 18:23:00,404 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - Successfully displayed all pending expenses
+2025-11-25 18:23:09,086 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:69] - LOG END
+2025-11-25 18:23:44,725 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:35] - LOG START
+2025-11-25 18:23:52,110 INFO [main] c.r.p.s.ManagerApp [DAO.java:60] - Attempting to find manager user credential's in db
+2025-11-25 18:23:52,481 INFO [main] c.r.p.s.ManagerApp [DAO.java:63] - SQL connection successful for getCredentials
+2025-11-25 18:23:54,078 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:121] - viewExpenses called
+2025-11-25 18:23:54,079 INFO [main] c.r.p.s.ManagerApp [DAO.java:87] - Attempting to display expenses
+2025-11-25 18:23:54,081 INFO [main] c.r.p.s.ManagerApp [DAO.java:90] - SQL connection successful for displayExpenses
+2025-11-25 18:23:54,090 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - Successfully displayed all pending expenses
+2025-11-25 18:24:00,712 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:69] - LOG END
+2025-11-25 18:27:35,625 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:35] - LOG START
+2025-11-25 18:27:40,653 INFO [main] c.r.p.s.ManagerApp [DAO.java:60] - Attempting to find manager user credential's in db
+2025-11-25 18:27:41,018 INFO [main] c.r.p.s.ManagerApp [DAO.java:63] - SQL connection successful for getCredentials
+2025-11-25 18:27:42,134 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:121] - viewExpenses called
+2025-11-25 18:27:42,134 INFO [main] c.r.p.s.ManagerApp [DAO.java:87] - Attempting to display expenses
+2025-11-25 18:27:42,137 INFO [main] c.r.p.s.ManagerApp [DAO.java:90] - SQL connection successful for displayExpenses
+2025-11-25 18:27:42,145 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - Successfully displayed all pending expenses
+2025-11-25 18:28:00,489 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:69] - LOG END
+2025-11-25 18:28:59,228 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:35] - LOG START
+2025-11-25 18:29:06,593 INFO [main] c.r.p.s.ManagerApp [DAO.java:60] - Attempting to find manager user credential's in db
+2025-11-25 18:29:06,970 INFO [main] c.r.p.s.ManagerApp [DAO.java:63] - SQL connection successful for getCredentials
+2025-11-25 18:29:08,392 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:121] - viewExpenses called
+2025-11-25 18:29:08,393 INFO [main] c.r.p.s.ManagerApp [DAO.java:87] - Attempting to display expenses
+2025-11-25 18:29:08,396 INFO [main] c.r.p.s.ManagerApp [DAO.java:90] - SQL connection successful for displayExpenses
+2025-11-25 18:29:08,402 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - Successfully displayed all pending expenses
+2025-11-25 18:29:22,979 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:69] - LOG END
+2025-11-25 18:30:21,987 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:35] - LOG START
+2025-11-25 18:30:29,810 INFO [main] c.r.p.s.ManagerApp [DAO.java:60] - Attempting to find manager user credential's in db
+2025-11-25 18:30:30,176 INFO [main] c.r.p.s.ManagerApp [DAO.java:63] - SQL connection successful for getCredentials
+2025-11-25 18:30:31,860 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:144] - ReviewExpenses called
+2025-11-25 18:30:31,860 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:121] - viewExpenses called
+2025-11-25 18:30:31,860 INFO [main] c.r.p.s.ManagerApp [DAO.java:87] - Attempting to display expenses
+2025-11-25 18:30:31,865 INFO [main] c.r.p.s.ManagerApp [DAO.java:90] - SQL connection successful for displayExpenses
+2025-11-25 18:30:31,875 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - Successfully displayed all pending expenses
+2025-11-25 18:30:36,690 WARN [main] c.r.p.s.ManagerApp [ManagerApp.java:191] - Expense ID not found in reviewExpense
+2025-11-25 18:30:42,658 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:144] - ReviewExpenses called
+2025-11-25 18:30:42,658 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:121] - viewExpenses called
+2025-11-25 18:30:42,658 INFO [main] c.r.p.s.ManagerApp [DAO.java:87] - Attempting to display expenses
+2025-11-25 18:30:42,660 INFO [main] c.r.p.s.ManagerApp [DAO.java:90] - SQL connection successful for displayExpenses
+2025-11-25 18:30:42,664 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - Successfully displayed all pending expenses
+2025-11-25 18:31:31,815 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:177] - Canceled expense review
+2025-11-25 18:31:35,732 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:69] - LOG END

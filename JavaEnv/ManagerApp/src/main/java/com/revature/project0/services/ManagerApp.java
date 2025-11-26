@@ -1,5 +1,7 @@
 package com.revature.project0.services;
 import com.revature.project0.dao.DAO;
+import com.revature.project0.model.Expense;
+import com.revature.project0.util.Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -7,6 +9,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /*
@@ -115,11 +119,19 @@ public class ManagerApp {
     //      I can review them efficiently.
     public void viewExpenses(){
         logger.info("viewExpenses called");
-        if(d1.displayExpenses() == -1){
+        List<Expense> expenses = new ArrayList<Expense>();
+        expenses = d1.displayExpenses();
+        if(expenses == null){
             System.out.println("Error while viewing expenses");
         }
         else{
-            String border = "===================All current pending expenses displayed above===================";
+            //Format for table printing
+            String bordertop = "=".repeat(82);
+            System.out.println(bordertop);
+            Util.printExpenseHeaderPending();
+            for(Expense e : expenses)
+                Util.printExpensePending(e);
+            String border = "=".repeat(18)+"[All current pending expenses displayed above]"+"=".repeat(18);
             System.out.println(border);
         }
     }
@@ -139,7 +151,6 @@ public class ManagerApp {
             while(d1.checkID(userInput, "expenses") == 1){
                 looped = true;
                 try {
-                    System.out.println("Chosen expense to be edited\n");
                     //ask for input values
                     System.out.println("Approve or Deny expense?\n" +
                             "1 - Approve\n" +
