@@ -441,3 +441,20 @@
 2025-11-23 01:17:11,300 - root - INFO - Successfuly displayed approvals
 2025-11-23 01:17:18,224 - root - INFO - Exiting login
 2025-11-23 01:17:18,232 - root - INFO - LOG END
+2025-11-25 20:28:51,730 - root - INFO - LOG START
+2025-11-25 20:29:03,428 - root - INFO - Checking users table for valid credentials
+2025-11-25 20:29:03,439 - root - INFO - Successfully found employee credentials
+2025-11-25 20:29:22,448 - root - INFO - Employee viewing existing expenses
+2025-11-25 20:29:22,453 - root - INFO - Successfully showed existing user expenses
+2025-11-25 20:30:09,437 - root - INFO - Entering new data for expenses
+2025-11-25 20:30:23,574 - root - INFO - Employee successfully submitted new expense
+2025-11-25 20:30:25,311 - root - INFO - Employee viewing existing expenses
+2025-11-25 20:30:25,315 - root - INFO - Successfully showed existing user expenses
+2025-11-25 20:30:33,728 - root - INFO - Employee attempting to viewing approvals
+2025-11-25 20:30:33,731 - root - INFO - Successfuly displayed approvals
+2025-11-25 20:31:29,237 - root - INFO - Employee attempting to viewing approvals
+2025-11-25 20:31:29,240 - root - INFO - Successfuly displayed approvals
+2025-11-25 20:31:43,460 - root - INFO - Employee attempting to viewing approvals
+2025-11-25 20:31:43,462 - root - INFO - Successfuly displayed approvals
+2025-11-25 20:32:12,153 - root - INFO - Exiting login
+2025-11-25 20:32:12,159 - root - INFO - LOG END
