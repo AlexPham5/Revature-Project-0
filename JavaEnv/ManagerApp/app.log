@@ -705,3 +705,22 @@
 2025-11-26 14:38:06,389 INFO [main] c.r.p.s.ManagerApp [DAO.java:108] - SQL connection successful for getCredentials
 2025-11-26 14:38:09,115 INFO [main] c.r.p.s.ManagerApp [DAO.java:219] - Successful DB connect in generateReport
 2025-11-26 14:38:27,990 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:117] - LOG END
+2025-11-26 14:49:30,986 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:41] - LOG START
+2025-11-26 14:49:37,630 INFO [main] c.r.p.s.ManagerApp [DAO.java:105] - Attempting to find manager user credential's in db
+2025-11-26 14:49:37,994 INFO [main] c.r.p.s.ManagerApp [DAO.java:108] - SQL connection successful for getCredentials
+2025-11-26 14:49:42,169 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:132] - viewExpenses called
+2025-11-26 14:49:42,169 INFO [main] c.r.p.s.ManagerApp [DAO.java:132] - Attempting to display expenses
+2025-11-26 14:49:42,171 INFO [main] c.r.p.s.ManagerApp [DAO.java:135] - SQL connection successful for displayExpenses
+2025-11-26 14:49:42,179 INFO [main] c.r.p.s.ManagerApp [DAO.java:167] - Successfully displayed all pending expenses
+2025-11-26 14:49:52,268 INFO [main] c.r.p.s.ManagerApp [DAO.java:219] - Successful DB connect in generateReport
+2025-11-26 14:50:12,549 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:255] - Canceled expense edit
+2025-11-26 14:50:14,730 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:117] - LOG END
+2025-11-26 19:50:35,211 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:41] - LOG START
+2025-11-26 19:50:40,896 INFO [main] c.r.p.s.ManagerApp [DAO.java:105] - Attempting to find manager user credential's in db
+2025-11-26 19:50:41,223 INFO [main] c.r.p.s.ManagerApp [DAO.java:108] - SQL connection successful for getCredentials
+2025-11-26 19:50:43,401 INFO [main] c.r.p.s.ManagerApp [DAO.java:219] - Successful DB connect in generateReport
+2025-11-26 19:51:04,697 INFO [main] c.r.p.s.ManagerApp [DAO.java:183] - SQL connection successful for editApproval
+2025-11-26 19:51:04,705 ERROR [main] c.r.p.s.ManagerApp [DAO.java:198] - Expense successfully reviewed
+2025-11-26 19:51:09,395 INFO [main] c.r.p.s.ManagerApp [DAO.java:219] - Successful DB connect in generateReport
+2025-11-26 19:51:16,617 WARN [main] c.r.p.s.ManagerApp [ManagerApp.java:269] - Expense ID not found in editApproval
+2025-11-26 19:51:28,104 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:117] - LOG END

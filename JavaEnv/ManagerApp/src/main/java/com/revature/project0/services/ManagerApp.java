@@ -226,9 +226,43 @@ public class ManagerApp {
             Expense exp;
             while((exp = d1.checkExpenseID(userInput, false)) != null) {
                 looped = true;
-
-                
-
+                System.out.println("Expense Chosen: ");
+                printExpenseHeader();
+                printExpense(exp);
+                try {
+                    //ask for input values
+                    System.out.println("Approve or Deny expense?\n" +
+                            "1 - Approve\n" +
+                            "2 - Deny\n" +
+                            "3 - Cancel");
+                    System.out.print("Enter a number: ");
+                    int approvalChoice = Integer.parseInt(sc.nextLine());
+                    if (approvalChoice == 1 || approvalChoice == 2) {
+                        System.out.print("Enter a short description why the expense was approved/denied (at least 10 characters): ");
+                        String desc = sc.nextLine();
+                        if (desc.length() < 10)
+                            throw new NullPointerException("Description too short");
+                        int valid = d1.editApproval(userInput, approvalChoice == 1 ? "approved" : "denied", this.managerID, desc);
+                        if (valid == 1) {
+                            System.out.println("Expense successfully reviewed");
+                            break;
+                        } else {
+                            System.out.println("Error while attempting to review expense");
+                            break;
+                        }
+                    } else if (approvalChoice == 3) {
+                        System.out.println("Canceling review");
+                        logger.info("Canceled expense edit");
+                        break;
+                    } else {
+                        System.out.println("Invalid number input for review choices");
+                        logger.warn("Invalid number input for edit choices");
+                    }
+                }catch(NullPointerException | NumberFormatException e){
+                    System.out.println("Invalid input");
+                    System.out.println(e.getMessage());
+                    logger.error("Invalid input for edit choices/desc size");
+                }
             }
             if(!looped){
                 System.out.println("The expense ID specified was not found");
