@@ -47,7 +47,7 @@ class DAO:
             logging.info("Employee successfully submitted new expense")
 
     def selectExpenses(self, userID):
-        print(f"ALL EXPENSES FOR USERID: {userID}")
+        print(f"\nALL EXPENSES FOR USERID: {userID}")
         try:
             with sqlite3.connect(self.dbPath) as conn:
                 logging.info("Employee viewing existing expenses")
@@ -119,7 +119,7 @@ class DAO:
 
 
     def updateExpense(self, userID, expenseID, field, newVal):
-        print("SQL update")
+        #print("SQL update")
         try:
             with sqlite3.connect(self.dbPath) as conn:
                 cursor = conn.cursor()
@@ -137,7 +137,7 @@ class DAO:
              
     
     def deleteExpense(self, deleteID):
-        print("SQL delete")
+        #print("SQL delete")
         try:
             with sqlite3.connect(self.dbPath) as conn:
                 cursor = conn.cursor()
@@ -151,5 +151,29 @@ class DAO:
             print("SQL Error occured: \n", error)
             logging.error("SQL Error occured in delete expense")
 
-    def selectApprovals(self, expenseID):
+    def selectApprovals(self, userID):
         print("SQL select approval according to expenseID")
+        try:
+            with sqlite3.connect(self.dbPath) as conn:
+                logging.info("Employee attempting to viewing approvals")
+                cursor = conn.cursor()
+                # grab all the expenses tied to this specific user id
+                getExpensesForUser = f"""
+                SELECT * FROM expenses WHERE user_id = '{userID}'
+                """
+                cursor.execute(getExpensesForUser)
+                expensesList = cursor.fetchall()
+
+                data = [['ID', 'Amount', 'Expense Description', 'Expense Date', 'Status', 'Reviewer ID', 'Comments', 'Review Date']]
+                for row in expensesList:
+                    cursor.execute(f"SELECT * FROM approvals WHERE expense_id = '{row[0]}' AND status != 'pending'")
+                    approval = cursor.fetchone()
+                    if(approval != None):
+                        amountString = ("$%.2f"%(row[2]))
+                        tablerow = [row[0], amountString, row[3], row[4], approval[2], approval[3], approval[4], approval[5]]
+                        data.append(tablerow)
+                print(tabulate(data, tablefmt="grid"))
+                logging.info("Successfuly displayed approvals")
+        except sqlite3.Error as error:
+            print("SQL Error occured - ", error)
+            logging.error("SQL Error occured in view approvals- ", error)

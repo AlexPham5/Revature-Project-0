@@ -609,3 +609,10 @@
 2025-11-29 16:22:56,831 - root - INFO - Successfully showed existing user expenses
 2025-11-29 16:24:09,217 - root - INFO - Exiting login
 2025-11-29 16:24:09,217 - root - INFO - LOG END
+2025-11-29 16:28:45,158 - root - INFO - LOG START
+2025-11-29 16:28:53,003 - root - INFO - Checking users table for valid credentials
+2025-11-29 16:28:53,004 - root - INFO - Successfully found employee credentials
+2025-11-29 16:28:54,769 - root - INFO - Employee attempting to viewing approvals
+2025-11-29 16:28:54,771 - root - INFO - Successfuly displayed approvals
+2025-11-29 16:29:06,828 - root - INFO - Exiting login
+2025-11-29 16:29:06,828 - root - INFO - LOG END

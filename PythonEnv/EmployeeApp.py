@@ -309,35 +309,7 @@ class EmployeeApp:
     #  so that I can track my financial activity over time.
     def viewApprovalHistory(self):
         # Show all approved and denied approvals tied to the user
-        try:
-            with sqlite3.connect(self.dbPath) as conn:
-                logging.info("Employee attempting to viewing approvals")
-                cursor = conn.cursor()
-                # grab all the expenses tied to this specific user id
-                getExpensesForUser = f"""
-                SELECT * FROM expenses WHERE user_id = '{self.userID}'
-                """
-                cursor.execute(getExpensesForUser)
-                expensesList = cursor.fetchall()
-
-                data = [['ID', 'Amount', 'Expense Description', 'Expense Date', 'Status', 'Reviewer ID', 'Comments', 'Review Date']]
-                for row in expensesList:
-                    cursor.execute(f"SELECT * FROM approvals WHERE expense_id = '{row[0]}' AND status != 'pending'")
-                    approval = cursor.fetchone()
-                    if(approval != None):
-                        amountString = ("$%.2f"%(row[2]))
-                        tablerow = [row[0], amountString, row[3], row[4], approval[2], approval[3], approval[4], approval[5]]
-                        #print()
-                        #print("Expense (ID-%i) with amount $%.2f and description: '%s' made on date: %s" %(row[0], row[2], row[3], row[4]))
-                        #print("CURRENT STATUS FOR EXPENSE (ID-%i) IS: %s, reviewed by manager with ID-%i" %(row[0], approval[2], approval[3]))
-                        #print("Comments made: %s\nOn date: %s\n" %(approval[4], approval[5]))
-                        data.append(tablerow)
-                print(tabulate(data, tablefmt="grid"))
-                logging.info("Successfuly displayed approvals")
-
-        except sqlite3.Error as error:
-            print("SQL Error occured - ", error)
-            logging.error("SQL Error occured in view approvals- ", error)
+        self.d1.selectApprovals(self.userID)
         return
 
 #main
