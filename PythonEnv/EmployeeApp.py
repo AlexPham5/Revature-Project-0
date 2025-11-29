@@ -182,17 +182,21 @@ class EmployeeApp:
         try:
             self.viewExpenses()
             expenseID = int(input("Please enter the ID of the expense you want to edit: "))
+            #check if the expense ID inputted is valid with the DAO
             valid = self.d1.checkExpense(self.userID, expenseID, "pending")
-            if(valid == 2):
+            if(valid == -1):
+                print("Error occurred during expense ID verification")
+                raise Exception
+            elif(valid == 2):
                 print("No expense found with specified expense ID for this user")
                 raise Exception
             elif(valid == 3):
                 print("Expense selected is not pending")
                 raise Exception
             elif(valid == 1):
-                print("Expense found")
                 logging.info("Expense for edit found")
                 while(1):
+                    print("Expense selected: ")
                     self.d1.printExpense(expenseID)
                     print("Select which field to edit\n" \
                     "1 - Amount\n" \
@@ -262,9 +266,6 @@ class EmployeeApp:
         except ValueError:
             print("Invalid input for edit ID\n")
             logging.error("Invalid input for expenseID in edit expense")
-        except sqlite3.Error as error:
-            print("SQL Error occured: \n", error)
-            logging.error("SQL Error occured in edit")
         except Exception as e:
             print("Invalid expense ID")
         return
@@ -275,46 +276,33 @@ class EmployeeApp:
         try:
             self.viewExpenses()
             deleteID = int(input("Please enter the id of the expense you want to delete: "))
-            with sqlite3.connect(self.dbPath) as conn:
-                logging.info("Deleting expense based on ID")
-                cursor = conn.cursor()
-                cursor.execute(f"SELECT * FROM expenses WHERE id = '{deleteID}' AND user_id = '{self.userID}'")
-                expenseTBD = cursor.fetchone()
-                if(expenseTBD == None):
-                    raise sqlite3.Error("No expense found with specificied ID for this user")
-                else:
-                    #check if the approval is pending
-                    expenseID = expenseTBD[0]
-                    cursor.execute(f"SELECT status FROM approvals WHERE expense_id = {expenseID}")
-                    status = cursor.fetchone()[0]
-                    if(status != "pending"):
-                        raise Exception("The expense selected for deletion is not pending, you may only delete pending expenses\n")
-                    else:
-                        data = [['ID', 'Amount', 'Description', 'Date Submitted']]
-                        amountString = ("%.2f" %expenseTBD[2])
-                        data.append([expenseTBD[0], amountString, expenseTBD[3], expenseTBD[4]])
-                        print(tabulate(data, tablefmt="grid"))
+            valid = self.d1.checkExpense(self.userID, deleteID, "pending")
+            if(valid == -1):
+                print("Error occurred during expense ID verification")
+                raise Exception
+            elif(valid == 2):
+                print("No expense found with specified expense ID for this user")
+                raise Exception
+            elif(valid == 3):
+                print("Expense selected is not pending")
+                raise Exception
+            elif(valid == 1):
+                logging.info("Expense for deletion found")
+                print("Are you sure you want to delete this expense?")
+                self.d1.printExpense(deleteID)
 
-                        #print("The expense seleced for deletion: ID-%i, Amount-%.2f, Description-%s, Date-%s" %(expenseTBD[0], expenseTBD[2], expenseTBD[3], expenseTBD[4]))
-                        print("Are you sure you want to delete this expense?")
-                        confirm = input("Enter YES to confirm: ")
-                        if(confirm == "YES"):
-                            cursor.execute(f"DELETE FROM approvals WHERE expense_id = {expenseID}")
-                            cursor.execute(f"DELETE FROM expenses WHERE id = {deleteID}")
-                            conn.commit()
-                            print("Successfully deleted expense and corresponding pending approval")
-                            logging.info("Deletion successful")
-                        else:
-                            print("Deletion aborted")
-                            logging.info("Deletion aborted")
+                print("Are you sure you want to delete this expense?")
+                confirm = input("Enter YES to confirm: ")
+                if(confirm == "YES"):
+                    self.d1.deleteExpense(deleteID)
+                else:
+                    print("Deletion aborted")
+                    logging.info("Deletion aborted")
         except ValueError:
             print("Invalid input for deletion ID")
             logging.error("Invalid input for deleteExpense\n")
-        except sqlite3.Error as error:
-            print("SQL Error occured: \n", error)
-            logging.error("SQL Error occured in deletion")
         except Exception as e:
-            print(e)
+            print()
         return
 
     #- As an employee, I want to view a history of all my approved and denied expenses 

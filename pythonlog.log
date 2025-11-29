@@ -585,3 +585,27 @@
 2025-11-29 16:12:12,506 - root - INFO - Edit expense canceled
 2025-11-29 16:12:15,075 - root - INFO - Exiting login
 2025-11-29 16:12:15,076 - root - INFO - LOG END
+2025-11-29 16:22:04,395 - root - INFO - LOG START
+2025-11-29 16:22:10,814 - root - INFO - Checking users table for valid credentials
+2025-11-29 16:22:10,816 - root - INFO - Successfully found employee credentials
+2025-11-29 16:22:18,421 - root - INFO - Entering new data for expenses
+2025-11-29 16:22:23,837 - root - INFO - Employee successfully submitted new expense
+2025-11-29 16:22:26,392 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:22:26,393 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:22:29,698 - root - INFO - checking if id is valid
+2025-11-29 16:22:33,979 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:22:33,981 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:22:39,038 - root - INFO - checking if id is valid
+2025-11-29 16:22:39,038 - root - INFO - Expense for deletion found
+2025-11-29 16:22:39,039 - root - INFO - checking if id is valid
+2025-11-29 16:22:46,109 - root - INFO - Deletion aborted
+2025-11-29 16:22:48,132 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:22:48,134 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:22:50,075 - root - INFO - checking if id is valid
+2025-11-29 16:22:50,075 - root - INFO - Expense for deletion found
+2025-11-29 16:22:50,076 - root - INFO - checking if id is valid
+2025-11-29 16:22:52,036 - root - INFO - Deletion successful
+2025-11-29 16:22:56,829 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:22:56,831 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:24:09,217 - root - INFO - Exiting login
+2025-11-29 16:24:09,217 - root - INFO - LOG END

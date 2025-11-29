@@ -74,7 +74,7 @@ class DAO:
             logging.error("SQL error occured in view expense")
 
     def checkExpense(self, userID, expenseID, statusTarget):
-        #return 1 if success, 2 if no id found, 3 if id is not equal to status
+        #return 1 if success, 2 if no id found, 3 if id is not equal to status, return -1 on error
         #print("Checking expense ID and status")
         try:
             with sqlite3.connect(self.dbPath) as conn:
@@ -98,8 +98,7 @@ class DAO:
         except sqlite3.Error as error:
             print("SQL Error occured: \n", error)
             logging.error("SQL Error occured in edit")
-        except Exception as e:
-            print(e)
+            return -1
 
     def printExpense(self, expenseID):
         #display the single expense given
@@ -111,7 +110,7 @@ class DAO:
                 expenseTBE = cursor.fetchone()
 
                 data = [['ID', 'Amount', 'Description', 'Date Submitted']]
-                amountString = ("%.2f" %expenseTBE[2])
+                amountString = ("$%.2f" %expenseTBE[2])
                 data.append([expenseTBE[0], amountString, expenseTBE[3], expenseTBE[4]])
                 print(tabulate(data, tablefmt="grid"))
         except sqlite3.Error as error:
@@ -139,6 +138,18 @@ class DAO:
     
     def deleteExpense(self, deleteID):
         print("SQL delete")
+        try:
+            with sqlite3.connect(self.dbPath) as conn:
+                cursor = conn.cursor()
+                cursor.execute(f"DELETE FROM approvals WHERE expense_id = {deleteID}")
+                cursor.execute(f"DELETE FROM expenses WHERE id = {deleteID}")
+                conn.commit()
+                print("Successfully deleted expense and corresponding pending approval")
+                logging.info("Deletion successful")
+        except sqlite3.Error as error:
+            print("Expense deletion failed")
+            print("SQL Error occured: \n", error)
+            logging.error("SQL Error occured in delete expense")
 
-    def selectApproval(self, expenseID):
+    def selectApprovals(self, expenseID):
         print("SQL select approval according to expenseID")
