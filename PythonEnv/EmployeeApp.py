@@ -161,6 +161,7 @@ class EmployeeApp:
         except ValueError:
             print("Invalid input for submit expense\n")       
         else:
+            # Call DAO now that all inputs are verified
             self.d1.insertExpense(self.userID, amountInput, descInput, dateInput)
         return
 
@@ -170,30 +171,7 @@ class EmployeeApp:
         # Show all expenses and the corresponding approval's status tied to the user
         # Note, this does not show reviewer, comment, or comment date. That functionality 
         # is for viewApprovalHistory
-        try:
-            with sqlite3.connect(self.dbPath) as conn:
-                logging.info("Employee viewing existing expenses")
-                cursor = conn.cursor()
-                # grab all the expenses tied to this specific user id
-                getExpensesForUser = f"""
-                SELECT * FROM expenses WHERE user_id = '{self.userID}'
-                """
-                cursor.execute(getExpensesForUser)
-                expensesList = cursor.fetchall()
-                
-                data = [['ID', 'Amount', 'Description', 'Date Submitted', 'Status']]
-                for row in expensesList:
-                    cursor.execute(f"SELECT status FROM approvals WHERE expense_id = '{row[0]}'")
-                    status = cursor.fetchone()
-
-                    amountString = ("$%.2f"%(row[2]))
-                    tablerow = [row[0], amountString, row[3], row[4], status[0]]
-                    data.append(tablerow)
-                print(tabulate(data, tablefmt="grid"))
-                logging.info("Successfully showed existing user expenses")
-        except sqlite3.Error as error:
-            print("Error occured: \n", error)
-            logging.error("SQL error occured in view expense")
+        self.d1.selectExpenses(self.userID)
         return
 
     #- As an employee, I want to edit or delete expenses that are still pending so that I 
@@ -204,104 +182,91 @@ class EmployeeApp:
         try:
             self.viewExpenses()
             expenseID = int(input("Please enter the ID of the expense you want to edit: "))
-            with sqlite3.connect(self.dbPath) as conn:
-                logging.info("Employee entering new data for edit expense")
-                cursor = conn.cursor()
-                cursor.execute(f"SELECT * FROM expenses WHERE id = '{expenseID}' AND user_id = '{self.userID}'")
-                expenseTBE = cursor.fetchone()
-                if(expenseTBE == None):
-                    logging.warning("No expense found with specified ID and user ID")
-                    raise sqlite3.Error("No expense found with specificied ID for this user")
-                else:
-                    logging.info("Expense for edit found")
-                    while(1):
-                        data = [['ID', 'Amount', 'Description', 'Date Submitted']]
-                        amountString = ("%.2f" %expenseTBE[2])
-                        data.append([expenseTBE[0], amountString, expenseTBE[3], expenseTBE[4]])
-                        print(tabulate(data, tablefmt="grid"))
-                        print("Select which field to edit\n" \
-                        "1 - Amount\n" \
-                        "2 - Description\n" \
-                        "3 - Date\n" \
-                        "4 - Cancel")
-                        try:
-                            userInput = int(input("Please enter a number: "))
-                            if(userInput == 1):
-                                #prompt amount and change it
-                                field = "amount"
-                                newInput = float(input("Enter a new amount (at least $1): "))
-                                if(newInput <= 0):
-                                    print("Amount value must be at least $1")
-                                    logging.warning("Invalid input for amount in edit expense")
-                                    raise ValueError
-                            elif(userInput == 2):
-                                #prompt description and change it
-                                field = "description"
-                                newInput = input("Enter a new description (at least 3 characters long): ")
-                                if(len(newInput) < 3):
-                                    print("Description must be at least 3 characters long")
-                                    logging.warning("Invalid input for description in edit expense")
-                                    raise ValueError
-                            elif(userInput == 3):
-                                #prompt date and change it
-                                field = "date"
-                                print("Entering new date for expense: ")
-                                dateInputY = input("Enter a year as 4 digits: ")
-                                if(len(dateInputY) != 4 or int(dateInputY) > 2025):
-                                    print("Invalid input for year")
-                                    logging.warning("Invalid input for edit expense year")
-                                    raise ValueError
-                                dateInputM = input("Enter a month as digits: ")
-                                if(int(dateInputM) < 1 or int(dateInputM) > 12):
-                                    print("Invalid input for month")
-                                    logging.warning("Invalid input for edit expense month")
-                                    raise ValueError
-                                dateInputM = f"{int(dateInputM):0{2}d}"
-                                dateInputD = input("Enter a day as digits: ")
-                                if(int(dateInputD) < 1 or int(dateInputD) > 31):
-                                    print("Invalid input for day")
-                                    logging.warning("Invalid input for edit expense day")
-                                    raise ValueError
-                                dateInputD = f"{int(dateInputD):0{2}d}"
-                                newInput = dateInputY + "-" + dateInputM + "-" + dateInputD
-                                #verify that the date is one that exists and is not in the future
-                                try:
-                                    checkDate = datetime.strptime(newInput, "%Y-%m-%d")
-                                    now = datetime.now()
-                                    if(now < checkDate):
-                                        raise ValueError
-                                except ValueError:
-                                    print("Invalid date submission, date does not exists or is in the future")
-                                    raise ValueError
-                            elif(userInput == 4):
-                                logging.info("Edit expense canceled")
-                                break
-                            else:
+            valid = self.d1.checkExpense(self.userID, expenseID, "pending")
+            if(valid == 2):
+                print("No expense found with specified expense ID for this user")
+                raise Exception
+            elif(valid == 3):
+                print("Expense selected is not pending")
+                raise Exception
+            elif(valid == 1):
+                print("Expense found")
+                logging.info("Expense for edit found")
+                while(1):
+                    self.d1.printExpense(expenseID)
+                    print("Select which field to edit\n" \
+                    "1 - Amount\n" \
+                    "2 - Description\n" \
+                    "3 - Date\n" \
+                    "4 - Cancel")
+                    try:
+                        userInput = int(input("Please enter a number: "))
+                        if(userInput == 1):
+                            #prompt amount and change it
+                            field = "amount"
+                            newInput = float(input("Enter a new amount (at least $1): "))
+                            if(newInput <= 0):
+                                print("Amount value must be at least $1")
+                                logging.warning("Invalid input for amount in edit expense")
                                 raise ValueError
-
-                            # make the change in the db now that you have the inputs
-                            with sqlite3.connect(self.dbPath) as conn:
-                                cursor = conn.cursor()
-                                update =f"""
-                                UPDATE expenses SET {field} = '{newInput}' WHERE id = '{expenseID}'
-                                """
-                                cursor.execute(update)
-                                conn.commit()
-                            print("Successfully edited expense")
-                            logging.info("Successfully edited expense")
+                        elif(userInput == 2):
+                            #prompt description and change it
+                            field = "description"
+                            newInput = input("Enter a new description (at least 3 characters long): ")
+                            if(len(newInput) < 3):
+                                print("Description must be at least 3 characters long")
+                                logging.warning("Invalid input for description in edit expense")
+                                raise ValueError
+                        elif(userInput == 3):
+                            #prompt date and change it
+                            field = "date"
+                            print("Entering new date for expense: ")
+                            dateInputY = input("Enter a year as 4 digits: ")
+                            if(len(dateInputY) != 4 or int(dateInputY) > 2025):
+                                print("Invalid input for year")
+                                logging.warning("Invalid input for edit expense year")
+                                raise ValueError
+                            dateInputM = input("Enter a month as digits: ")
+                            if(int(dateInputM) < 1 or int(dateInputM) > 12):
+                                print("Invalid input for month")
+                                logging.warning("Invalid input for edit expense month")
+                                raise ValueError
+                            dateInputM = f"{int(dateInputM):0{2}d}"
+                            dateInputD = input("Enter a day as digits: ")
+                            if(int(dateInputD) < 1 or int(dateInputD) > 31):
+                                print("Invalid input for day")
+                                logging.warning("Invalid input for edit expense day")
+                                raise ValueError
+                            dateInputD = f"{int(dateInputD):0{2}d}"
+                            newInput = dateInputY + "-" + dateInputM + "-" + dateInputD
+                            #verify that the date is one that exists and is not in the future
+                            try:
+                                checkDate = datetime.strptime(newInput, "%Y-%m-%d")
+                                now = datetime.now()
+                                if(now < checkDate):
+                                    raise ValueError
+                            except ValueError:
+                                print("Invalid date submission, date does not exists or is in the future")
+                                raise ValueError
+                        elif(userInput == 4):
+                            logging.info("Edit expense canceled")
                             break
-                        except ValueError:
-                            print("Invalid input for field selection")
-                            logging.error("Invalid error for field selection in edit expense")
-                        except sqlite3.Error as error:
-                            print("SQL Error occured: \n", error)
-                            logging.error("SQL Error occured in edit expense")
+                        else:
+                            raise ValueError
+                        # make the change in the db now that you have the inputs
+                        self.d1.updateExpense(self.userID, expenseID, field, newInput)
+                        break
+                    except ValueError:
+                        print("Invalid input for field selection")
+                        logging.error("Invalid error for field selection in edit expense")
         except ValueError:
             print("Invalid input for edit ID\n")
             logging.error("Invalid input for expenseID in edit expense")
         except sqlite3.Error as error:
             print("SQL Error occured: \n", error)
             logging.error("SQL Error occured in edit")
+        except Exception as e:
+            print("Invalid expense ID")
         return
     
     def deleteExpense(self):

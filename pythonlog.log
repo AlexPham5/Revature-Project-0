@@ -472,3 +472,116 @@
 2025-11-29 14:58:45,138 - root - INFO - Successfully showed existing user expenses
 2025-11-29 14:59:00,203 - root - INFO - Exiting login
 2025-11-29 14:59:00,203 - root - INFO - LOG END
+2025-11-29 15:20:20,956 - root - INFO - LOG START
+2025-11-29 15:20:28,070 - root - INFO - Checking users table for valid credentials
+2025-11-29 15:20:28,072 - root - INFO - Successfully found employee credentials
+2025-11-29 15:20:29,234 - root - INFO - Employee viewing existing expenses
+2025-11-29 15:20:29,247 - root - INFO - LOG END
+2025-11-29 15:21:02,979 - root - INFO - LOG START
+2025-11-29 15:21:09,635 - root - INFO - Checking users table for valid credentials
+2025-11-29 15:21:09,637 - root - INFO - Successfully found employee credentials
+2025-11-29 15:21:10,576 - root - INFO - Employee viewing existing expenses
+2025-11-29 15:21:10,580 - root - INFO - Successfully showed existing user expenses
+2025-11-29 15:21:27,518 - root - INFO - Exiting login
+2025-11-29 15:21:27,519 - root - INFO - LOG END
+2025-11-29 15:27:43,135 - root - INFO - LOG START
+2025-11-29 15:27:53,641 - root - INFO - Checking users table for valid credentials
+2025-11-29 15:27:53,643 - root - INFO - Successfully found employee credentials
+2025-11-29 15:27:56,853 - root - INFO - Employee viewing existing expenses
+2025-11-29 15:27:56,857 - root - INFO - Successfully showed existing user expenses
+2025-11-29 15:28:05,324 - root - INFO - Employee viewing existing expenses
+2025-11-29 15:28:05,327 - root - INFO - Successfully showed existing user expenses
+2025-11-29 15:28:10,510 - root - INFO - Employee entering new data for edit expense
+2025-11-29 15:28:10,510 - root - INFO - Expense for edit found
+2025-11-29 15:28:22,728 - root - INFO - Edit expense canceled
+2025-11-29 15:28:26,011 - root - INFO - Exiting login
+2025-11-29 15:28:26,012 - root - INFO - LOG END
+2025-11-29 15:59:12,198 - root - INFO - LOG START
+2025-11-29 15:59:21,077 - root - INFO - Checking users table for valid credentials
+2025-11-29 15:59:21,083 - root - INFO - Successfully found employee credentials
+2025-11-29 15:59:25,314 - root - INFO - Employee viewing existing expenses
+2025-11-29 15:59:25,316 - root - INFO - Successfully showed existing user expenses
+2025-11-29 15:59:30,514 - root - INFO - checking if id is valid
+2025-11-29 15:59:30,514 - root - WARNING - No expense found with specified ID and user ID
+2025-11-29 15:59:38,379 - root - INFO - Employee viewing existing expenses
+2025-11-29 15:59:38,380 - root - INFO - Successfully showed existing user expenses
+2025-11-29 15:59:43,016 - root - INFO - checking if id is valid
+2025-11-29 15:59:46,584 - root - INFO - Employee viewing existing expenses
+2025-11-29 15:59:46,586 - root - INFO - Successfully showed existing user expenses
+2025-11-29 15:59:48,463 - root - INFO - checking if id is valid
+2025-11-29 16:00:10,431 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:00:10,433 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:00:16,266 - root - INFO - checking if id is valid
+2025-11-29 16:00:16,266 - root - INFO - Expense for edit found
+2025-11-29 16:00:16,266 - root - INFO - checking if id is valid
+2025-11-29 16:00:49,622 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:00:49,624 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:03:02,596 - root - INFO - Exiting login
+2025-11-29 16:03:02,596 - root - INFO - LOG END
+2025-11-29 16:03:08,905 - root - INFO - LOG START
+2025-11-29 16:03:15,799 - root - INFO - Checking users table for valid credentials
+2025-11-29 16:03:15,800 - root - INFO - Successfully found employee credentials
+2025-11-29 16:03:17,270 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:03:17,272 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:03:21,240 - root - INFO - checking if id is valid
+2025-11-29 16:03:21,241 - root - INFO - Expense for edit found
+2025-11-29 16:03:21,241 - root - INFO - checking if id is valid
+2025-11-29 16:03:27,108 - root - INFO - Successfully edited expense
+2025-11-29 16:03:32,010 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:03:32,012 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:03:38,546 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:03:38,547 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:03:42,017 - root - INFO - checking if id is valid
+2025-11-29 16:03:50,289 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:03:50,291 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:03:52,206 - root - INFO - checking if id is valid
+2025-11-29 16:03:52,206 - root - WARNING - No expense found with specified ID and user ID
+2025-11-29 16:03:59,048 - root - INFO - Exiting login
+2025-11-29 16:03:59,049 - root - INFO - LOG END
+2025-11-29 16:08:03,607 - root - INFO - LOG START
+2025-11-29 16:08:10,242 - root - ERROR - Value error for login choice input
+2025-11-29 16:08:18,553 - root - INFO - Checking users table for valid credentials
+2025-11-29 16:08:18,554 - root - INFO - Successfully found employee credentials
+2025-11-29 16:08:23,778 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:08:23,780 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:08:31,317 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:08:31,318 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:08:40,611 - root - INFO - checking if id is valid
+2025-11-29 16:08:40,611 - root - WARNING - No expense found with specified ID and user ID
+2025-11-29 16:08:50,732 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:08:50,733 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:08:53,575 - root - INFO - checking if id is valid
+2025-11-29 16:08:58,044 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:08:58,045 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:09:11,110 - root - INFO - checking if id is valid
+2025-11-29 16:09:11,111 - root - INFO - Expense for edit found
+2025-11-29 16:09:11,111 - root - INFO - checking if id is valid
+2025-11-29 16:09:31,966 - root - INFO - Successfully edited expense
+2025-11-29 16:09:33,686 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:09:33,688 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:10:09,428 - root - INFO - Employee viewing existing expenses
+2025-11-29 16:10:09,430 - root - INFO - Successfully showed existing user expenses
+2025-11-29 16:10:12,236 - root - INFO - checking if id is valid
+2025-11-29 16:10:12,236 - root - INFO - Expense for edit found
+2025-11-29 16:10:12,237 - root - INFO - checking if id is valid
+2025-11-29 16:10:13,767 - root - ERROR - Invalid error for field selection in edit expense
+2025-11-29 16:10:13,768 - root - INFO - checking if id is valid
+2025-11-29 16:10:15,012 - root - ERROR - Invalid error for field selection in edit expense
+2025-11-29 16:10:15,013 - root - INFO - checking if id is valid
+2025-11-29 16:10:15,778 - root - ERROR - Invalid error for field selection in edit expense
+2025-11-29 16:10:15,779 - root - INFO - checking if id is valid
+2025-11-29 16:11:10,972 - root - WARNING - Invalid input for edit expense year
+2025-11-29 16:11:10,972 - root - ERROR - Invalid error for field selection in edit expense
+2025-11-29 16:11:10,973 - root - INFO - checking if id is valid
+2025-11-29 16:11:25,190 - root - WARNING - Invalid input for edit expense month
+2025-11-29 16:11:25,190 - root - ERROR - Invalid error for field selection in edit expense
+2025-11-29 16:11:25,191 - root - INFO - checking if id is valid
+2025-11-29 16:11:37,902 - root - WARNING - Invalid input for edit expense month
+2025-11-29 16:11:37,903 - root - ERROR - Invalid error for field selection in edit expense
+2025-11-29 16:11:37,903 - root - INFO - checking if id is valid
+2025-11-29 16:11:52,246 - root - WARNING - Invalid input for edit expense day
+2025-11-29 16:11:52,246 - root - ERROR - Invalid error for field selection in edit expense
+2025-11-29 16:11:52,246 - root - INFO - checking if id is valid
+2025-11-29 16:12:12,506 - root - INFO - Edit expense canceled
+2025-11-29 16:12:15,075 - root - INFO - Exiting login
+2025-11-29 16:12:15,076 - root - INFO - LOG END
