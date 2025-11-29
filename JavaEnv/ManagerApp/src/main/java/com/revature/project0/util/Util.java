@@ -48,7 +48,7 @@ public class Util {
     }
 
     public static void printReportHeader(String reportName){
-        System.out.println("Report Name: "+reportName);
+        System.out.println(reportName);
         String formatH = "| %-3s | %-7s | %-9s | %-25s | %-12s | %-8s | %-11s | %-25s | %-12s |";
         String header = String.format(formatH, "ID", "User_ID", "Amount", "Description", "Expense Date", "Status", "Reviewer_ID", "Comment", "Review Date");
         System.out.println(header);

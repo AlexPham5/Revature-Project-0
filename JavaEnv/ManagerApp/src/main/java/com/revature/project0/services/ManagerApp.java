@@ -214,6 +214,7 @@ public class ManagerApp {
         Pair<List<Expense>, List<Approval>> reports;
         reports = d1.getReport(-1, "-1", "-1", "-1");
         //Show all the approved/denied expenses
+        printReportHeader("ALL APPROVED/DENIED EXPENSES: ");
         for(int i = 0; i < reports.getKey().size(); i++){
             if(reports.getValue().get(i).getStatus().equals("pending") == false)
                 printReport(reports.getKey().get(i), reports.getValue().get(i));

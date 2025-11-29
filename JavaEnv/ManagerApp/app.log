@@ -748,3 +748,22 @@
 2025-11-29 16:45:39,084 INFO [main] c.r.p.s.ManagerApp [DAO.java:226] - Successful DB connect in generateReport
 2025-11-29 16:45:41,520 WARN [main] c.r.p.s.ManagerApp [ManagerApp.java:268] - Expense ID not found in editApproval
 2025-11-29 16:45:53,403 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 16:51:29,738 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 16:51:35,706 INFO [main] c.r.p.s.ManagerApp [DAO.java:112] - Attempting to find manager user credential's in db
+2025-11-29 16:51:35,852 INFO [main] c.r.p.s.ManagerApp [DAO.java:115] - SQL connection successful for getCredentials
+2025-11-29 16:51:40,414 INFO [main] c.r.p.s.ManagerApp [DAO.java:226] - Successful DB connect in generateReport
+2025-11-29 16:52:08,063 ERROR [main] c.r.p.s.ManagerApp [DAO.java:67] - Approval corresponding to expense_id not found
+2025-11-29 16:52:08,063 WARN [main] c.r.p.s.ManagerApp [ManagerApp.java:269] - Expense ID not found in editApproval
+2025-11-29 16:52:12,294 INFO [main] c.r.p.s.ManagerApp [DAO.java:226] - Successful DB connect in generateReport
+2025-11-29 16:52:14,173 WARN [main] c.r.p.s.ManagerApp [ManagerApp.java:269] - Expense ID not found in editApproval
+2025-11-29 16:52:17,110 INFO [main] c.r.p.s.ManagerApp [DAO.java:226] - Successful DB connect in generateReport
+2025-11-29 16:52:45,298 INFO [main] c.r.p.s.ManagerApp [DAO.java:190] - SQL connection successful for editApproval
+2025-11-29 16:52:45,298 ERROR [main] c.r.p.s.ManagerApp [DAO.java:205] - Expense successfully reviewed
+2025-11-29 16:52:53,336 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 16:52:53,336 INFO [main] c.r.p.s.ManagerApp [DAO.java:139] - Attempting to display expenses
+2025-11-29 16:52:53,338 INFO [main] c.r.p.s.ManagerApp [DAO.java:142] - SQL connection successful for displayExpenses
+2025-11-29 16:52:53,338 INFO [main] c.r.p.s.ManagerApp [DAO.java:174] - Successfully displayed all pending expenses
+2025-11-29 16:53:02,749 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:283] - generateReport called
+2025-11-29 16:53:12,001 INFO [main] c.r.p.s.ManagerApp [DAO.java:226] - Successful DB connect in generateReport
+2025-11-29 16:53:12,001 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:368] - Report generation success
+2025-11-29 16:53:45,606 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
