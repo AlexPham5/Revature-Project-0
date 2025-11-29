@@ -9,7 +9,6 @@ public class Approval {
     private String review_date;
 
     public Approval(){
-
     }
 
     public Approval(String status, int reviewer, String comment, String review_date) {

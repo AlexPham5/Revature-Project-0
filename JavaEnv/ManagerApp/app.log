@@ -730,3 +730,21 @@
 2025-11-29 14:26:43,861 INFO [main] c.r.p.s.ManagerApp [DAO.java:219] - Successful DB connect in generateReport
 2025-11-29 14:26:51,751 WARN [main] c.r.p.s.ManagerApp [ManagerApp.java:269] - Expense ID not found in editApproval
 2025-11-29 14:26:57,465 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:117] - LOG END
+2025-11-29 16:42:02,600 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 16:42:34,284 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 16:43:39,690 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 16:43:45,934 INFO [main] c.r.p.s.ManagerApp [DAO.java:112] - Attempting to find manager user credential's in db
+2025-11-29 16:43:46,077 INFO [main] c.r.p.s.ManagerApp [DAO.java:115] - SQL connection successful for getCredentials
+2025-11-29 16:43:46,077 ERROR [main] c.r.p.s.ManagerApp [DAO.java:129] - SQLException in getCredentials
+2025-11-29 16:43:46,077 ERROR [main] c.r.p.s.ManagerApp [DAO.java:130] - [SQLITE_ERROR] SQL error or missing database (no such table: users)
+2025-11-29 16:45:17,128 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 16:45:22,302 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 16:45:29,215 INFO [main] c.r.p.s.ManagerApp [DAO.java:112] - Attempting to find manager user credential's in db
+2025-11-29 16:45:29,349 INFO [main] c.r.p.s.ManagerApp [DAO.java:115] - SQL connection successful for getCredentials
+2025-11-29 16:45:33,517 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 16:45:33,517 INFO [main] c.r.p.s.ManagerApp [DAO.java:139] - Attempting to display expenses
+2025-11-29 16:45:33,517 INFO [main] c.r.p.s.ManagerApp [DAO.java:142] - SQL connection successful for displayExpenses
+2025-11-29 16:45:33,517 INFO [main] c.r.p.s.ManagerApp [DAO.java:174] - Successfully displayed all pending expenses
+2025-11-29 16:45:39,084 INFO [main] c.r.p.s.ManagerApp [DAO.java:226] - Successful DB connect in generateReport
+2025-11-29 16:45:41,520 WARN [main] c.r.p.s.ManagerApp [ManagerApp.java:268] - Expense ID not found in editApproval
+2025-11-29 16:45:53,403 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END

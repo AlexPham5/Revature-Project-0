@@ -1,28 +1,35 @@
 package com.revature.project0.dao;
+import ch.qos.logback.core.util.FileSize;
 import com.revature.project0.model.Approval;
 import com.revature.project0.model.Expense;
-import com.revature.project0.model.User;
 import com.revature.project0.services.ManagerApp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.FileWriter;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.util.Pair;
-
-import static com.revature.project0.util.Util.printExpense;
-import static com.revature.project0.util.Util.printExpenseHeader;
+import java.util.Properties;
 
 //Will execute the SQL commands after ManagerApp verifies the inputs
 public class DAO {
-    final private static String dbPath = "jdbc:sqlite:C:\\Users\\alex1\\Revature_work\\Project_0\\RevatureDatabase.db";
+    private static String dbPath;
     Logger logger = LoggerFactory.getLogger(ManagerApp.class);
 
     public DAO(){
+        //dbPath = "jdbc:sqlite:C:\\Users\\alex1\\Revature_work\\Project_0\\RevatureDatabase.db";
+        // Get the dbPath from the properties file db.properties
+        Properties lp = new Properties();
+        try(FileInputStream fis = new FileInputStream("src\\main\\resources\\db.properties")){
+            lp.load(fis);
+            dbPath = lp.getProperty("dbPath");
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     //returns -1 if the id doesn't exists in expenses, otherwise return 1

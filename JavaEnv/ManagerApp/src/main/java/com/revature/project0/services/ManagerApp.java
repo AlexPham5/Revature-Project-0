@@ -2,7 +2,6 @@ package com.revature.project0.services;
 import com.revature.project0.dao.DAO;
 import com.revature.project0.model.Approval;
 import com.revature.project0.model.Expense;
-import com.revature.project0.model.User;
 import com.revature.project0.util.Util;
 import javafx.util.Pair;
 import org.slf4j.Logger;
