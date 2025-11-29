@@ -1,4 +1,4 @@
-import EmployeeApp
+from EmployeeApp import EmployeeApp
 
 def main():
     print("Starting program")

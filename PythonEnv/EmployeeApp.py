@@ -1,9 +1,10 @@
 import sqlite3
 import sys
 import logging
-from tabulate import tabulate
-from PythonEnv.utils import util
 from datetime import datetime
+from tabulate import tabulate
+from utils import util
+from DAO import DAO
 
 class EmployeeApp:
     def __init__(self):
@@ -12,9 +13,10 @@ class EmployeeApp:
                             level=logging.INFO,
                             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         logging.info("LOG START")
-        # stores userID from login prompt
         self.userID = -1
         self.dbPath = "C:\\Users\\alex1\\Revature_work\\Project_0\\RevatureDatabase.db"
+        self.d1 = DAO()
+
     
     def __del__(self):
         logging.info("LOG END")
@@ -58,7 +60,7 @@ class EmployeeApp:
     def login(self):
         while(1):
             try:
-                print("=== Welcome Employee ===\n" \
+                print("\n=== Welcome Employee ===\n" \
                 "1 - Enter Credentials\n" \
                 "2 - EXIT")
                 userInput = int(input("Please enter a number: "))
@@ -159,36 +161,7 @@ class EmployeeApp:
         except ValueError:
             print("Invalid input for submit expense\n")       
         else:
-            try:
-                with sqlite3.connect(self.dbPath) as conn:
-                    cursor = conn.cursor()
-
-                    addExpense =f"""
-                    INSERT INTO expenses (user_id, amount, description, date)
-                    VALUES ('{self.userID}', '{amountInput}', '{descInput}', '{dateInput}')
-                    """
-                    cursor.execute(addExpense)
-                    
-                    getLastRecordID = """
-                    SELECT id FROM expenses ORDER BY id DESC LIMIT 1
-                    """
-                    cursor.execute(getLastRecordID)
-                    expenseID = cursor.fetchone()[0]
-
-                    # Also make a pending approval with only expense_id and status filled
-                    # Managers in the java app will fill this out when reviewing
-                    addApproval = f"""
-                    INSERT INTO approvals (expense_id, status)
-                    VALUES ('{expenseID}', 'pending')
-                    """
-                    cursor.execute(addApproval)
-                    conn.commit()
-            except sqlite3.Error as error:
-                print("SQL Error occured: \n", error)
-                logging.error("SQL error occured in submit expense")
-            else:
-                print("Successfully added new expense and approval pending manager review")
-                logging.info("Employee successfully submitted new expense")
+            self.d1.insertExpense(self.userID, amountInput, descInput, dateInput)
         return
 
     #- As an employee, I want to view the status of my submitted expenses so that I know 

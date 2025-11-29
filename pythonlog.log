@@ -458,3 +458,17 @@
 2025-11-25 20:31:43,462 - root - INFO - Successfuly displayed approvals
 2025-11-25 20:32:12,153 - root - INFO - Exiting login
 2025-11-25 20:32:12,159 - root - INFO - LOG END
+2025-11-29 14:56:44,014 - root - INFO - LOG START
+2025-11-29 14:56:54,223 - root - INFO - Checking users table for valid credentials
+2025-11-29 14:56:54,243 - root - INFO - Successfully found employee credentials
+2025-11-29 14:57:13,373 - root - INFO - Entering new data for expenses
+2025-11-29 14:57:20,321 - root - INFO - LOG END
+2025-11-29 14:58:22,083 - root - INFO - LOG START
+2025-11-29 14:58:28,792 - root - INFO - Checking users table for valid credentials
+2025-11-29 14:58:28,794 - root - INFO - Successfully found employee credentials
+2025-11-29 14:58:36,191 - root - INFO - Entering new data for expenses
+2025-11-29 14:58:41,899 - root - INFO - Employee successfully submitted new expense
+2025-11-29 14:58:45,135 - root - INFO - Employee viewing existing expenses
+2025-11-29 14:58:45,138 - root - INFO - Successfully showed existing user expenses
+2025-11-29 14:59:00,203 - root - INFO - Exiting login
+2025-11-29 14:59:00,203 - root - INFO - LOG END
