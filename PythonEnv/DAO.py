@@ -21,7 +21,7 @@ class DAO:
     def getCredentials(self, username, password):
         print("Checking user table")
         try:
-            with sqlite3.connect(self.dbPath) as conn:
+            with mysql.connector.connect(host=self.host, user=self.user, password=self.password, database=self.database) as conn:
                 cursor = conn.cursor()
                 selectCredentials = f"""
                 SELECT * FROM users
@@ -31,21 +31,19 @@ class DAO:
                 credentials = cursor.fetchone()
                 conn.commit()
                 if(credentials != None and credentials[3] == 'Employee'):
-                    #successfully found the entered credentials
-                    print("Successful Login")
                     logging.info("Successfully found employee credentials")
                     return credentials[0]
                 else:
                     logging.warning("Username not found in database")
                     return -1
-        except sqlite3.Error as error:
+        except mysql.connector.Error as error:
             print("Error occured in login - ", error)  
             logging.error("SQL error occured in login - ", error) 
 
     def insertExpense(self, userID, amount, description, date):
         #print("SQL Insert")
         try:
-            with sqlite3.connect(self.dbPath) as conn:
+            with mysql.connector.connect(host=self.host, user=self.user, password=self.password, database=self.database) as conn:
                 cursor = conn.cursor()
 
                 addExpense =f"""
@@ -68,7 +66,7 @@ class DAO:
                 """
                 cursor.execute(addApproval)
                 conn.commit()
-        except sqlite3.Error as error:
+        except mysql.connector.Error as error:
             print("SQL Error occured: \n", error)
             logging.error("SQL error occured in submit expense")
         else:
@@ -78,7 +76,7 @@ class DAO:
     def selectExpenses(self, userID):
         print(f"\nALL EXPENSES FOR USERID: {userID}")
         try:
-            with sqlite3.connect(self.dbPath) as conn:
+            with mysql.connector.connect(host=self.host, user=self.user, password=self.password, database=self.database) as conn:
                 logging.info("Employee viewing existing expenses")
                 cursor = conn.cursor()
                 # grab all the expenses tied to this specific user id
@@ -98,7 +96,7 @@ class DAO:
                 
                 print(tabulate(data, tablefmt="grid"))
                 logging.info("Successfully showed existing user expenses")
-        except sqlite3.Error as error:
+        except mysql.connector.Error as error:
             print("Error occured: \n", error)
             logging.error("SQL error occured in view expense")
 

@@ -642,3 +642,43 @@
 2025-11-29 23:41:31,896 - root - INFO - Successfully found employee credentials
 2025-11-29 23:41:38,104 - root - INFO - Exiting login
 2025-11-29 23:41:38,104 - root - INFO - LOG END
+2025-11-29 23:45:57,864 - root - INFO - LOG START
+2025-11-29 23:46:05,785 - root - INFO - Checking users table for valid credentials
+2025-11-29 23:46:05,798 - root - INFO - LOG END
+2025-11-29 23:46:33,377 - root - INFO - LOG START
+2025-11-29 23:46:40,280 - root - INFO - Checking users table for valid credentials
+2025-11-29 23:46:40,292 - root - INFO - LOG END
+2025-11-29 23:47:32,162 - root - INFO - LOG START
+2025-11-29 23:47:48,543 - root - INFO - Checking users table for valid credentials
+2025-11-29 23:47:48,723 - root - INFO - Successfully found employee credentials
+2025-11-29 23:47:55,728 - root - INFO - Employee viewing existing expenses
+2025-11-29 23:47:55,731 - root - INFO - Successfully showed existing user expenses
+2025-11-29 23:48:00,439 - root - INFO - Exiting login
+2025-11-29 23:48:00,440 - root - INFO - LOG END
+2025-11-29 23:49:17,527 - root - INFO - LOG START
+2025-11-29 23:49:24,664 - root - INFO - Checking users table for valid credentials
+2025-11-29 23:49:24,754 - root - INFO - Successfully found employee credentials
+2025-11-29 23:49:25,944 - root - INFO - Employee viewing existing expenses
+2025-11-29 23:49:25,947 - root - INFO - Successfully showed existing user expenses
+2025-11-29 23:49:37,091 - root - INFO - Exiting login
+2025-11-29 23:49:37,091 - root - INFO - LOG END
+2025-11-29 23:50:18,797 - root - INFO - LOG START
+2025-11-29 23:50:25,394 - root - INFO - Checking users table for valid credentials
+2025-11-29 23:50:25,481 - root - INFO - Successfully found employee credentials
+2025-11-29 23:50:35,503 - root - INFO - Entering new data for expenses
+2025-11-29 23:50:45,863 - root - INFO - Employee successfully submitted new expense
+2025-11-29 23:50:51,063 - root - INFO - Employee viewing existing expenses
+2025-11-29 23:50:51,066 - root - INFO - Successfully showed existing user expenses
+2025-11-29 23:50:59,828 - root - INFO - Exiting login
+2025-11-29 23:50:59,828 - root - INFO - LOG END
+2025-11-29 23:51:35,149 - root - INFO - LOG START
+2025-11-29 23:51:52,805 - root - INFO - Checking users table for valid credentials
+2025-11-29 23:51:52,892 - root - INFO - Successfully found employee credentials
+2025-11-29 23:51:54,781 - root - INFO - Employee viewing existing expenses
+2025-11-29 23:51:54,782 - root - INFO - Successfully showed existing user expenses
+2025-11-29 23:52:02,183 - root - INFO - Employee viewing existing expenses
+2025-11-29 23:52:02,184 - root - INFO - Successfully showed existing user expenses
+2025-11-29 23:52:04,467 - root - INFO - checking if id is valid
+2025-11-29 23:52:04,468 - root - WARNING - No expense found with specified ID and user ID
+2025-11-29 23:52:09,740 - root - INFO - Exiting login
+2025-11-29 23:52:09,740 - root - INFO - LOG END
