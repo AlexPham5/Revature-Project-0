@@ -682,3 +682,43 @@
 2025-11-29 23:52:04,468 - root - WARNING - No expense found with specified ID and user ID
 2025-11-29 23:52:09,740 - root - INFO - Exiting login
 2025-11-29 23:52:09,740 - root - INFO - LOG END
+2025-11-29 23:54:48,201 - root - INFO - LOG START
+2025-11-29 23:54:56,410 - root - INFO - Checking users table for valid credentials
+2025-11-29 23:54:56,500 - root - INFO - Successfully found employee credentials
+2025-11-29 23:54:59,839 - root - INFO - Employee viewing existing expenses
+2025-11-29 23:54:59,842 - root - INFO - Successfully showed existing user expenses
+2025-11-29 23:55:21,957 - root - INFO - Entering new data for expenses
+2025-11-29 23:55:35,105 - root - INFO - Employee successfully submitted new expense
+2025-11-29 23:55:36,834 - root - INFO - Employee viewing existing expenses
+2025-11-29 23:55:36,837 - root - INFO - Successfully showed existing user expenses
+2025-11-29 23:55:45,656 - root - INFO - Entering new data for expenses
+2025-11-29 23:55:50,383 - root - INFO - Employee successfully submitted new expense
+2025-11-29 23:55:52,031 - root - INFO - Employee viewing existing expenses
+2025-11-29 23:55:52,034 - root - INFO - Successfully showed existing user expenses
+2025-11-29 23:56:04,672 - root - INFO - Employee viewing existing expenses
+2025-11-29 23:56:04,675 - root - INFO - Successfully showed existing user expenses
+2025-11-29 23:56:16,675 - root - INFO - checking if id is valid
+2025-11-29 23:56:16,676 - root - INFO - Expense for edit found
+2025-11-29 23:56:16,678 - root - INFO - checking if id is valid
+2025-11-29 23:56:24,609 - root - INFO - Successfully edited expense
+2025-11-29 23:56:27,139 - root - INFO - Employee viewing existing expenses
+2025-11-29 23:56:27,142 - root - INFO - Successfully showed existing user expenses
+2025-11-29 23:56:31,648 - root - INFO - Employee viewing existing expenses
+2025-11-29 23:56:31,651 - root - INFO - Successfully showed existing user expenses
+2025-11-29 23:56:33,893 - root - INFO - checking if id is valid
+2025-11-29 23:56:33,894 - root - WARNING - No expense found with specified ID and user ID
+2025-11-29 23:56:38,568 - root - INFO - Employee viewing existing expenses
+2025-11-29 23:56:38,571 - root - INFO - Successfully showed existing user expenses
+2025-11-29 23:56:43,975 - root - INFO - checking if id is valid
+2025-11-29 23:56:46,889 - root - INFO - Employee viewing existing expenses
+2025-11-29 23:56:46,892 - root - INFO - Successfully showed existing user expenses
+2025-11-29 23:56:51,136 - root - INFO - checking if id is valid
+2025-11-29 23:56:51,137 - root - INFO - Expense for deletion found
+2025-11-29 23:56:51,139 - root - INFO - checking if id is valid
+2025-11-29 23:56:54,143 - root - INFO - Deletion successful
+2025-11-29 23:56:57,055 - root - INFO - Employee viewing existing expenses
+2025-11-29 23:56:57,058 - root - INFO - Successfully showed existing user expenses
+2025-11-29 23:57:02,985 - root - INFO - Employee attempting to viewing approvals
+2025-11-29 23:57:02,988 - root - INFO - Successfuly displayed approvals
+2025-11-29 23:57:08,203 - root - INFO - Exiting login
+2025-11-29 23:57:08,204 - root - INFO - LOG END

@@ -104,7 +104,7 @@ class DAO:
         #return 1 if success, 2 if no id found, 3 if id is not equal to status, return -1 on error
         #print("Checking expense ID and status")
         try:
-            with sqlite3.connect(self.dbPath) as conn:
+            with mysql.connector.connect(host=self.host, user=self.user, password=self.password, database=self.database) as conn:
                 logging.info("checking if id is valid")
                 cursor = conn.cursor()
                 cursor.execute(f"SELECT * FROM expenses WHERE id = '{expenseID}' AND user_id = '{userID}'")
@@ -122,7 +122,7 @@ class DAO:
                     # Expense exists and is valid status
                     return 1
                     
-        except sqlite3.Error as error:
+        except mysql.connector.Error as error:
             print("SQL Error occured: \n", error)
             logging.error("SQL Error occured in edit")
             return -1
@@ -130,7 +130,7 @@ class DAO:
     def printExpense(self, expenseID):
         #display the single expense given
         try:
-            with sqlite3.connect(self.dbPath) as conn:
+            with mysql.connector.connect(host=self.host, user=self.user, password=self.password, database=self.database) as conn:
                 logging.info("checking if id is valid")
                 cursor = conn.cursor()
                 cursor.execute(f"SELECT * FROM expenses WHERE id = '{expenseID}'")
@@ -140,7 +140,7 @@ class DAO:
                 amountString = ("$%.2f" %expenseTBE[2])
                 data.append([expenseTBE[0], amountString, expenseTBE[3], expenseTBE[4]])
                 print(tabulate(data, tablefmt="grid"))
-        except sqlite3.Error as error:
+        except mysql.connector.Error as error:
             print("Error occurred in printExpense")
             logging.error("SQL Error for print expense method in DAO")
 
@@ -148,7 +148,7 @@ class DAO:
     def updateExpense(self, userID, expenseID, field, newVal):
         #print("SQL update")
         try:
-            with sqlite3.connect(self.dbPath) as conn:
+            with mysql.connector.connect(host=self.host, user=self.user, password=self.password, database=self.database) as conn:
                 cursor = conn.cursor()
                 update =f"""
                 UPDATE expenses SET {field} = '{newVal}' WHERE id = '{expenseID}' AND user_id = '{userID}'
@@ -157,7 +157,7 @@ class DAO:
                 conn.commit()
                 print("Successfully edited expense")
                 logging.info("Successfully edited expense")
-        except sqlite3.Error as error:
+        except mysql.connector.Error as error:
             print("Expense update failed")
             print("SQL Error occured: \n", error)
             logging.error("SQL Error occured in edit expense")
@@ -166,14 +166,14 @@ class DAO:
     def deleteExpense(self, deleteID):
         #print("SQL delete")
         try:
-            with sqlite3.connect(self.dbPath) as conn:
+            with mysql.connector.connect(host=self.host, user=self.user, password=self.password, database=self.database) as conn:
                 cursor = conn.cursor()
                 cursor.execute(f"DELETE FROM approvals WHERE expense_id = {deleteID}")
                 cursor.execute(f"DELETE FROM expenses WHERE id = {deleteID}")
                 conn.commit()
                 print("Successfully deleted expense and corresponding pending approval")
                 logging.info("Deletion successful")
-        except sqlite3.Error as error:
+        except mysql.connector.Error as error:
             print("Expense deletion failed")
             print("SQL Error occured: \n", error)
             logging.error("SQL Error occured in delete expense")
@@ -181,7 +181,7 @@ class DAO:
     def selectApprovals(self, userID):
         print("SQL select approval according to expenseID")
         try:
-            with sqlite3.connect(self.dbPath) as conn:
+            with mysql.connector.connect(host=self.host, user=self.user, password=self.password, database=self.database) as conn:
                 logging.info("Employee attempting to viewing approvals")
                 cursor = conn.cursor()
                 # grab all the expenses tied to this specific user id
@@ -201,6 +201,6 @@ class DAO:
                         data.append(tablerow)
                 print(tabulate(data, tablefmt="grid"))
                 logging.info("Successfuly displayed approvals")
-        except sqlite3.Error as error:
+        except mysql.connector.Error as error:
             print("SQL Error occured - ", error)
             logging.error("SQL Error occured in view approvals- ", error)
