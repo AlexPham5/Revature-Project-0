@@ -767,3 +767,162 @@
 2025-11-29 16:53:12,001 INFO [main] c.r.p.s.ManagerApp [DAO.java:226] - Successful DB connect in generateReport
 2025-11-29 16:53:12,001 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:368] - Report generation success
 2025-11-29 16:53:45,606 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 22:19:58,640 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 22:20:08,348 INFO [main] c.r.p.s.ManagerApp [DAO.java:113] - Attempting to find manager user credential's in db
+2025-11-29 22:20:19,434 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 22:21:43,765 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 22:22:08,701 INFO [main] c.r.p.s.ManagerApp [DAO.java:113] - Attempting to find manager user credential's in db
+2025-11-29 22:22:09,083 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - SQL connection successful for getCredentials
+2025-11-29 22:22:13,652 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 22:22:13,653 INFO [main] c.r.p.s.ManagerApp [DAO.java:140] - Attempting to display expenses
+2025-11-29 22:22:14,539 ERROR [main] c.r.p.s.ManagerApp [DAO.java:179] - SQLException in displayExpenses
+2025-11-29 22:22:14,540 ERROR [main] c.r.p.s.ManagerApp [DAO.java:180] - Access denied for user 'alex1'@'localhost' (using password: NO)
+2025-11-29 22:22:19,011 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 22:26:35,107 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 22:26:41,442 INFO [main] c.r.p.s.ManagerApp [DAO.java:113] - Attempting to find manager user credential's in db
+2025-11-29 22:26:41,815 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - SQL connection successful for getCredentials
+2025-11-29 22:26:43,794 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 22:26:43,794 INFO [main] c.r.p.s.ManagerApp [DAO.java:140] - Attempting to display expenses
+2025-11-29 22:26:43,801 INFO [main] c.r.p.s.ManagerApp [DAO.java:143] - SQL connection successful for displayExpenses
+2025-11-29 22:26:43,814 ERROR [main] c.r.p.s.ManagerApp [DAO.java:179] - SQLException in displayExpenses
+2025-11-29 22:26:43,814 ERROR [main] c.r.p.s.ManagerApp [DAO.java:180] - Before start of result set
+2025-11-29 22:27:46,580 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 22:27:46,580 INFO [main] c.r.p.s.ManagerApp [DAO.java:140] - Attempting to display expenses
+2025-11-29 22:27:46,586 INFO [main] c.r.p.s.ManagerApp [DAO.java:143] - SQL connection successful for displayExpenses
+2025-11-29 22:27:46,589 ERROR [main] c.r.p.s.ManagerApp [DAO.java:179] - SQLException in displayExpenses
+2025-11-29 22:27:46,589 ERROR [main] c.r.p.s.ManagerApp [DAO.java:180] - Before start of result set
+2025-11-29 22:34:33,817 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 22:37:01,907 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 22:37:07,094 INFO [main] c.r.p.s.ManagerApp [DAO.java:113] - Attempting to find manager user credential's in db
+2025-11-29 22:37:07,453 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - SQL connection successful for getCredentials
+2025-11-29 22:37:09,022 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 22:37:09,025 INFO [main] c.r.p.s.ManagerApp [DAO.java:140] - Attempting to display expenses
+2025-11-29 22:37:09,031 INFO [main] c.r.p.s.ManagerApp [DAO.java:143] - SQL connection successful for displayExpenses
+2025-11-29 22:37:09,034 INFO [main] c.r.p.s.ManagerApp [DAO.java:161] - start of while loop
+2025-11-29 22:37:09,037 INFO [main] c.r.p.s.ManagerApp [DAO.java:167] - after rs2
+2025-11-29 22:37:09,043 ERROR [main] c.r.p.s.ManagerApp [DAO.java:181] - SQLException in displayExpenses
+2025-11-29 22:37:09,044 ERROR [main] c.r.p.s.ManagerApp [DAO.java:182] - Before start of result set
+2025-11-29 22:40:47,559 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 22:40:58,374 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 22:41:03,943 INFO [main] c.r.p.s.ManagerApp [DAO.java:113] - Attempting to find manager user credential's in db
+2025-11-29 22:41:04,274 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - SQL connection successful for getCredentials
+2025-11-29 22:41:06,809 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 22:41:06,809 INFO [main] c.r.p.s.ManagerApp [DAO.java:140] - Attempting to display expenses
+2025-11-29 22:41:06,815 INFO [main] c.r.p.s.ManagerApp [DAO.java:143] - SQL connection successful for displayExpenses
+2025-11-29 22:41:06,818 INFO [main] c.r.p.s.ManagerApp [DAO.java:161] - start of while loop
+2025-11-29 22:41:06,821 INFO [main] c.r.p.s.ManagerApp [DAO.java:167] - after rs2
+2025-11-29 22:41:06,826 ERROR [main] c.r.p.s.ManagerApp [DAO.java:181] - SQLException in displayExpenses
+2025-11-29 22:41:06,827 ERROR [main] c.r.p.s.ManagerApp [DAO.java:182] - Before start of result set
+2025-11-29 22:42:08,355 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 22:42:15,164 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 22:42:22,178 INFO [main] c.r.p.s.ManagerApp [DAO.java:113] - Attempting to find manager user credential's in db
+2025-11-29 22:42:22,521 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - SQL connection successful for getCredentials
+2025-11-29 22:42:24,476 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 22:42:24,477 INFO [main] c.r.p.s.ManagerApp [DAO.java:140] - Attempting to display expenses
+2025-11-29 22:42:24,483 INFO [main] c.r.p.s.ManagerApp [DAO.java:143] - SQL connection successful for displayExpenses
+2025-11-29 22:42:24,487 INFO [main] c.r.p.s.ManagerApp [DAO.java:161] - start of while loop
+2025-11-29 22:42:24,489 INFO [main] c.r.p.s.ManagerApp [DAO.java:167] - after rs2
+2025-11-29 22:42:24,495 ERROR [main] c.r.p.s.ManagerApp [DAO.java:186] - SQLException in displayExpenses
+2025-11-29 22:42:24,495 ERROR [main] c.r.p.s.ManagerApp [DAO.java:187] - Before start of result set
+2025-11-29 22:44:58,632 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 22:45:04,609 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 22:45:13,068 INFO [main] c.r.p.s.ManagerApp [DAO.java:113] - Attempting to find manager user credential's in db
+2025-11-29 22:45:13,407 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - SQL connection successful for getCredentials
+2025-11-29 22:45:56,811 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 22:45:56,811 INFO [main] c.r.p.s.ManagerApp [DAO.java:140] - Attempting to display expenses
+2025-11-29 22:45:56,818 INFO [main] c.r.p.s.ManagerApp [DAO.java:143] - SQL connection successful for displayExpenses
+2025-11-29 22:45:56,821 INFO [main] c.r.p.s.ManagerApp [DAO.java:161] - start of while loop
+2025-11-29 22:45:56,824 INFO [main] c.r.p.s.ManagerApp [DAO.java:168] - after rs2
+2025-11-29 22:45:56,829 ERROR [main] c.r.p.s.ManagerApp [DAO.java:182] - SQLException in displayExpenses
+2025-11-29 22:45:56,829 ERROR [main] c.r.p.s.ManagerApp [DAO.java:183] - Before start of result set
+2025-11-29 22:50:48,028 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 22:50:55,062 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 22:51:00,905 INFO [main] c.r.p.s.ManagerApp [DAO.java:113] - Attempting to find manager user credential's in db
+2025-11-29 22:51:01,259 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - SQL connection successful for getCredentials
+2025-11-29 22:51:03,027 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 22:51:03,028 INFO [main] c.r.p.s.ManagerApp [DAO.java:140] - Attempting to display expenses
+2025-11-29 22:51:03,041 INFO [main] c.r.p.s.ManagerApp [DAO.java:143] - SQL connection successful for displayExpenses
+2025-11-29 22:51:03,044 INFO [main] c.r.p.s.ManagerApp [DAO.java:161] - start of while loop
+2025-11-29 22:51:03,048 INFO [main] c.r.p.s.ManagerApp [DAO.java:169] - after rs2
+2025-11-29 22:51:03,053 ERROR [main] c.r.p.s.ManagerApp [DAO.java:183] - SQLException in displayExpenses
+2025-11-29 22:51:03,054 ERROR [main] c.r.p.s.ManagerApp [DAO.java:184] - Before start of result set
+2025-11-29 22:52:15,356 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 22:52:22,390 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 22:52:27,444 INFO [main] c.r.p.s.ManagerApp [DAO.java:113] - Attempting to find manager user credential's in db
+2025-11-29 22:52:27,818 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - SQL connection successful for getCredentials
+2025-11-29 22:52:29,066 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 22:52:29,066 INFO [main] c.r.p.s.ManagerApp [DAO.java:140] - Attempting to display expenses
+2025-11-29 22:52:29,072 INFO [main] c.r.p.s.ManagerApp [DAO.java:143] - SQL connection successful for displayExpenses
+2025-11-29 22:52:29,077 INFO [main] c.r.p.s.ManagerApp [DAO.java:161] - start of while loop
+2025-11-29 22:52:29,080 INFO [main] c.r.p.s.ManagerApp [DAO.java:173] - after rs2
+2025-11-29 22:52:29,086 ERROR [main] c.r.p.s.ManagerApp [DAO.java:187] - SQLException in displayExpenses
+2025-11-29 22:52:29,086 ERROR [main] c.r.p.s.ManagerApp [DAO.java:188] - Before start of result set
+2025-11-29 22:54:18,742 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 22:54:23,958 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 22:54:28,791 INFO [main] c.r.p.s.ManagerApp [DAO.java:113] - Attempting to find manager user credential's in db
+2025-11-29 22:54:29,150 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - SQL connection successful for getCredentials
+2025-11-29 22:54:30,548 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 22:54:30,549 INFO [main] c.r.p.s.ManagerApp [DAO.java:140] - Attempting to display expenses
+2025-11-29 22:54:30,554 INFO [main] c.r.p.s.ManagerApp [DAO.java:143] - SQL connection successful for displayExpenses
+2025-11-29 22:54:30,558 INFO [main] c.r.p.s.ManagerApp [DAO.java:161] - start of while loop
+2025-11-29 22:54:30,561 INFO [main] c.r.p.s.ManagerApp [DAO.java:173] - after rs2
+2025-11-29 22:54:30,566 ERROR [main] c.r.p.s.ManagerApp [DAO.java:188] - SQLException in displayExpenses
+2025-11-29 22:54:30,567 ERROR [main] c.r.p.s.ManagerApp [DAO.java:189] - Before start of result set
+2025-11-29 22:56:46,545 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 22:56:52,910 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 22:56:57,942 INFO [main] c.r.p.s.ManagerApp [DAO.java:113] - Attempting to find manager user credential's in db
+2025-11-29 22:56:58,274 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - SQL connection successful for getCredentials
+2025-11-29 22:57:03,865 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 22:57:03,866 INFO [main] c.r.p.s.ManagerApp [DAO.java:140] - Attempting to display expenses
+2025-11-29 22:57:03,873 INFO [main] c.r.p.s.ManagerApp [DAO.java:143] - SQL connection successful for displayExpenses
+2025-11-29 22:57:03,877 INFO [main] c.r.p.s.ManagerApp [DAO.java:161] - start of while loop
+2025-11-29 22:57:03,884 INFO [main] c.r.p.s.ManagerApp [DAO.java:174] - after rs2
+2025-11-29 22:57:03,889 ERROR [main] c.r.p.s.ManagerApp [DAO.java:189] - SQLException in displayExpenses
+2025-11-29 22:57:03,889 ERROR [main] c.r.p.s.ManagerApp [DAO.java:190] - Before start of result set
+2025-11-29 22:57:14,425 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 22:58:29,566 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 22:58:34,780 INFO [main] c.r.p.s.ManagerApp [DAO.java:113] - Attempting to find manager user credential's in db
+2025-11-29 22:58:35,126 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - SQL connection successful for getCredentials
+2025-11-29 22:58:37,174 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 22:58:37,175 INFO [main] c.r.p.s.ManagerApp [DAO.java:140] - Attempting to display expenses
+2025-11-29 22:58:37,181 INFO [main] c.r.p.s.ManagerApp [DAO.java:143] - SQL connection successful for displayExpenses
+2025-11-29 22:58:37,184 INFO [main] c.r.p.s.ManagerApp [DAO.java:161] - start of while loop
+2025-11-29 22:58:37,193 INFO [main] c.r.p.s.ManagerApp [DAO.java:174] - after rs2
+2025-11-29 22:58:37,197 ERROR [main] c.r.p.s.ManagerApp [DAO.java:189] - SQLException in displayExpenses
+2025-11-29 22:58:37,198 ERROR [main] c.r.p.s.ManagerApp [DAO.java:190] - Before start of result set
+2025-11-29 22:59:30,683 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 22:59:38,402 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 22:59:43,206 INFO [main] c.r.p.s.ManagerApp [DAO.java:113] - Attempting to find manager user credential's in db
+2025-11-29 22:59:43,539 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - SQL connection successful for getCredentials
+2025-11-29 22:59:45,601 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 22:59:45,601 INFO [main] c.r.p.s.ManagerApp [DAO.java:140] - Attempting to display expenses
+2025-11-29 22:59:45,606 INFO [main] c.r.p.s.ManagerApp [DAO.java:143] - SQL connection successful for displayExpenses
+2025-11-29 22:59:45,610 INFO [main] c.r.p.s.ManagerApp [DAO.java:161] - start of while loop
+2025-11-29 22:59:45,618 INFO [main] c.r.p.s.ManagerApp [DAO.java:176] - after rs2
+2025-11-29 22:59:45,623 ERROR [main] c.r.p.s.ManagerApp [DAO.java:191] - SQLException in displayExpenses
+2025-11-29 22:59:45,624 ERROR [main] c.r.p.s.ManagerApp [DAO.java:192] - Before start of result set
+2025-11-29 23:02:46,891 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 23:02:52,936 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 23:02:58,348 INFO [main] c.r.p.s.ManagerApp [DAO.java:113] - Attempting to find manager user credential's in db
+2025-11-29 23:02:58,707 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - SQL connection successful for getCredentials
+2025-11-29 23:03:01,997 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 23:03:01,999 INFO [main] c.r.p.s.ManagerApp [DAO.java:140] - Attempting to display expenses
+2025-11-29 23:03:02,005 INFO [main] c.r.p.s.ManagerApp [DAO.java:143] - SQL connection successful for displayExpenses
+2025-11-29 23:03:02,008 INFO [main] c.r.p.s.ManagerApp [DAO.java:161] - start of while loop
+2025-11-29 23:03:02,015 INFO [main] c.r.p.s.ManagerApp [DAO.java:161] - start of while loop
+2025-11-29 23:03:02,017 INFO [main] c.r.p.s.ManagerApp [DAO.java:183] - Successfully displayed all pending expenses
+2025-11-29 23:03:41,456 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END
+2025-11-29 23:03:48,197 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:40] - LOG START
+2025-11-29 23:03:53,650 INFO [main] c.r.p.s.ManagerApp [DAO.java:113] - Attempting to find manager user credential's in db
+2025-11-29 23:03:54,002 INFO [main] c.r.p.s.ManagerApp [DAO.java:116] - SQL connection successful for getCredentials
+2025-11-29 23:03:55,197 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:131] - viewExpenses called
+2025-11-29 23:03:55,198 INFO [main] c.r.p.s.ManagerApp [DAO.java:140] - Attempting to display expenses
+2025-11-29 23:03:55,204 INFO [main] c.r.p.s.ManagerApp [DAO.java:143] - SQL connection successful for displayExpenses
+2025-11-29 23:03:55,208 INFO [main] c.r.p.s.ManagerApp [DAO.java:161] - start of while loop
+2025-11-29 23:03:55,216 INFO [main] c.r.p.s.ManagerApp [DAO.java:171] - after rs2
+2025-11-29 23:03:55,218 INFO [main] c.r.p.s.ManagerApp [DAO.java:174] - after get int for id
+2025-11-29 23:03:55,220 INFO [main] c.r.p.s.ManagerApp [DAO.java:161] - start of while loop
+2025-11-29 23:03:55,222 INFO [main] c.r.p.s.ManagerApp [DAO.java:171] - after rs2
+2025-11-29 23:03:55,222 INFO [main] c.r.p.s.ManagerApp [DAO.java:174] - after get int for id
+2025-11-29 23:03:55,223 INFO [main] c.r.p.s.ManagerApp [DAO.java:182] - Successfully displayed all pending expenses
+2025-11-29 23:04:02,728 INFO [main] c.r.p.s.ManagerApp [ManagerApp.java:116] - LOG END

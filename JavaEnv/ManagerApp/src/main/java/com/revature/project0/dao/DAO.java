@@ -3,6 +3,7 @@ import ch.qos.logback.core.util.FileSize;
 import com.revature.project0.model.Approval;
 import com.revature.project0.model.Expense;
 import com.revature.project0.services.ManagerApp;
+import com.revature.project0.util.Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,7 +27,7 @@ public class DAO {
         Properties lp = new Properties();
         try(FileInputStream fis = new FileInputStream("src\\main\\resources\\db.properties")){
             lp.load(fis);
-            dbPath = lp.getProperty("dbPath");
+            dbPath = lp.getProperty("dbPathMySQL");
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -110,7 +111,7 @@ public class DAO {
     //returns -1 if unsuccessful, otherwise returns the manager's id
     public int getCredentials(String username, String password){
         logger.info("Attempting to find manager user credential's in db");
-        try(Connection conn = DriverManager.getConnection(dbPath)){
+        try(Connection conn = Util.connect(dbPath)){
             if(conn != null){
                 logger.info("SQL connection successful for getCredentials");
                 String getCredentials = "SELECT * FROM users WHERE username=? AND password=? AND role='Manager'";
@@ -137,7 +138,7 @@ public class DAO {
     //show all pending expenses in the expense table
     public List<Expense> getExpenses(boolean pending){
         logger.info("Attempting to display expenses");
-        try(Connection conn = DriverManager.getConnection(dbPath)){
+        try(Connection conn = Util.connect(dbPath)){
             if(conn != null) {
                 logger.info("SQL connection successful for displayExpenses");
                 //Get all the expense_id from approvals where status is pending
@@ -157,13 +158,18 @@ public class DAO {
                 }
                 List<Expense> expenseList = new ArrayList<Expense>();
                 while (eIDs.next()) {
+                    logger.info("start of while loop");
                     //for every expense_id, get the corresponding expense
-                    String displayExpense = "SELECT * FROM expenses WHERE id=?";
+                    String displayExpense = "SELECT * FROM expenses WHERE id=?;";
                     PreparedStatement p1 = conn.prepareStatement(displayExpense);
+                    System.out.println("Expense id: "+eIDs.getInt("expense_id"));
                     p1.setInt(1, eIDs.getInt("expense_id"));
                     ResultSet expense = p1.executeQuery();
-                    //Make expense obj and add to lsit
+                    expense.next();
+
+                    //Make expense obj and add to list
                     int id = expense.getInt("id");
+                    logger.info("after get int for id");
                     int user_id = expense.getInt("user_id");
                     float amount = expense.getFloat("amount");
                     String desc = expense.getString("description");

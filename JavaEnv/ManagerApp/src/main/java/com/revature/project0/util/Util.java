@@ -8,6 +8,8 @@ import com.revature.project0.model.Expense;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -96,5 +98,15 @@ public class Util {
         } catch (IOException err) {
             throw err;
         }
+    }
+
+    public static Connection connect(String path){
+        Connection connection = null;
+        try{
+            connection = DriverManager.getConnection(path, "root", "");
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return connection;
     }
 }
