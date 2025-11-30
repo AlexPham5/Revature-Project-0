@@ -37,7 +37,7 @@ public class DAO {
     // if mode = 1, check all pending expenses
     // if mode = 2, check all approved/denied expenses
     public Expense checkExpenseID(int id, boolean pending){
-        try(Connection conn = DriverManager.getConnection(dbPath)) {
+        try(Connection conn = Util.connect(dbPath)) {
             if (conn != null) {
                 String check = "SELECT * FROM expenses WHERE id=?";
                 PreparedStatement ps = conn.prepareStatement(check);
@@ -45,6 +45,7 @@ public class DAO {
                 ResultSet rs = ps.executeQuery();
                 if (rs.isBeforeFirst()) {
                     //check if the expense is pending by checking approval
+                    rs.next();
                     int expense_id = rs.getInt("id");
                     StringBuilder query = new StringBuilder("SELECT status FROM approvals WHERE expense_id=?");
                     if(pending)
@@ -55,6 +56,7 @@ public class DAO {
                     ps2.setInt(1, expense_id);
                     ResultSet rs2 = ps2.executeQuery();
                     if(rs2.isBeforeFirst()){
+                        rs2.next();
                         String status = rs2.getString("status");
                         //wanted pending expenses, got a pending expense
                         if((status.equals("pending") && pending) || (!status.equals("pending") && !pending)){
@@ -83,7 +85,7 @@ public class DAO {
 
     //return -1 if it doesnt exist, otherwise return 1
     public int checkUserID(int id) {
-        try (Connection conn = DriverManager.getConnection(dbPath)) {
+        try (Connection conn = Util.connect(dbPath)) {
             if(conn != null){
                 String check = String.format("SELECT id, username, role FROM users WHERE id=? AND role='Employee'");
                 PreparedStatement ps = conn.prepareStatement(check);
@@ -94,6 +96,7 @@ public class DAO {
                     return -1;
                 }
                 else{
+                    rs.next();
                     System.out.println("User ID Chosen: ");
                     printUser(rs);
                     return 1;
@@ -158,7 +161,6 @@ public class DAO {
                 }
                 List<Expense> expenseList = new ArrayList<Expense>();
                 while (eIDs.next()) {
-                    logger.info("start of while loop");
                     //for every expense_id, get the corresponding expense
                     String displayExpense = "SELECT * FROM expenses WHERE id=?;";
                     PreparedStatement p1 = conn.prepareStatement(displayExpense);
@@ -169,7 +171,6 @@ public class DAO {
 
                     //Make expense obj and add to list
                     int id = expense.getInt("id");
-                    logger.info("after get int for id");
                     int user_id = expense.getInt("user_id");
                     float amount = expense.getFloat("amount");
                     String desc = expense.getString("description");
@@ -191,7 +192,7 @@ public class DAO {
     //set an expense as approved or denied, make comments, record date and manager id
     //return 1 on success, -1 on failure
     public int editApproval(int eID, String status, int manID, String comment){
-        try(Connection conn = DriverManager.getConnection(dbPath)){
+        try(Connection conn = Util.connect(dbPath)){
             if(conn != null) {
                 logger.info("SQL connection successful for editApproval");
                 String review = "UPDATE approvals SET status=?, reviewer=?, comment=?, review_date=? WHERE expense_id=?";
@@ -227,7 +228,7 @@ public class DAO {
     //Display on console and write to a text file
     //return 1 on success, return 2 on no reports found, -1 on failure
     public Pair<List<Expense>, List<Approval>> getReport(int user, String dateS, String dateE, String keyword){
-        try(Connection conn = DriverManager.getConnection(dbPath)) {
+        try(Connection conn = Util.connect(dbPath)) {
             if(conn != null){
                 logger.info("Successful DB connect in generateReport");
                 StringBuilder query = new StringBuilder("SELECT * FROM expenses INNER JOIN approvals ON(expenses.id=approvals.expense_id)");
@@ -300,7 +301,7 @@ public class DAO {
 
     public int displayUsers(){
         //show all usernames and ids (NOT PASSWORDS)
-        try(Connection conn = DriverManager.getConnection(dbPath)){
+        try(Connection conn = Util.connect(dbPath)){
             if(conn != null) {
                 String getUsers = "SELECT * FROM users WHERE role='Employee'";
                 Statement s1 = conn.createStatement();
