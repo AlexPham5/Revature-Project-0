@@ -300,7 +300,7 @@ public class DAO {
                 Statement s1 = conn.createStatement();
                 ResultSet rs = s1.executeQuery(getUsers);
                 if(!rs.isBeforeFirst()){
-                    System.out.println("No users availabe");
+                    System.out.println("No users available");
                     return -1;
                 }
                 String formatH = "| %-3s | %-20s | %-8s |";
