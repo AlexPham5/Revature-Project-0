@@ -2,7 +2,7 @@
 import sqlite3
 import logging
 from tabulate import tabulate
-
+import mysql.connector
 
 class DAO:
     def __init__(self):
@@ -11,8 +11,37 @@ class DAO:
                             level=logging.INFO,
                             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         self.dbPath = "C:\\Users\\alex1\\Revature_work\\Project_0\\RevatureDatabase.db"
-        
+
+        self.host = "127.0.0.1"
+        self.user = "root"
+        self.password = ""
+        self.database = "revaturedb"
     
+    #return userID on success, -1 otherwise
+    def getCredentials(self, username, password):
+        print("Checking user table")
+        try:
+            with sqlite3.connect(self.dbPath) as conn:
+                cursor = conn.cursor()
+                selectCredentials = f"""
+                SELECT * FROM users
+                WHERE username = '{username}' AND password = '{password}'
+                """
+                cursor.execute(selectCredentials)
+                credentials = cursor.fetchone()
+                conn.commit()
+                if(credentials != None and credentials[3] == 'Employee'):
+                    #successfully found the entered credentials
+                    print("Successful Login")
+                    logging.info("Successfully found employee credentials")
+                    return credentials[0]
+                else:
+                    logging.warning("Username not found in database")
+                    return -1
+        except sqlite3.Error as error:
+            print("Error occured in login - ", error)  
+            logging.error("SQL error occured in login - ", error) 
+
     def insertExpense(self, userID, amount, description, date):
         #print("SQL Insert")
         try:

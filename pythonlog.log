@@ -616,3 +616,29 @@
 2025-11-29 16:28:54,771 - root - INFO - Successfuly displayed approvals
 2025-11-29 16:29:06,828 - root - INFO - Exiting login
 2025-11-29 16:29:06,828 - root - INFO - LOG END
+2025-11-29 23:34:42,064 - root - INFO - LOG START
+2025-11-29 23:34:50,374 - root - INFO - Checking users table for valid credentials
+2025-11-29 23:34:50,389 - root - INFO - Successfully found employee credentials
+2025-11-29 23:34:53,205 - root - INFO - Employee viewing existing expenses
+2025-11-29 23:34:53,208 - root - INFO - Successfully showed existing user expenses
+2025-11-29 23:34:58,117 - root - INFO - Employee attempting to viewing approvals
+2025-11-29 23:34:58,119 - root - INFO - Successfuly displayed approvals
+2025-11-29 23:35:06,619 - root - INFO - Exiting login
+2025-11-29 23:35:06,620 - root - INFO - LOG END
+2025-11-29 23:36:23,410 - root - INFO - LOG START
+2025-11-29 23:36:30,484 - root - INFO - Checking users table for valid credentials
+2025-11-29 23:36:30,493 - root - INFO - LOG END
+2025-11-29 23:40:17,587 - root - INFO - LOG START
+2025-11-29 23:40:28,765 - root - INFO - Checking users table for valid credentials
+2025-11-29 23:40:28,767 - root - INFO - Successfully found employee credentials
+2025-11-29 23:40:33,779 - root - INFO - Checking users table for valid credentials
+2025-11-29 23:40:33,781 - root - WARNING - Username not found in database
+2025-11-29 23:40:45,533 - root - INFO - Exiting login
+2025-11-29 23:40:45,533 - root - INFO - LOG END
+2025-11-29 23:41:21,120 - root - INFO - LOG START
+2025-11-29 23:41:24,667 - root - INFO - Checking users table for valid credentials
+2025-11-29 23:41:24,669 - root - WARNING - Username not found in database
+2025-11-29 23:41:31,895 - root - INFO - Checking users table for valid credentials
+2025-11-29 23:41:31,896 - root - INFO - Successfully found employee credentials
+2025-11-29 23:41:38,104 - root - INFO - Exiting login
+2025-11-29 23:41:38,104 - root - INFO - LOG END

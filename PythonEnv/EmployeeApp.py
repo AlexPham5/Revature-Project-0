@@ -81,29 +81,13 @@ class EmployeeApp:
                         #check username, password, and role == "Employee", all must be valid
                         print("Checking database for valid credentials")
                         logging.info("Checking users table for valid credentials")
-                        try:
-                            with sqlite3.connect(self.dbPath) as conn:
-                                cursor = conn.cursor()
-                                selectCredentials = f"""
-                                SELECT * FROM users
-                                WHERE username = '{usernameInput}' AND password = '{passwordInput}'
-                                """
-                                cursor.execute(selectCredentials)
-                                credentials = cursor.fetchone()
-                                conn.commit()
-                                if(credentials != None and credentials[3] == 'Employee'):
-                                    #successfully found the entered credentials
-                                    print("Successful Login")
-                                    logging.info("Successfully found employee credentials")
-                                    self.userID = credentials[0]
-                                    #print(credentials)
-                                    break
-                                else:
-                                    print("Username or password not found for an employee")
-                                    logging.warning("Username not found in database")
-                        except sqlite3.Error as error:
-                            print("Error occured in login - ", error)  
-                            logging.error("SQL error occured in login - ", error)                      
+                        valid = self.d1.getCredentials(usernameInput, passwordInput)
+                        if(valid != -1):
+                            print("Employee ID found")
+                            self.userID = valid
+                            break
+                        else:
+                            print("Username or password not found for an employee")
                 elif(userInput == 2):
                     logging.info("Exiting login")
                     sys.exit()
