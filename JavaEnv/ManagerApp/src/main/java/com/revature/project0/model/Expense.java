@@ -3,7 +3,7 @@ package com.revature.project0.model;
 public class Expense {
     private int id;
     private int user_id;
-    private float amount;
+    private double amount;
     private String description;
     private String date;
 
@@ -11,7 +11,7 @@ public class Expense {
 
     }
 
-    public Expense(int id, int user_id, float amount, String description, String date) {
+    public Expense(int id, int user_id, double amount, String description, String date) {
         this.id = id;
         this.user_id = user_id;
         this.amount = amount;
@@ -46,7 +46,7 @@ public class Expense {
         this.description = description;
     }
 
-    public float getAmount() {
+    public double getAmount() {
         return amount;
     }
 

@@ -61,7 +61,7 @@ public class DAO {
                         //wanted pending expenses, got a pending expense
                         if((status.equals("pending") && pending) || (!status.equals("pending") && !pending)){
                             //Show expense to be edited
-                            Expense e = new Expense(rs.getInt("id"), rs.getInt("user_id"), rs.getFloat("amount"), rs.getString("description"), rs.getString("date"));
+                            Expense e = new Expense(rs.getInt("id"), rs.getInt("user_id"), rs.getDouble("amount"), rs.getString("description"), rs.getString("date"));
                             return e;
                         }else{
                             return null;
@@ -172,7 +172,7 @@ public class DAO {
                     //Make expense obj and add to list
                     int id = expense.getInt("id");
                     int user_id = expense.getInt("user_id");
-                    float amount = expense.getFloat("amount");
+                    double amount = expense.getDouble("amount");
                     String desc = expense.getString("description");
                     String date = expense.getString("date");
                     Expense e = new Expense(id, user_id, amount, desc, date);
@@ -267,7 +267,7 @@ public class DAO {
                     //print to console and save in a txt file named reportName.txt
                     int expID = rs.getInt("id");
                     int userID = rs.getInt("user_id");
-                    float amount = rs.getFloat("amount");
+                    double amount = rs.getDouble("amount");
                     String desc = rs.getString("description");
                     String expDate = rs.getString("date");
                     String status = rs.getString("status");

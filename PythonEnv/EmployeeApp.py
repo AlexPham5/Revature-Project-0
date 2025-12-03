@@ -70,7 +70,7 @@ class EmployeeApp:
             else:
                 if(userInput == 1):
                     try:
-                        print("Please enter your employee credentials: ")
+                        print("Please Enter Your Employee Credentials: ")
                         usernameInput = input("Enter username: ")
                         passwordInput = input("Enter password: ")
                     except ValueError:
@@ -101,9 +101,9 @@ class EmployeeApp:
     def submitExpense(self):
         #add a value to the expenses table
         try:
-                amountInput = float(input("Enter an amount for this expense (at least $1): "))
-                if(amountInput <= 0):
-                    print("Amount must be greater than $0")
+                amountInput = float(input("Enter an amount for this expense ($1-$9999999): "))
+                if(amountInput < 1 or amountInput > 10000000):
+                    print("Amount must be between $1 and $9999999")
                     logging.warning("Invalid input for amount field in new expense")
                     raise ValueError
                 
@@ -193,8 +193,8 @@ class EmployeeApp:
                             #prompt amount and change it
                             field = "amount"
                             newInput = float(input("Enter a new amount (at least $1): "))
-                            if(newInput <= 0):
-                                print("Amount value must be at least $1")
+                            if(newInput < 1 or newInput > 10000000):
+                                print("Amount value must be between $1 and $9999999")
                                 logging.warning("Invalid input for amount in edit expense")
                                 raise ValueError
                         elif(userInput == 2):

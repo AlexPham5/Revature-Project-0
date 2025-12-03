@@ -148,6 +148,7 @@ class DAO:
     def updateExpense(self, userID, expenseID, field, newVal):
         #print("SQL update")
         try:
+            print(newVal)
             with mysql.connector.connect(host=self.host, user=self.user, password=self.password, database=self.database) as conn:
                 cursor = conn.cursor()
                 update =f"""
