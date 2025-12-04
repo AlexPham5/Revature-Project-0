@@ -136,12 +136,12 @@ public class ManagerApp {
         }
         else{
             //Format for table printing
-            String bordertop = "=".repeat(82);
+            String bordertop = "=".repeat(84);
             System.out.println(bordertop);
             Util.printExpenseHeaderStatus();
             for(Expense e : expenses)
                 Util.printExpensePending(e);
-            String border = "=".repeat(18)+"[All current pending expenses displayed above]"+"=".repeat(18);
+            String border = "=".repeat(19)+"[All current pending expenses displayed above]"+"=".repeat(19);
             System.out.println(border);
         }
     }

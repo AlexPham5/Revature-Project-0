@@ -70,7 +70,7 @@ class EmployeeApp:
             else:
                 if(userInput == 1):
                     try:
-                        print("Please Enter Your Employee Credentials: ")
+                        print("\nPlease Enter Your Employee Credentials: ")
                         usernameInput = input("Enter username: ")
                         passwordInput = input("Enter password: ")
                     except ValueError:
@@ -107,9 +107,9 @@ class EmployeeApp:
                     logging.warning("Invalid input for amount field in new expense")
                     raise ValueError
                 
-                descInput = input("Enter a reason for the expense request (at least 3 characters): ")
-                if(len(descInput) < 3):
-                    print("Description must be at least 3 characters long")
+                descInput = input("Enter a reason for the expense request (at least 5 characters): ")
+                if(len(descInput) < 5):
+                    print("Description must be at least 5 characters long")
                     logging.warning("Invalid input for description in submit expense")
                     raise ValueError
                 
@@ -192,7 +192,7 @@ class EmployeeApp:
                         if(userInput == 1):
                             #prompt amount and change it
                             field = "amount"
-                            newInput = float(input("Enter a new amount (at least $1): "))
+                            newInput = float(input("Enter a new amount ($1-$9999999): "))
                             if(newInput < 1 or newInput > 10000000):
                                 print("Amount value must be between $1 and $9999999")
                                 logging.warning("Invalid input for amount in edit expense")
@@ -200,9 +200,9 @@ class EmployeeApp:
                         elif(userInput == 2):
                             #prompt description and change it
                             field = "description"
-                            newInput = input("Enter a new description (at least 3 characters long): ")
-                            if(len(newInput) < 3):
-                                print("Description must be at least 3 characters long")
+                            newInput = input("Enter a new description (at least 5 characters long): ")
+                            if(len(newInput) < 5):
+                                print("Description must be at least 5 characters long")
                                 logging.warning("Invalid input for description in edit expense")
                                 raise ValueError
                         elif(userInput == 3):
